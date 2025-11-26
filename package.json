@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "motion": "^12.23.24",
+    "prettier": "^3.6.2",
     "three": "^0.181.1"
   }
 }
