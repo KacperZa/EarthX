@@ -3,10 +3,12 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import earthTextureImg  from  '../earth.jpg';
 import Text_Bubble from "./Text_Bubble";
+import './globe.css'
 
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false,  text: "", x:0, y:0});
+  const [isHovered, setIsHovered] = useState(false);
   useEffect(() =>{
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
@@ -75,8 +77,9 @@ function Globe() {
 
     function animate() {
       requestAnimationFrame( animate );
-      sphere.rotation.y += 0.005;
-
+      if (!isHovered){
+        sphere.rotation.y += 0.005;
+      }
       controls.update();
       renderer.render( scene, camera );
     }
@@ -104,6 +107,9 @@ function Globe() {
       }
     }
     canvas.addEventListener('mousedown', onMouseDown);
+
+    canvas.addEventListener('mouseenter', () => setIsHovered(true));
+    canvas.addEventListener('mouseleave', () => setIsHovered(false));
     
     animate()
 
@@ -112,8 +118,17 @@ function Globe() {
       renderer.dispose();
     };
   }, [])
-  return<> <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh" }} />
-    {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)}
+  return<> 
+  {bubble.visible && (  <div className="test"style={{ position: "absolute", top: bubble.y + "px", left: bubble.x + "px", zIndex: 10}}>
+  TEKST TESTOWY
+</div>)}
+  {/* {bubble.visible && (  <div style={{ position: "absolute", top: 20, left: 20, zIndex: 10, color: "white" }}>
+  TEKST TESTOWY
+</div>)} */}
+
+  <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh" }} />
+    {/* {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)} */}
+    <div className="tekst" style={{font: 'white'}}>TEKST</div>
   </>
 }
 
