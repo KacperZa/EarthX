@@ -1,15 +1,32 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 import earthTextureImg  from  '../earth.jpg';
 import Text_Bubble from "./Text_Bubble";
 import './globe.css'
+import ID_MAP from '.././earthcolors.jpg';
 
 function Globe() {
   const canvasRef = useRef(null);
-  const [bubble, setBubble] = useState({ visible: false,  text: "", x:0, y:0});
+  const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
   const [isHovered, setIsHovered] = useState(false);
+  // const [whichConti, setWhichConti] = useState(text: "")
+
+  const ID_TO_REGION = {
+    "254,0,0": "Europa",
+    "0,255,1": "Ameryka Południowa",
+    "254,0,234": "Ameryka Północna",
+    "0,67,0": "Australia",
+    "255,255,0": "Afryka",
+    "98,0,235": "Azja",
+  }
+  
   useEffect(() =>{
+
+    function rgbKey(r,g,b) {
+      return `${r},${g},${b}`;
+    }
+
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000) 
@@ -52,15 +69,15 @@ function Globe() {
     const geometry2 = new THREE.SphereGeometry(0.25, 24, 24);
     const material2 = new THREE.MeshStandardMaterial( {color: 0xffffff})
 
-    function addStar(){
-      const star = new THREE.Mesh(geometry2, material2)
+    // function addStar(){
+    //   const star = new THREE.Mesh(geometry2, material2)
 
-      const[x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ))
-      star.position.set(x,y,z)
-      starsGroup.add(star)
-    }
+    //   const[x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ))
+    //   star.position.set(x,y,z)
+    //   starsGroup.add(star)
+    // }
 
-    Array(200).fill().forEach(addStar)
+    // Array(200).fill().forEach(addStar)
 
 
     // const spaceTexture = new THREE.TextureLoader().load(spaceTextureImg)
@@ -78,14 +95,31 @@ function Globe() {
     function animate() {
       requestAnimationFrame( animate );
       if (!isHovered){
-        sphere.rotation.y += 0.005;
+        sphere.rotation.y += 0.0005;
       }
       controls.update();
       renderer.render( scene, camera );
     }
 
+    const idImg = new Image();
+    idImg.crossOrigin = "anonymous";
+    idImg.src =ID_MAP;
+
+    const idCanvas = document.createElement("canvas");
+    const idCtx = idCanvas.getContext("2d");
+
+    idImg.onload = () => {
+      idCanvas.width = idImg.width;
+      idCanvas.height = idImg.height;
+      idCtx.drawImage(idImg,0,0)
+    };
+
     
     const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+
+    let lastRead = 0;
+    const MIN_MS = 33;
     
     
     function onMouseDown(event) {
@@ -94,33 +128,85 @@ function Globe() {
         -(event.clientY / renderer.domElement.clientHeight) * 2 + 1,
       );
       
+
       raycaster.setFromCamera(coords, camera);
       
       const intersections = raycaster.intersectObjects(scene.children, true);
       if (intersections.length > 0) {
-        setBubble({
-          visible: true,
-          text: "TEST",
-          x: event.clientX,
-          y: event.clientY,
-        })
+        
+        const hit = intersections[0];
+
+        if (!idImg.complete) {
+          console.warn("ID mapa jeszcze nie załadowana");
+          return;
+        }
+
+        if (hit.uv) {
+          const u = hit.uv.x;
+          const v = 1 - hit.uv.y;
+          
+          const px = Math.floor(u * idImg.width)
+          const py = Math.floor(v * idImg.height)
+          
+          const pixel = idCtx.getImageData(px,py,1,1).data;
+          const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
+          console.log("RGB ODCZYTANE:", rgb)
+
+          const region =  ID_TO_REGION[rgb] || "Nieznany region";
+          
+          setBubble({
+            visible: true,
+            text: region,
+            x: event.clientX,
+            y: event.clientY,
+          })
+          
+          
+        }
       }
     }
+
+
+    function onPointerMove(event) {
+      const coords = new THREE.Vector2(
+        (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
+        -(event.clientY / renderer.domElement.clientHeight) * 2 + 1,
+      );
+      
+      raycaster.setFromCamera(coords, camera);
+      
+      const intersections = raycaster.intersectObject(sphere);
+
+      if (intersections.length > 0) {
+        setIsHovered(true)
+      } else {
+        setIsHovered(false)
+      }
+    }
+
+    var raycastLayer = [];
+    let hovered = {};
+    let intersect = [];
+    
     canvas.addEventListener('mousedown', onMouseDown);
 
-    canvas.addEventListener('mouseenter', () => setIsHovered(true));
-    canvas.addEventListener('mouseleave', () => setIsHovered(false));
+
+    
+    canvas.addEventListener('pointermove', onPointerMove)
+    // canvas.addEventListener('mouseenter', onMouseEnter)
+    // canvas.addEventListener('mouseleave');
     
     animate()
 
     return () => {
       canvas.removeEventListener('mousedown', onMouseDown);
+      canvas.removeEventListener('pointermove', onPointerMove)
       renderer.dispose();
     };
   }, [])
   return<> 
   {bubble.visible && (  <div className="test"style={{ position: "absolute", top: bubble.y + "px", left: bubble.x + "px", zIndex: 10}}>
-  TEKST TESTOWY
+  {bubble.text}
 </div>)}
   {/* {bubble.visible && (  <div style={{ position: "absolute", top: 20, left: 20, zIndex: 10, color: "white" }}>
   TEKST TESTOWY

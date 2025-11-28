@@ -1,6 +1,5 @@
 import React from 'react'
-
-
+import './TextBubble.css'
 
 function Text_Bubble(props) {
   return (
