@@ -5,11 +5,18 @@ import earthTextureImg  from  '../earth.jpg';
 import Text_Bubble from "./Text_Bubble";
 import './globe.css'
 import ID_MAP from '.././earthcolors.jpg';
+import Europe from "./Europe";
 
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
   const [isHovered, setIsHovered] = useState(false);
+  const [Europa, setEuropa] = useState(false)
+  const [Azja, setAzja] = useState(false)
+  const [Afryka, setAfryka] = useState(false)
+  const [Australia, setAustralia] = useState(false)
+  const [AmerykaPoł, setAmerykaPoł] = useState(false)
+  const [AmerykaPuł, setAmerykaPuł] = useState(false)
   // const [whichConti, setWhichConti] = useState(text: "")
 
   const ID_TO_REGION = {
@@ -118,9 +125,7 @@ function Globe() {
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
 
-    let lastRead = 0;
-    const MIN_MS = 33;
-    
+
     
     function onMouseDown(event) {
       const coords = new THREE.Vector2(
@@ -153,6 +158,10 @@ function Globe() {
           console.log("RGB ODCZYTANE:", rgb)
 
           const region =  ID_TO_REGION[rgb] || "Nieznany region";
+
+            if( region === "Europa"){
+              setEuropa(true)
+            }
           
           setBubble({
             visible: true,
@@ -208,13 +217,11 @@ function Globe() {
   {bubble.visible && (  <div className="test"style={{ position: "absolute", top: bubble.y + "px", left: bubble.x + "px", zIndex: 10}}>
   {bubble.text}
 </div>)}
-  {/* {bubble.visible && (  <div style={{ position: "absolute", top: 20, left: 20, zIndex: 10, color: "white" }}>
-  TEKST TESTOWY
-</div>)} */}
-
-  <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh" }} />
+    <div className="container">
+    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} setEuropa={setEuropa}> HALO TO EUROPA</Europe>)}
+    </div>
+  <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh", zIndex:1 }}  />
     {/* {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)} */}
-    <div className="tekst" style={{font: 'white'}}>TEKST</div>
   </>
 }
 
