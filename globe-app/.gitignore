@@ -16,6 +16,8 @@ dist-ssr/
 .env
 .env.*
 
+D:\EarthX\node_modules
+
 # System / editors
 .DS_Store
 .vscode/
