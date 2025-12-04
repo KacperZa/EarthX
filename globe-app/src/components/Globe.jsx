@@ -17,7 +17,6 @@ function Globe() {
   const [Australia, setAustralia] = useState(false)
   const [AmerykaPoł, setAmerykaPoł] = useState(false)
   const [AmerykaPuł, setAmerykaPuł] = useState(false)
-  // const [whichConti, setWhichConti] = useState(text: "")
 
   const ID_TO_REGION = {
     "254,0,0": "Europa",
@@ -218,7 +217,7 @@ function Globe() {
   {bubble.text}
 </div>)}
     <div className="container">
-    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} setEuropa={setEuropa}> HALO TO EUROPA</Europe>)}
+    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} setEuropa={setEuropa} Europa={Europa}> HALO TO EUROPA</Europe>)}
     </div>
   <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh", zIndex:1 }}  />
     {/* {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)} */}
