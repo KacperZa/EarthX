@@ -1,0 +1,28 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.containerImg{
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.7);
+    /* display: fixed; */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+#obrazek{
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transform: scale(2.5);
+}
+
+#duzy-obrazek{
+    box-shadow: 0px 0px 6px #fff;
+}
