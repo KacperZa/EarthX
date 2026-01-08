@@ -34,7 +34,7 @@
     /* box-shadow: 2 2 8px  rgba(50,50,50,0.2); */
     /* padding: 20px; */
     /* position: relative; */
-     /*background-color: aqua;
+    /* background-color: aqua;
     border-radius: 8%;
     display: flex;
     justify-content: center;
@@ -60,21 +60,81 @@
     width: 100%;
     padding: 5px;
     border-radius: 8%;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
     position: absolute;  
     backface-visibility: hidden;
     /* overflow: auto; */
 }
 
 .back{
-    background-color: #4a525a;
+    /* background-color: #4a525a; */
+    background-color: #ffffff;
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 10px;
+    padding: 1vw;
+    gap: 5px;
+    z-index: 0;
+    position: relative;
+}
+/* .przycisk-wydarzenia:after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    border-radius:  10px;
+}
+
+.przycisk-wydarzenia::before{
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #aba392,#e9eae6,#43270f,#977146,
+        #231809,#693017,#1a0d08,#dfe6f4,
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition:  opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+} */
+
+.tytul-wydarzenia{
+    font-size: 1vw;
+    font-weight: 700;
+}
+.tekst-wydarzenia{
+    font-size: 0.7vw;
+    font-weight: 350;
+    overflow-y: auto;
+
+}
+.przycisk-wydarzenia{
+    padding: 5px 40px;
+    outline: none;
+    border: none;
+    background-color: #333;
+    border-radius: 5px;
+    position: relative;
+
 }
 
 .front::after{

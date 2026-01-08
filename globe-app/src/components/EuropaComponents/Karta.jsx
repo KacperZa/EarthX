@@ -8,7 +8,9 @@ const Karta = ({imgSrc, title, text}) => {
     <div className="info-card">
     <div className="front" style={{backgroundImage: `url(${imgSrc})`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
     <div className="back">
-        <h3>{title}</h3>{text}
+        <div className='tytul-wydarzenia'>{title}</div>
+        <div className="tekst-wydarzenia">{text}</div>
+        <button className='przycisk-wydarzenia'>KLIKNIJ</button>
         </div>
     </div>
 </div>

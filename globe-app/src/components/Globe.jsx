@@ -5,7 +5,7 @@ import earthTextureImg  from  '../earth.jpg';
 import Text_Bubble from "./Text_Bubble";
 import './globe.css'
 import ID_MAP from '.././earthcolors.jpg';
-import Europe from "./Europe";
+import Europe from "./EuropaComponents/Europe";
 
 function Globe() {
   const canvasRef = useRef(null);
@@ -71,6 +71,11 @@ function Globe() {
     controls.maxDistance = 400;
     controls.maxPolarAngle = Math.PI;
     controls.minPolarAngle = 0;
+    controls.rotateSpeed = 0.5
+    // controls.enablePan = false
+    
+    controls.dampingFactor = 10 // Waga obracania
+    controls.enableDamping
     
     const geometry2 = new THREE.SphereGeometry(0.25, 24, 24);
     const material2 = new THREE.MeshStandardMaterial( {color: 0xffffff})
@@ -101,7 +106,7 @@ function Globe() {
     function animate() {
       requestAnimationFrame( animate );
       if (!isHovered){
-        sphere.rotation.y += 0.0005;
+        // sphere.rotation.y += 0.0005;
       }
       controls.update();
       renderer.render( scene, camera );

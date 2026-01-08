@@ -46,11 +46,12 @@ import pierwszaWojna from './WspolczesnoscImg/pierwszawojna.jpg'
 import zolnierze from './WspolczesnoscImg/pierwszawojnazolnierze.jpg'
 import unia from './WspolczesnoscImg/unia.jpg'
 
-import chorwacja from '.././chorwacja.jpg'
-import hiszpania from '.././hiszpania.png'
-import islandia from '.././islandia.png'
-import CloseButton from './CloseButton'
-import SplitText from './SplitText'
+import chorwacja from './StartImg/chorwacja.jpg'
+import hiszpania from './StartImg/hiszpania.png'
+import islandia from './StartImg/islandia.png'
+
+import CloseButton from '../CloseButton'
+import SplitText from '../SplitText'
 
 import Starozytnosc from './EuropaEpoki/Starozytnosc'
 import Średniowiecze from './EuropaEpoki/Średniowiecze'
@@ -58,7 +59,7 @@ import Nowożytność from './EuropaEpoki/Nowożytność'
 import Współczesność from './EuropaEpoki/Współczesność'
 import DuzyObrazek from './EuropaEpoki/DuzyObrazek'
 import EpokaStartPage from './EuropaEpoki/EpokaStartPage'
-import Wydarzenia from './EuropaComponents/Wydarzenia'
+import Wydarzenia from './Wydarzenia'
 const Europe = ({style, setEuropa, Europa}) => {
 
   const [EuropeNews, setEuropeNews] = useState(false)

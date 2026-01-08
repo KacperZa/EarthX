@@ -1,5 +1,5 @@
 import React from 'react'
-import './continent2.css'
+import './EuropaComponents/continent2.css'
 import { AnimatePresence, motion } from "framer-motion";
 
 const CloseButton = ({setEuropeNews, setEuropa, Europa, EuropeNews, setCloseButtonVisible}) => {
