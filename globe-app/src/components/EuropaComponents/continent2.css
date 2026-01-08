@@ -221,6 +221,17 @@
         background-color: #E3E3E3;
         /* background: linear-gradient(145deg, #1a1a1a, #0f0f0f) */
     }
+    .panel1:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom,
+         rgba(0,0,0,0),
+         hsl(214, 9%, 15%))
+    }
     
     .poczatek{
         font-size: 6rem;
