@@ -13,7 +13,7 @@
     import ObrazekAnimacja from './ObrazekAnimacja'
     import { motion, AnimatePresence } from 'framer-motion'
     
-    const Średniowiecze = ({WybieranieZdjeciaSredniowiecze, ZdjęciaSredniowiecze}) => {
+    const Średniowiecze = ({data,WybieranieZdjeciaSredniowiecze, ZdjęciaSredniowiecze}) => {
 
       const parent = {
         hidden: {},

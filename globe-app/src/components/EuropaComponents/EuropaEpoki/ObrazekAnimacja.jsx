@@ -2,7 +2,7 @@ import React from 'react'
 import { easeIn, easeInOut, motion } from 'framer-motion'
 import { linear } from 'animejs'
 
-const ObrazekAnimacja = ({key, source, Klikniecie}) => {
+const ObrazekAnimacja = ({ source, Klikniecie}) => {
 
   const child = {
     hidden: {

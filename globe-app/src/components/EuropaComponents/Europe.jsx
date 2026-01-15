@@ -3,15 +3,15 @@ import './continent2.css'
 import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 
 //  Zdjęcia do starożytności 
-import grecja1 from './img/grecja1.jpg'
-import grecja2 from './img/grecja2.jpg'
-import grecja3 from './img/grecja4.jpeg'
-import grecja4 from './img/grecja5.jpg'
-import grecja5 from './img/grecja6.jpg'
-import rzym1 from './img/rzym1.jpg'
-import rzym2 from './img/rzym2.jpg'
-import rzym3 from './img/rzym4.jpg'
-import ateny from './img/ateny.jpg'
+// import grecja1 from './img/grecja1.jpg'
+// import grecja2 from './img/grecja2.jpg'
+// import grecja3 from './img/grecja4.jpeg'
+// import grecja4 from './img/grecja5.jpg'
+// import grecja5 from './img/grecja6.jpg'
+// import rzym1 from './img/rzym1.jpg'
+// import rzym2 from './img/rzym2.jpg'
+// import rzym3 from './img/rzym4.jpg'
+// import ateny from './img/ateny.jpg'
 
 // Zdjęcia do średniowiecza
 import dzuma from "./SredniowieczeImg/dzuma.jpg"
@@ -60,7 +60,7 @@ import Współczesność from './EuropaEpoki/Współczesność'
 import DuzyObrazek from './EuropaEpoki/DuzyObrazek'
 import EpokaStartPage from './EuropaEpoki/EpokaStartPage'
 import Wydarzenia from './Wydarzenia'
-const Europe = ({style, setEuropa, Europa}) => {
+const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
   const [EuropeNews, setEuropeNews] = useState(false)
   const [Tytul, setTytul] = useState(true)
@@ -71,7 +71,7 @@ const Europe = ({style, setEuropa, Europa}) => {
 
   const [open, setOpen] = useState(false)
 
-  
+  const content = worldData[selectedContinent]
   
   const Epoka = {
     STAROZYTNOSC: "Starozytnosc",
@@ -164,6 +164,7 @@ const Europe = ({style, setEuropa, Europa}) => {
       }
       
 }
+  const obrazki = content["img"]
   
 
   return (
@@ -237,7 +238,7 @@ const Europe = ({style, setEuropa, Europa}) => {
 
         <div className="panel1">
           <SplitText
-              text="Historia Europy: Od Antyku do Współczesności"
+              text= {content["startText"]}
               className='poczatek'
               delay={100}
               duration={2.5}
@@ -279,14 +280,14 @@ const Europe = ({style, setEuropa, Europa}) => {
 
             <div className="tresc">
               {WybranaEpoka === Epoka.BRAK ? <EpokaStartPage/>: null}
-              {WybranaEpoka === Epoka.STAROZYTNOSC ? <Starozytnosc WybieranieZdjeciaStarozytnosc={setWybraneZdjecieStarozytnosc} ZdjęciaStarozytnosc={ZdjęciaStarozytnosc}/>: null}
+              {WybranaEpoka === Epoka.STAROZYTNOSC ? <Starozytnosc data={content["Starozytność"]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
               {WybranaEpoka === Epoka.SREDNIOWIECZE ? <Średniowiecze WybieranieZdjeciaSredniowiecze={setWybraneZdjecieSredniowiecze} ZdjęciaSredniowiecze={ZdjęciaSredniowiecze}/>: null}
               {WybranaEpoka === Epoka.NOWOZYTNOSC ? <Nowożytność WybieranieZdjeciaNowozytnosc={setWybraneZdjecieNowozytnosc} ZdjęciaNowozytnosc={ZdjęciaNowozytnosc}/>: null}
               {WybranaEpoka === Epoka.WSPOLCZESNOSC ? <Współczesność WybieranieZdjeciaWspolczesnosc={setWybraneZdjecieWspolczesnosc} ZdjęciaWspolczesnosc={ZdjęciaWspolczesnosc}/>: null}
             </div>
           </div>
           <div className="opakowanie-timeline">
-            <label htmlFor="os-czasu"> Oś czasu europy</label>
+            <label htmlFor="os-czasu"> Oś czasu</label>
               <input type="range" name="" id="os-czasu" min={-800} max={2025}  onChange={ValueChangeHandler}/>
           </div>
 
@@ -295,16 +296,21 @@ const Europe = ({style, setEuropa, Europa}) => {
         </motion.div>
           )}
       {/* STAROZYTNOSC */} 
+      
+      {obrazki
+      .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
+      .map(item => (
+         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
 
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM1 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym1}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM2 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym2}/> : null}
+      ))}
+      {/* {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM2 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym2}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM3 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym3}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA1 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja1}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA2 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja2}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA3 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja3}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA4 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja4}/> : null}
       {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA5 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja5}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.ATENY ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={ateny}/> : null}
+      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.ATENY ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={ateny}/> : null} */}
 
       {/* SREDNIOWIECZE */}
       {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.DZUMA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={dzuma}/> : null}

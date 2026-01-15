@@ -7,6 +7,8 @@ import './globe.css'
 import ID_MAP from '.././earthcolors.jpg';
 import Europe from "./EuropaComponents/Europe";
 
+import worldData from '../data.json'
+
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
@@ -17,6 +19,8 @@ function Globe() {
   const [Australia, setAustralia] = useState(false)
   const [AmerykaPoł, setAmerykaPoł] = useState(false)
   const [AmerykaPuł, setAmerykaPuł] = useState(false)
+  
+  const [selectedContinent, setSelectedContinent] = useState(null)
 
   const ID_TO_REGION = {
     "254,0,0": "Europa",
@@ -27,6 +31,9 @@ function Globe() {
     "98,0,235": "Azja",
   }
   
+
+
+
   useEffect(() =>{
 
     function rgbKey(r,g,b) {
@@ -47,6 +54,8 @@ function Globe() {
       map: earthTexture
     });
     const sphere = new THREE.Mesh(geometry, material)
+    sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
+
 
     scene.add(sphere);
 
@@ -65,6 +74,9 @@ function Globe() {
     // scene.add(lightHelper, gridHelper);
 
     const controls = new OrbitControls(camera, renderer.domElement);
+
+    controls.enabled = false;
+
     controls.target.set(0,0,0);
     controls.enablePan = false;
     controls.minDistance = 120;
@@ -74,9 +86,9 @@ function Globe() {
     controls.rotateSpeed = 0.5
     // controls.enablePan = false
     
-    controls.dampingFactor = 10 // Waga obracania
-    controls.enableDamping
-    
+    controls.dampingFactor = 0.05 // Waga obracania
+    controls.enableDamping = true
+
     const geometry2 = new THREE.SphereGeometry(0.25, 24, 24);
     const material2 = new THREE.MeshStandardMaterial( {color: 0xffffff})
 
@@ -101,55 +113,47 @@ function Globe() {
 
     // const spaceMesh = new THREE.Mesh(spaceGeo,spaceMat)
     // scene.add(spaceMesh)
-    
-
-    function animate() {
-      requestAnimationFrame( animate );
-      if (!isHovered){
-        // sphere.rotation.y += 0.0005;
-      }
-      controls.update();
-      renderer.render( scene, camera );
-    }
-
+     
     const idImg = new Image();
     idImg.crossOrigin = "anonymous";
     idImg.src =ID_MAP;
-
+    
     const idCanvas = document.createElement("canvas");
     const idCtx = idCanvas.getContext("2d");
-
+    
     idImg.onload = () => {
       idCanvas.width = idImg.width;
       idCanvas.height = idImg.height;
       idCtx.drawImage(idImg,0,0)
     };
-
+    
     
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-
-
     
+    let isHovered = false
+    
+    // Funkcja wywoływana gdy sie kliknie na element
     function onMouseDown(event) {
       const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
         -(event.clientY / renderer.domElement.clientHeight) * 2 + 1,
       );
       
-
+      
       raycaster.setFromCamera(coords, camera);
       
       const intersections = raycaster.intersectObjects(scene.children, true);
+      
       if (intersections.length > 0) {
         
         const hit = intersections[0];
-
+        
         if (!idImg.complete) {
           console.warn("ID mapa jeszcze nie załadowana");
           return;
         }
-
+        
         if (hit.uv) {
           const u = hit.uv.x;
           const v = 1 - hit.uv.y;
@@ -160,12 +164,14 @@ function Globe() {
           const pixel = idCtx.getImageData(px,py,1,1).data;
           const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
           console.log("RGB ODCZYTANE:", rgb)
-
+          
           const region =  ID_TO_REGION[rgb] || "Nieznany region";
-
-            if( region === "Europa"){
-              setEuropa(true)
-            }
+          
+          setSelectedContinent(region)
+          
+          if( region === "Europa"){
+            setEuropa(true)
+          }
           
           setBubble({
             visible: true,
@@ -178,8 +184,8 @@ function Globe() {
         }
       }
     }
-
-
+    
+    // Funkcja wywoływana gdy kursor znajdzie się nad elementem
     function onPointerMove(event) {
       const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
@@ -189,31 +195,45 @@ function Globe() {
       raycaster.setFromCamera(coords, camera);
       
       const intersections = raycaster.intersectObject(sphere);
-
+      
       if (intersections.length > 0) {
         setIsHovered(true)
+        isHovered = true
+        controls.enabled = true
       } else {
-        setIsHovered(false)
+        isHovered = false
       }
     }
 
-    var raycastLayer = [];
-    let hovered = {};
-    let intersect = [];
+    
+    function animate() {
+      requestAnimationFrame( animate );
+      if (!isHovered){
+        sphere.rotation.y += 0.001;
+        // sphere.rotation.z += 0.0005;
+      }
+      controls.update();
+      renderer.render( scene, camera );
+    }
+    
+    function onPointerUp() {
+      controls.enabled = false;
+    }
+    
     
     canvas.addEventListener('mousedown', onMouseDown);
-
-
-    
     canvas.addEventListener('pointermove', onPointerMove)
+    canvas.addEventListener('pointerdown', onPointerUp)
     // canvas.addEventListener('mouseenter', onMouseEnter)
     // canvas.addEventListener('mouseleave');
     
     animate()
-
+    
     return () => {
       canvas.removeEventListener('mousedown', onMouseDown);
       canvas.removeEventListener('pointermove', onPointerMove)
+      canvas.removeEventListener('pointerdown', onPointerUp)
+      
       renderer.dispose();
     };
   }, [])
@@ -222,7 +242,7 @@ function Globe() {
   {bubble.text}
 </div>)}
     <div className="container">
-    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} setEuropa={setEuropa} Europa={Europa}> HALO TO EUROPA</Europe>)}
+    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} selectedContinent={selectedContinent} worldData={worldData} setEuropa={setEuropa} Europa={Europa}> HALO TO EUROPA</Europe>)}
     </div>
   <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh", zIndex:1 }}  />
     {/* {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)} */}
