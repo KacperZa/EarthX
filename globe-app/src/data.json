@@ -1,36 +1,70 @@
 {
     "Europa": {
             "startText": "Historia Europy: Od Antyku do Współczesności",
-            "Starozytność" : {
+            "Starożytność" : {
                 "title": "Starożytność",
                 "text1": "Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.",
                 "text2": "Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon",
                 "img": [
-                    {"id": "ATENY", "src": "/SredniowieczeImg/ateny.jpg"},
-                    {"id": "GRECJA1", "src": "/SredniowieczeImg/grecja1.jpg"},
-                    {"id": "GRECJA2", "src": "/SredniowieczeImg/grecja2.jpg"},
-                    {"id": "GRECJA3", "src": "/SredniowieczeImg/grecja4.jpeg"},
-                    {"id": "GRECJA4", "src": "/SredniowieczeImg/grecja5.jpg"},
-                    {"id": "GRECJA5", "src": "/SredniowieczeImg/grecja6.jpg"},
-                    {"id": "RZYM1", "src": "/SredniowieczeImg/rzym1.jpg"},
-                    {"id": "RZYM2", "src": "/SredniowieczeImg/rzym2.jpg"},
-                    {"id": "RZYM3", "src": "/SredniowieczeImg/rzym4.jpg"}
+                    {"id": "ATENY", "src": "/StarozytnoscImg/ateny.jpg"},
+                    {"id": "GRECJA1", "src": "/StarozytnoscImg/grecja1.jpg"},
+                    {"id": "GRECJA2", "src": "/StarozytnoscImg/grecja2.jpg"},
+                    {"id": "GRECJA3", "src": "/StarozytnoscImg/grecja4.jpeg"},
+                    {"id": "GRECJA4", "src": "/StarozytnoscImg/grecja5.jpg"},
+                    {"id": "GRECJA5", "src": "/StarozytnoscImg/grecja6.jpg"},
+                    {"id": "RZYM1", "src": "/StarozytnoscImg/rzym1.jpg"},
+                    {"id": "RZYM2", "src": "/StarozytnoscImg/rzym2.jpg"},
+                    {"id": "RZYM3", "src": "/StarozytnoscImg/rzym4.jpg"}
                 ]
             },
             "Nowożytność": {
                 "title": "Nowożytność",
                 "text1": "Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.",
-                "title2": "Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon."
+                "title2": "Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon.",
+                "img": [
+                    {"id": "CZLOWIEK", "src": "/NowozytnoscImg/czlowiek.jpg"},
+                    {"id": "KOPERNIK", "src": "/NowozytnoscImg/kopernik.jpg"},
+                    {"id": "LUTER", "src": "/NowozytnoscImg/luter.jpg"},
+                    {"id": "MAGELLAN", "src": "/NowozytnoscImg/magellan.jpg"},
+                    {"id": "MICHALANIOL", "src": "/NowozytnoscImg/michalaniol.jpeg"},
+                    {"id": "ODKRYCIEAMERYKI", "src": "/NowozytnoscImg/odkrycieameryki.jpg"},
+                    {"id": "ROZWOJDRUKU", "src": "/NowozytnoscImg/rozwojdruku.jpg"},
+                    {"id": "STARAMAPA", "src": "/NowozytnoscImg/staramapa.jpg"},
+                    {"id": "UPADEKRZYMU", "src": "/NowozytnoscImg/upadekrzymu.jpg"}
+                ]
             },
             "Średniowiecze": {
                 "title": "Średniowiecze",
                 "text1": "Ta trwająca tysiąc lat epoka, niesłusznie zwana „wiekami ciemnymi”, była czasem rodzenia się europejskich narodów i uniwersalnej kultury łacińskiej. Po upadku Rzymu i chaosie Wędrówek Ludów, Kościół Katolicki stał się jedyną instytucją spajającą rozbity kontynent, przechowując wiedzę w klasztornych skryptoriach i tworząc sieć pierwszych uniwersytetów (Bolonia, Paryż, Kraków).",
-                "text2": "Był to czas feudalizmu, gdzie społeczeństwo dzieliło się na tych, co się modlą, walczą i pracują, oraz czas narodzin etosu rycerskiego i wielkich królestw – Francji, Anglii, czy monarchii Karola Wielkiego. Mimo epidemii Czarnej Śmierci i wojen, to właśnie wtedy rozkwitły miasta, powstały systemy cechowe i parlamentaryzm, a gotyckie katedry pnące się ku niebu stały się dowodem na niezwykły kunszt inżynieryjny ówczesnej Europy."
+                "text2": "Był to czas feudalizmu, gdzie społeczeństwo dzieliło się na tych, co się modlą, walczą i pracują, oraz czas narodzin etosu rycerskiego i wielkich królestw – Francji, Anglii, czy monarchii Karola Wielkiego. Mimo epidemii Czarnej Śmierci i wojen, to właśnie wtedy rozkwitły miasta, powstały systemy cechowe i parlamentaryzm, a gotyckie katedry pnące się ku niebu stały się dowodem na niezwykły kunszt inżynieryjny ówczesnej Europy.",
+                "img":[
+                    {"id": "BOLONIA", "src": "SredniowieczeImg/bolonia.jpg"},
+                    {"id": "DZUMA", "src": "SredniowieczeImg/dzuma.jpg"},
+                    {"id": "HUSARIA", "src": "SredniowieczeImg/husaria.jpg"},
+                    {"id": "KOSCIOL", "src": "SredniowieczeImg/kosciol.jpg"},
+                    {"id": "MIASTA", "src": "SredniowieczeImg/miasta.jpg"},
+                    {"id": "MIESZCZANIE", "src": "SredniowieczeImg/mieszczanie.jpg"},
+                    {"id": "OGRODZIENIEC", "src": "SredniowieczeImg/ogrodzieniec.jpg"},
+                    {"id": "WIES", "src": "SredniowieczeImg/wies.jpg"},
+                    {"id": "ZBROJARYCZERZA", "src": "SredniowieczeImg/zbroja_rycerza.jpg"}
+                ]
+
             },
             "Współczesność": {
                 "title": "Współczesność",
                 "text1": "Epoka współczesna to obecnie trwający okres historii, którego fundamentem były I i II wojna światowa. Konflikty te doprowadziły do upadku dawnych imperiów, ogromnych zniszczeń i śmierci milionów ludzi, a II wojna światowa dodatkowo ujawniła skalę zbrodni totalitarnych systemów. Po 1945 roku Europa została podzielona między dwa przeciwstawne bloki, z których wschodni opierał się na komunizmie i silnej kontroli państwa, a zachodni na demokracji i współpracy.",
-                "text2": "Doświadczenia wojen stały się impulsem do poszukiwania trwałego pokoju, czego efektem było powstanie Unii Europejskiej jako wspólnoty mającej zapobiegać kolejnym konfliktom. Współczesność pozostaje więc epoką napięć, pamięci o dramatycznych wydarzeniach XX wieku oraz ciągłego dążenia do stabilności i porozumienia między państwami."
+                "text2": "Doświadczenia wojen stały się impulsem do poszukiwania trwałego pokoju, czego efektem było powstanie Unii Europejskiej jako wspólnoty mającej zapobiegać kolejnym konfliktom. Współczesność pozostaje więc epoką napięć, pamięci o dramatycznych wydarzeniach XX wieku oraz ciągłego dążenia do stabilności i porozumienia między państwami.",
+                "img":[
+                    {"id": "CZOLGI", "src": "WspolczesnoscImg/czolgi.jpg"},
+                    {"id": "DRUGAWOJNA", "src": "WspolczesnoscImg/drugawojna.jpg"},
+                    {"id": "EURO", "src": "WspolczesnoscImg/euro.jpeg"},
+                    {"id": "FLAGA", "src": "WspolczesnoscImg/flaga.jpeg"},
+                    {"id": "KOMUNIZM", "src": "WspolczesnoscImg/komunizm.jpg"},
+                    {"id": "MURBERLINSKI", "src": "WspolczesnoscImg/murberlinski.jpg"},
+                    {"id": "PIERWSZAWOJNA", "src": "WspolczesnoscImg/pierwszawojna.jpg"},
+                    {"id": "ZOLNIERZE", "src": "WspolczesnoscImg/pierwszawojnazolnierze.jpg"},
+                    {"id": "UNIA", "src": "WspolczesnoscImg/unia.jpg"}
+                ]
             }
             
         }
