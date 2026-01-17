@@ -14,37 +14,37 @@ import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 // import ateny from './img/ateny.jpg'
 
 // Zdjęcia do średniowiecza
-import dzuma from "./SredniowieczeImg/dzuma.jpg"
-import husaria from "./SredniowieczeImg/husaria.jpg"
-import kosciol from "./SredniowieczeImg/kosciol.jpg"
-import miasta from "./SredniowieczeImg/miasta.jpg"
-import mieszczanie from "./SredniowieczeImg/mieszczanie.jpg"
-import bolonia from "./SredniowieczeImg/bolonia.jpg"
-import ogrodzieniec from "./SredniowieczeImg/ogrodzieniec.jpg"
-import wies from "./SredniowieczeImg/wies.jpg"
-import rycerz from "./SredniowieczeImg/zbroja_rycerza.jpg"
+// import dzuma from "./SredniowieczeImg/dzuma.jpg"
+// import husaria from "./SredniowieczeImg/husaria.jpg"
+// import kosciol from "./SredniowieczeImg/kosciol.jpg"
+// import miasta from "./SredniowieczeImg/miasta.jpg"
+// import mieszczanie from "./SredniowieczeImg/mieszczanie.jpg"
+// import bolonia from "./SredniowieczeImg/bolonia.jpg"
+// import ogrodzieniec from "./SredniowieczeImg/ogrodzieniec.jpg"
+// import wies from "./SredniowieczeImg/wies.jpg"
+// import rycerz from "./SredniowieczeImg/zbroja_rycerza.jpg"
 
 // Zdjęcia do Nowożytności 
-import czlowiek from './NowozytnoscImg/czlowiek.jpg'
-import rozwojDruku from './NowozytnoscImg/rozwojdruku.jpg'
-import kopernik from './NowozytnoscImg/kopernik.jpg'
-import luter from './NowozytnoscImg/luter.jpg'
-import magellan from './NowozytnoscImg/magellan.jpg'
-import michalAniol from './NowozytnoscImg/michalaniol.jpeg'
-import odkrycieAmeryki from './NowozytnoscImg/odkrycie_ameryki.jpg'
-import staraMapa from './NowozytnoscImg/stara_mapa.jpg'
-import upadekRzymu from "./NowozytnoscImg/upadek_rzymu.jpg"
+// import czlowiek from './NowozytnoscImg/czlowiek.jpg'
+// import rozwojDruku from './NowozytnoscImg/rozwojdruku.jpg'
+// import kopernik from './NowozytnoscImg/kopernik.jpg'
+// import luter from './NowozytnoscImg/luter.jpg'
+// import magellan from './NowozytnoscImg/magellan.jpg'
+// import michalAniol from './NowozytnoscImg/michalaniol.jpeg'
+// import odkrycieAmeryki from './NowozytnoscImg/odkrycie_ameryki.jpg'
+// import staraMapa from './NowozytnoscImg/stara_mapa.jpg'
+// import upadekRzymu from "./NowozytnoscImg/upadek_rzymu.jpg"
 
 // Zdjęcia do Współczesności
-import czolgi from './WspolczesnoscImg/czolgi.jpg'
-import drugaWojna from './WspolczesnoscImg/drugawojna.jpg'
-import euro from './WspolczesnoscImg/euro.jpeg'
-import flaga from './WspolczesnoscImg/flaga.jpeg'
-import komunizm from './WspolczesnoscImg/komunizm.jpg'
-import murBerlinski from './WspolczesnoscImg/murberlinski.jpg'
-import pierwszaWojna from './WspolczesnoscImg/pierwszawojna.jpg'
-import zolnierze from './WspolczesnoscImg/pierwszawojnazolnierze.jpg'
-import unia from './WspolczesnoscImg/unia.jpg'
+// import czolgi from './WspolczesnoscImg/czolgi.jpg'
+// import drugaWojna from './WspolczesnoscImg/drugawojna.jpg'
+// import euro from './WspolczesnoscImg/euro.jpeg'
+// import flaga from './WspolczesnoscImg/flaga.jpeg'
+// import komunizm from './WspolczesnoscImg/komunizm.jpg'
+// import murBerlinski from './WspolczesnoscImg/murberlinski.jpg'
+// import pierwszaWojna from './WspolczesnoscImg/pierwszawojna.jpg'
+// import zolnierze from './WspolczesnoscImg/pierwszawojnazolnierze.jpg'
+// import unia from './WspolczesnoscImg/unia.jpg'
 
 import chorwacja from './StartImg/chorwacja.jpg'
 import hiszpania from './StartImg/hiszpania.png'
@@ -141,9 +141,10 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
     BRAK: "brak"
   }
 
-  const [WybraneZdjecieWspolczesnosc, setWybraneZdjecieWspolczesnosc] = useState(ZdjęciaWspolczesnosc.BRAK)
+  const [WybraneZdjecieWspolczesnosc, setWybraneZdjecieWspolczesnosc] = useState(ZdjęciaWspolczesnosc.BRAK);
 
-  const [isButtonImgVisible, setButtonImgVisible] = useState(false)
+  const [isButtonImgVisible, setButtonImgVisible] = useState(false);
+  const [AktualnaEpoka, setAktualnaEpoka] = useState(null);
 
   const ValueChangeHandler = (e) =>{
     const Rok = Number(e.target.value);
@@ -151,20 +152,26 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   
       if (Rok < 476) {
         setWybranaEpoka(Epoka.STAROZYTNOSC)
+        setAktualnaEpoka("Starożytność")
       }
       if (Rok >= 476 && Rok < 1492) {
         setWybranaEpoka(Epoka.SREDNIOWIECZE)
+        setAktualnaEpoka("Średniowiecze")
       }
       if (Rok >= 1492 && Rok < 1914) {
         setWybranaEpoka(Epoka.NOWOZYTNOSC)
+        setAktualnaEpoka("Nowożytność")
       }
       if (Rok >= 1914) {
         setWybranaEpoka(Epoka.WSPOLCZESNOSC)
-
+        setAktualnaEpoka("Współczesnośc")
       }
       
 }
-  const obrazki = content["img"]
+
+  const sredniowiecze = content["Starożytność"];
+  const obrazki = sredniowiecze["img"]; 
+  
   
 
   return (
@@ -280,10 +287,10 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
             <div className="tresc">
               {WybranaEpoka === Epoka.BRAK ? <EpokaStartPage/>: null}
-              {WybranaEpoka === Epoka.STAROZYTNOSC ? <Starozytnosc data={content["Starozytność"]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
-              {WybranaEpoka === Epoka.SREDNIOWIECZE ? <Średniowiecze WybieranieZdjeciaSredniowiecze={setWybraneZdjecieSredniowiecze} ZdjęciaSredniowiecze={ZdjęciaSredniowiecze}/>: null}
-              {WybranaEpoka === Epoka.NOWOZYTNOSC ? <Nowożytność WybieranieZdjeciaNowozytnosc={setWybraneZdjecieNowozytnosc} ZdjęciaNowozytnosc={ZdjęciaNowozytnosc}/>: null}
-              {WybranaEpoka === Epoka.WSPOLCZESNOSC ? <Współczesność WybieranieZdjeciaWspolczesnosc={setWybraneZdjecieWspolczesnosc} ZdjęciaWspolczesnosc={ZdjęciaWspolczesnosc}/>: null}
+              {WybranaEpoka === Epoka.STAROZYTNOSC ? <Starozytnosc data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
+              {WybranaEpoka === Epoka.SREDNIOWIECZE ? <Średniowiecze data={content[AktualnaEpoka]} WybieranieZdjeciaSredniowiecze={setWybraneZdjecieSredniowiecze} ZdjęciaSredniowiecze={ZdjęciaSredniowiecze}/>: null}
+              {WybranaEpoka === Epoka.NOWOZYTNOSC ? <Nowożytność data={content[AktualnaEpoka]} WybieranieZdjeciaNowozytnosc={setWybraneZdjecieNowozytnosc} ZdjęciaNowozytnosc={ZdjęciaNowozytnosc}/>: null}
+              {WybranaEpoka === Epoka.WSPOLCZESNOSC ? <Współczesność data={content[AktualnaEpoka]} WybieranieZdjeciaWspolczesnosc={setWybraneZdjecieWspolczesnosc} ZdjęciaWspolczesnosc={ZdjęciaWspolczesnosc}/>: null}
             </div>
           </div>
           <div className="opakowanie-timeline">
@@ -296,7 +303,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
         </motion.div>
           )}
       {/* STAROZYTNOSC */} 
-      
+    {console.log(obrazki)}
       {obrazki
       .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
       .map(item => (

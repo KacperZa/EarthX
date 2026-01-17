@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import { v4 as uuid4 } from 'uuid'
+
 import CloseButton from '../CloseButton'
 import './wydarzenia.css'
 import Karta from './Karta'
