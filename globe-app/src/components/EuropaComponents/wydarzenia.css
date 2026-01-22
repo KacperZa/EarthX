@@ -21,7 +21,7 @@
 .container-wydarzenia{
     display: grid;
     padding-top: 40px;
-    grid-template-columns: repeat(4, 0.2fr);
+    grid-template-columns: repeat(5, 0.15fr);
     gap: 20px;
     row-gap: 50px;
     justify-content: center;

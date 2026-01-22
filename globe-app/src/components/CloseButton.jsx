@@ -2,7 +2,7 @@ import React from 'react'
 import './EuropaComponents/continent2.css'
 import { AnimatePresence, motion } from "framer-motion";
 
-const CloseButton = ({setEuropeNews, setEuropa, Europa, EuropeNews, setCloseButtonVisible}) => {
+const CloseButton = ({setWydarzeniaButtonVisible,setEuropeNews, setEuropa, setCloseButtonVisible}) => {
   return (
     <>
     {/* <motion.div className="przycisk-content"> */}
@@ -20,7 +20,7 @@ const CloseButton = ({setEuropeNews, setEuropa, Europa, EuropeNews, setCloseButt
         opacity: { duration: 0.4, ease: "easeInOut"},
         y:{ duration: 0.5, ease: "easeInOut" }
     }} 
-    onClick={()=> {setEuropeNews(false); setCloseButtonVisible(false) ;setTimeout(() => {
+    onClick={()=> {setEuropeNews(false); setCloseButtonVisible(false); setWydarzeniaButtonVisible(false)  ;setTimeout(() => {
         setEuropa(false)
     }, 300);}}>✕
     </motion.button>

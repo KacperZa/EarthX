@@ -46,17 +46,18 @@ import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 // import zolnierze from './WspolczesnoscImg/pierwszawojnazolnierze.jpg'
 // import unia from './WspolczesnoscImg/unia.jpg'
 
-import chorwacja from './StartImg/chorwacja.jpg'
-import hiszpania from './StartImg/hiszpania.png'
-import islandia from './StartImg/islandia.png'
+// import chorwacja from './StartImg/chorwacja.jpg'
+// import hiszpania from './StartImg/hiszpania.png'
+// import islandia from './StartImg/islandia.png'
 
 import CloseButton from '../CloseButton'
 import SplitText from '../SplitText'
 
-import Starozytnosc from './EuropaEpoki/Starozytnosc'
-import Średniowiecze from './EuropaEpoki/Średniowiecze'
-import Nowożytność from './EuropaEpoki/Nowożytność'
-import Współczesność from './EuropaEpoki/Współczesność'
+// import Starozytnosc from './EuropaEpoki/EpokaComponent'
+// import Średniowiecze from './EuropaEpoki/Średniowiecze'
+// import Nowożytność from './EuropaEpoki/Nowożytność'
+// import Współczesność from './EuropaEpoki/Współczesność'
+import EpokaComponent from './EuropaEpoki/EpokaComponent'
 import DuzyObrazek from './EuropaEpoki/DuzyObrazek'
 import EpokaStartPage from './EuropaEpoki/EpokaStartPage'
 import Wydarzenia from './Wydarzenia'
@@ -164,13 +165,16 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       }
       if (Rok >= 1914) {
         setWybranaEpoka(Epoka.WSPOLCZESNOSC)
-        setAktualnaEpoka("Współczesnośc")
+        setAktualnaEpoka("Współczesność")
       }
       
 }
 
-  const sredniowiecze = content["Starożytność"];
-  const obrazki = sredniowiecze["img"]; 
+  // const sredniowiecze = content["Starożytność"];
+  const obrazkiStarożytność = content["Starożytność"]["img"]; 
+  const obrazkiŚredniowiecze = content["Średniowiecze"]["img"]; 
+  const obrazkiNowożytność = content["Nowożytność"]["img"]; 
+  const obrazkiWspółczesność = content["Współczesność"]["img"]; 
   
   
 
@@ -194,15 +198,17 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       <motion.div id="container">
         <motion.div id='slideshow'>
 
-          <motion.img src={islandia} alt="" />
-          <motion.img src={hiszpania} alt="" />
-          <motion.img src={chorwacja} alt="" />
+        {/* Obrazki na pierwszym panelu  */}
+        {content["startImg"]
+        .map(item => (
+          <motion.img key={item.id} src={item.src} alt={item.id} />
+        ))}
 
         </motion.div>
         <motion.div id="text"
         drag
         dragConstraints={{top:0, left:0, right:0, bottom:0}}>
-            <h1 id="title">EUROPA</h1>
+            <h1 id="title">{content["name"]}</h1>
         </motion.div>
           <motion.div className="przycisk">
             <motion.button className='close' id='close-czytaj'
@@ -286,11 +292,12 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
           <div className="opakowanie-tresc">
 
             <div className="tresc">
-              {WybranaEpoka === Epoka.BRAK ? <EpokaStartPage/>: null}
-              {WybranaEpoka === Epoka.STAROZYTNOSC ? <Starozytnosc data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
-              {WybranaEpoka === Epoka.SREDNIOWIECZE ? <Średniowiecze data={content[AktualnaEpoka]} WybieranieZdjeciaSredniowiecze={setWybraneZdjecieSredniowiecze} ZdjęciaSredniowiecze={ZdjęciaSredniowiecze}/>: null}
-              {WybranaEpoka === Epoka.NOWOZYTNOSC ? <Nowożytność data={content[AktualnaEpoka]} WybieranieZdjeciaNowozytnosc={setWybraneZdjecieNowozytnosc} ZdjęciaNowozytnosc={ZdjęciaNowozytnosc}/>: null}
-              {WybranaEpoka === Epoka.WSPOLCZESNOSC ? <Współczesność data={content[AktualnaEpoka]} WybieranieZdjeciaWspolczesnosc={setWybraneZdjecieWspolczesnosc} ZdjęciaWspolczesnosc={ZdjęciaWspolczesnosc}/>: null}
+              {/* Wyświetlanie Epok w zależności od wartości input range  */}
+              {AktualnaEpoka === null ? <EpokaStartPage/>: null}
+              {AktualnaEpoka === "Starożytność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
+              {AktualnaEpoka === "Średniowiecze" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieSredniowiecze} Zdjęcia={ZdjęciaSredniowiecze}/>: null}
+              {AktualnaEpoka === "Nowożytność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieNowozytnosc} Zdjęcia={ZdjęciaNowozytnosc}/>: null}
+              {AktualnaEpoka === "Współczesność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieWspolczesnosc} Zdjęcia={ZdjęciaWspolczesnosc}/>: null}
             </div>
           </div>
           <div className="opakowanie-timeline">
@@ -302,58 +309,39 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       </motion.div>
         </motion.div>
           )}
-      {/* STAROZYTNOSC */} 
-    {console.log(obrazki)}
-      {obrazki
+
+      {/* Powiększanie obrazków na Starożytności */} 
+      {obrazkiStarożytność
       .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
       .map(item => (
          <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
 
       ))}
-      {/* {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM2 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym2}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.RZYM3 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={rzym3}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA1 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja1}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA2 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja2}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA3 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja3}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA4 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja4}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.GRECJA5 ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={grecja5}/> : null}
-      {WybraneZdjecieStarozytnosc === ZdjęciaStarozytnosc.ATENY ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={ateny}/> : null} */}
 
-      {/* SREDNIOWIECZE */}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.DZUMA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={dzuma}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.HUSARIA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={husaria}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.KOSCIOL ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={kosciol}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.MIASTA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={miasta}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.MIESZCZANIE ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={mieszczanie}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.BOLONIA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={bolonia}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.OGRODZIENIEC ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={ogrodzieniec}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.WIES ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={wies}/> : null}
-      {WybraneZdjecieSredniowiecze === ZdjęciaSredniowiecze.RYCERZ ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaStarozytnosc.BRAK)}} source={rycerz}/> : null}
-     
-      {/* NOWOŻYTNOŚĆ */}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.CZLOWIEK ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={czlowiek}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.ROZWOJDRUKU ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={rozwojDruku}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.KOPERNIK ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={kopernik}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.LUTER ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={luter}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.MAGELLAN ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={magellan}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.MICHALANIOL ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={michalAniol}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.ODKRYCIEAMERYKI ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={odkrycieAmeryki}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.STARAMAPA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={staraMapa}/> : null}
-      {WybraneZdjecieNowozytnosc === ZdjęciaNowozytnosc.UPADEKRZYMU ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={upadekRzymu}/> : null}
-      
-      {/* WSPOLCZESNOSC */}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.CZOLGI ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={czolgi}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.DRUGAWOJNA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={drugaWojna}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.EURO ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={euro}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.FLAGA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={flaga}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.KOMUNIZM ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={komunizm}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.MURBERLINSKI ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={murBerlinski}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.PIERWSZAWOJNA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={pierwszaWojna}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.ZOLNIERZE ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={zolnierze}/> : null}
-      {WybraneZdjecieWspolczesnosc === ZdjęciaWspolczesnosc.UNIA ? <DuzyObrazek FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaStarozytnosc.BRAK)}} source={unia}/> : null}
+      {/* Powiększanie obrazków na Średniowieczu */} 
+      {obrazkiŚredniowiecze
+      .filter(item => ZdjęciaSredniowiecze[item.id] === WybraneZdjecieSredniowiecze)
+      .map(item => (
+         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
 
+      ))}
 
-      {isWydarzeniaVisible ? <Wydarzenia setWydarzeniaButtonVisible={setCloseButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} setEuropa={setEuropa} Europa={Europa} />: null}
+      {/* Powiększanie obrazków na Nowożytności */} 
+      {obrazkiNowożytność
+      .filter(item => ZdjęciaNowozytnosc[item.id] === WybraneZdjecieNowozytnosc)
+      .map(item => (
+         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+      ))}
+
+      {/* Powiększanie obrazków na Współczesności */} 
+      {obrazkiWspółczesność
+      .filter(item => ZdjęciaWspolczesnosc[item.id] === WybraneZdjecieWspolczesnosc)
+      .map(item => (
+         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+      ))}
+
+      {/* Wydarzenia  */}
+      {isWydarzeniaVisible ? <Wydarzenia  wydarzeniaData={content["Wydarzenia"]}setWydarzeniaButtonVisible={setCloseButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} setEuropa={setEuropa} Europa={Europa} />: null}
 
       {isWydarzeniaButtonVisible ? 
       <motion.button 
@@ -380,8 +368,8 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       <AnimatePresence>
       {isCloseButtonVisible && (
         <CloseButton
+        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
         setEuropa={setEuropa} 
-        Europa={Europa} 
         setEuropeNews={setEuropeNews} 
         setCloseButtonVisible={setCloseButtonVisible}
         />)}
