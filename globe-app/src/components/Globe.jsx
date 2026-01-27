@@ -21,7 +21,8 @@ function Globe() {
   const [AmerykaPuł, setAmerykaPuł] = useState(false)
   
   const [selectedContinent, setSelectedContinent] = useState(null)
-
+  
+  
   const ID_TO_REGION = {
     "254,0,0": "Europa",
     "0,255,1": "Ameryka Południowa",
@@ -31,15 +32,15 @@ function Globe() {
     "98,0,235": "Azja",
   }
   
-
-
-
+  
+  
+  
   useEffect(() =>{
-
+    
     function rgbKey(r,g,b) {
       return `${r},${g},${b}`;
     }
-
+    
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000) 
@@ -47,7 +48,7 @@ function Globe() {
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
     camera.position.setZ(250);
-
+    
     const geometry = new THREE.SphereGeometry(100,64,64);
     const earthTexture = new THREE.TextureLoader().load(earthTextureImg)
     const material = new THREE.MeshPhysicalMaterial( { 
@@ -55,28 +56,29 @@ function Globe() {
     });
     const sphere = new THREE.Mesh(geometry, material)
     sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
-
-
+    
+    
     scene.add(sphere);
-
+    
     const starsGroup = new THREE.Group();
     scene.add(starsGroup)
-
+    
     const pointLight = new THREE.PointLight(0xffffff, 1);
     pointLight.position.set(200,200,200);
-
+    
     // const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add( pointLight, ambientLight);
-
+    
     const lightHelper = new THREE.PointLightHelper(pointLight);
     const gridHelper = new THREE.GridHelper(200,50);
     // scene.add(lightHelper, gridHelper);
-
+    
     const controls = new OrbitControls(camera, renderer.domElement);
-
+    
     controls.enabled = false;
-
+    // console.log( container.clientWidth,container.clientHeight);
+    
     controls.target.set(0,0,0);
     controls.enablePan = false;
     controls.minDistance = 120;

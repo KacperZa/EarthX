@@ -146,12 +146,22 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
   const [isButtonImgVisible, setButtonImgVisible] = useState(false);
   const [AktualnaEpoka, setAktualnaEpoka] = useState(null);
+  const [AktualnyRok, setAktualnyRok] = useState("")
+
+  let Data;
 
   const ValueChangeHandler = (e) =>{
     const Rok = Number(e.target.value);
+    Data = Rok;
+    
+    if (Rok < 0){
+      Data = Math.abs(Rok) + " p.n.e";
+    }
+    else{
+      Data = Rok + " n.e"
+    }
 
-  
-      if (Rok < 476) {
+      if (Rok >= -800 &&Rok < 476) {
         setWybranaEpoka(Epoka.STAROZYTNOSC)
         setAktualnaEpoka("Starożytność")
       }
@@ -167,6 +177,8 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
         setWybranaEpoka(Epoka.WSPOLCZESNOSC)
         setAktualnaEpoka("Współczesność")
       }
+      
+      setAktualnyRok(Data)
       
 }
 
@@ -301,7 +313,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
             </div>
           </div>
           <div className="opakowanie-timeline">
-            <label htmlFor="os-czasu"> Oś czasu</label>
+            <label htmlFor="os-czasu"> Oś czasu, rok: {AktualnyRok} </label>
               <input type="range" name="" id="os-czasu" min={-800} max={2025}  onChange={ValueChangeHandler}/>
           </div>
 

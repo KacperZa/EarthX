@@ -40,53 +40,23 @@
                 <p>{data["text2"]}</p>
 
               </motion.div>
-              <div className="tresc-zdjecia">
-
-                <motion.div 
-                className="column"
+              <motion.div
+              className="tresc-zdjecia"
                 variants={parent}
                 initial="hidden"
                 animate="visible">
+                {/* <motion.div 
+ */}
 
-                 {obrazki?.slice(0,3)
+                 {obrazki
                   .map(item =>(
                     <ObrazekAnimacja 
                     Klikniecie={()=> {WybieranieZdjecia(Zdjęcia[item.id])}}
                     key={item.id}
                     source={item.src} />
                   ))}
-                </motion.div>
-
-                <motion.div
-                className="column"
-                variants={parent}
-                initial="hidden"
-                animate="visible"
-                >
-                  {obrazki?.slice(3,6)
-                  .map(item =>(
-                    <ObrazekAnimacja 
-                    Klikniecie={()=> {WybieranieZdjecia(Zdjęcia[item.id])}}
-                    key={item.id}
-                    source={item.src} />
-                  ))}
-                </motion.div>
-
-                <motion.div
-                className="column"
-                variants={parent}
-                initial="hidden"
-                animate="visible"
-                >
-                  {obrazki?.slice(6,9)
-                  .map(item =>(
-                    <ObrazekAnimacja 
-                    Klikniecie={()=> {WybieranieZdjecia(Zdjęcia[item.id])}}
-                    key={item.id}
-                    source={item.src} />
-                  ))}
-                </motion.div>
-            </div>
+                {/* </motion.div> */}
+            </motion.div>
         </>
       )
     }

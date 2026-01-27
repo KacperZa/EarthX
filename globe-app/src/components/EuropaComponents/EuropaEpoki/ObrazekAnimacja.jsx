@@ -1,19 +1,19 @@
 import React from 'react'
-import { easeIn, easeInOut, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const ObrazekAnimacja = ({ source, Klikniecie}) => {
 
   const child = {
     hidden: {
       opacity: 0, 
-      x: -300
+      x: -150
     },
     visible: {
       opacity: 1, 
       x:0,
       transition:{
-        duration: 0.5,
-        ease: "linear",
+        duration: 0.3,
+        ease: "easeInOut",
       }
     }
   }
