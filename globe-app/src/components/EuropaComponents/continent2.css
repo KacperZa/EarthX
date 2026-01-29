@@ -202,7 +202,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.7);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
 }
 /* ---------------------------------- */
 .panel1, .panel2{
@@ -229,11 +229,11 @@ h1{
     left: 0;
     right: 0;
     background: linear-gradient(to bottom,
-        hsla(239,94%,59%,0.2),
-        hsla(239,94%,59%,0.2),
-        hsla(239,94%,59%,0.2),
-        hsla(239,94%,9%, 0.5), 
-        hsl(239,94%,19%)) 
+        hsla(239, 84%, 10%,0.2),
+        hsla(239, 84%, 10%,0.2),
+        hsla(239, 84%, 10%,0.2),
+        hsla(239, 84%, 10%, 0.5), 
+        hsl(239, 84%, 10%)) 
 }
 
 .poczatek{
@@ -313,7 +313,7 @@ h1{
 
 /* -------------TIMELINE-PANEL------------- */
 #panel-timeline{
-    background-color: #03045e;
+    background-color: hsl(239, 84%, 10%);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -353,9 +353,11 @@ h1{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: justify;
+    /* word-wrap: initial; */
     line-height: 1.5;
     font-size: 1vw;
-    padding: 5px;
+    padding: 20px;
     border-radius: 10px;
 }
 .tresc-tekst p{
@@ -367,9 +369,9 @@ h1{
 }
 .tresc-zdjecia{
     display: grid;
-    grid-template-columns: repeat(3, 24vh);
     grid-template-rows: repeat(3, 10.5vw);
-    gap: 0.2vw;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 24vh));
+    gap: 0.4vw;
     flex: 1;
     justify-content: center;
     align-items: center;
@@ -377,10 +379,7 @@ h1{
     /* padding: 0 4px; */
     /* overflow: auto; */
 }
-/* .tresc-zdjecia > *{
-    min-width: 0;
-    min-height: 0;
-} */
+
 .tresc-zdjecia img{
     object-fit: cover;
     display: block;
