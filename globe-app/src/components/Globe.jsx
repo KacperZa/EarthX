@@ -37,9 +37,6 @@ function Globe() {
   
   useEffect(() =>{
     
-    function rgbKey(r,g,b) {
-      return `${r},${g},${b}`;
-    }
     
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
@@ -171,7 +168,7 @@ function Globe() {
           
           setSelectedContinent(region)
           
-          if( region === "Europa"){
+          if( region != "Nieznany region"){
             setEuropa(true)
           }
           

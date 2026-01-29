@@ -10,8 +10,8 @@ import { motion } from 'framer-motion'
             animate={{opacity: 1}}
             exit={{opacity:0}}
             transition={{duration: 1}}>
-                <div className='naglowek' id='start-naglowek'> HISTORIA EUROPY</div>
-                    Użyj suwaka na dole aby odkryć historię Europy.
+                <div className='naglowek' id='start-naglowek'> HISTORIA</div>
+                    Użyj suwaka na dole aby odkryć historię.
               </motion.div>
         </>
       )
