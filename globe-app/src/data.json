@@ -3,24 +3,24 @@
             "name": "Europa",
             "startText": "Historia Europy: Od Antyku do Współczesności",
             "startImg": [
-                {"id": "chorwacja", "src": "/StartImg/chorwacja.jpg"},
-                {"id": "hiszpania", "src": "/StartImg/hiszpania.png"},
-                {"id": "islandia", "src": "/StartImg/islandia.png"}
+                {"id": "chorwacja", "src": "/EuropaData/StartImg/chorwacja.jpg"},
+                {"id": "hiszpania", "src": "/EuropaData/StartImg/hiszpania.png"},
+                {"id": "islandia", "src": "/EuropaData/StartImg/islandia.png"}
             ],
             "Starożytność" : {
                 "title": "Starożytność",
                 "text1": "Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.",
                 "text2": "Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon",
                 "img": [
-                    {"id": "ATENY", "src": "/StarozytnoscImg/ateny.jpg"},
-                    {"id": "GRECJA1", "src": "/StarozytnoscImg/grecja1.jpg"},
-                    {"id": "GRECJA2", "src": "/StarozytnoscImg/grecja2.jpg"},
-                    {"id": "GRECJA3", "src": "/StarozytnoscImg/grecja4.jpeg"},
-                    {"id": "GRECJA4", "src": "/StarozytnoscImg/grecja5.jpg"},
-                    {"id": "GRECJA5", "src": "/StarozytnoscImg/grecja6.jpg"},
-                    {"id": "RZYM1", "src": "/StarozytnoscImg/rzym1.jpg"},
-                    {"id": "RZYM2", "src": "/StarozytnoscImg/rzym2.jpg"},
-                    {"id": "RZYM3", "src": "/StarozytnoscImg/rzym4.jpg"}
+                    {"id": "ATENY", "src": "/EuropaData/StarozytnoscImg/ateny.jpg"},
+                    {"id": "GRECJA1", "src": "/EuropaData/StarozytnoscImg/grecja1.jpg"},
+                    {"id": "GRECJA2", "src": "/EuropaData/StarozytnoscImg/grecja2.jpg"},
+                    {"id": "GRECJA3", "src": "/EuropaData/StarozytnoscImg/grecja4.jpeg"},
+                    {"id": "GRECJA4", "src": "/EuropaData/StarozytnoscImg/grecja5.jpg"},
+                    {"id": "GRECJA5", "src": "/EuropaData/StarozytnoscImg/grecja6.jpg"},
+                    {"id": "RZYM1", "src": "/EuropaData/StarozytnoscImg/rzym1.jpg"},
+                    {"id": "RZYM2", "src": "/EuropaData/StarozytnoscImg/rzym2.jpg"},
+                    {"id": "RZYM3", "src": "/EuropaData/StarozytnoscImg/rzym4.jpg"}
                 ]
             },
             "Nowożytność": {
@@ -28,15 +28,15 @@
                 "text1": "Epoka ta przyniosła gwałtowne przebudzenie i zmianę perspektywy z teocentrycznej na antropocentryczną – człowiek stanął w centrum wszechświata.",
                 "text2": "Humanizm i powrót do wzorców antycznych zaowocowały eksplozją sztuki (Da Vinci, Michał Anioł) oraz przełomami naukowymi, takimi jak teoria heliocentryczna Kopernika, która zburzyła dotychczasowy obraz kosmosu. Równocześnie, dzięki odwadze żeglarzy takich jak Kolumb czy Magellan, Europa przełamała granice horyzontu, rozpoczynając erę Wielkich Odkryć Geograficznych.Druk również dzięki swojemu rozwojowi wspomógł szybsze przekazywanie informacji. Stary Kontynent stał się centrum globalnego handlu i hegemonem, budującym kolonialne imperia od obu Ameryk po Indie, co przyniosło Europie niewyobrażalne bogactwo, ale też zapoczątkowało krwawą rywalizację mocarstw i reformację religijną, która trwale podzieliła chrześcijaństwo.",
                 "img": [
-                    {"id": "CZLOWIEK", "src": "/NowozytnoscImg/czlowiek.jpg"},
-                    {"id": "KOPERNIK", "src": "/NowozytnoscImg/kopernik.jpg"},
-                    {"id": "LUTER", "src": "/NowozytnoscImg/luter.jpg"},
-                    {"id": "MAGELLAN", "src": "/NowozytnoscImg/magellan.jpg"},
-                    {"id": "MICHALANIOL", "src": "/NowozytnoscImg/michalaniol.jpeg"},
-                    {"id": "ODKRYCIEAMERYKI", "src": "/NowozytnoscImg/odkrycieameryki.jpg"},
-                    {"id": "ROZWOJDRUKU", "src": "/NowozytnoscImg/rozwojdruku.jpg"},
-                    {"id": "STARAMAPA", "src": "/NowozytnoscImg/staramapa.jpg"},
-                    {"id": "UPADEKRZYMU", "src": "/NowozytnoscImg/upadekrzymu.jpg"}
+                    {"id": "CZLOWIEK", "src": "/EuropaData/NowozytnoscImg/czlowiek.jpg"},
+                    {"id": "KOPERNIK", "src": "/EuropaData/NowozytnoscImg/kopernik.jpg"},
+                    {"id": "LUTER", "src": "/EuropaData/NowozytnoscImg/luter.jpg"},
+                    {"id": "MAGELLAN", "src": "/EuropaData/NowozytnoscImg/magellan.jpg"},
+                    {"id": "MICHALANIOL", "src": "/EuropaData/NowozytnoscImg/michalaniol.jpeg"},
+                    {"id": "ODKRYCIEAMERYKI", "src": "/EuropaData/NowozytnoscImg/odkrycieameryki.jpg"},
+                    {"id": "ROZWOJDRUKU", "src": "/EuropaData/NowozytnoscImg/rozwojdruku.jpg"},
+                    {"id": "STARAMAPA", "src": "/EuropaData/NowozytnoscImg/staramapa.jpg"},
+                    {"id": "UPADEKRZYMU", "src": "/EuropaData/NowozytnoscImg/upadekrzymu.jpg"}
                 ]
             },
             "Średniowiecze": {
@@ -44,15 +44,15 @@
                 "text1": "Ta trwająca tysiąc lat epoka, niesłusznie zwana „wiekami ciemnymi”, była czasem rodzenia się europejskich narodów i uniwersalnej kultury łacińskiej. Po upadku Rzymu i chaosie Wędrówek Ludów, Kościół Katolicki stał się jedyną instytucją spajającą rozbity kontynent, przechowując wiedzę w klasztornych skryptoriach i tworząc sieć pierwszych uniwersytetów (Bolonia, Paryż, Kraków).",
                 "text2": "Był to czas feudalizmu, gdzie społeczeństwo dzieliło się na tych, co się modlą, walczą i pracują, oraz czas narodzin etosu rycerskiego i wielkich królestw – Francji, Anglii, czy monarchii Karola Wielkiego. Mimo epidemii Czarnej Śmierci i wojen, to właśnie wtedy rozkwitły miasta, powstały systemy cechowe i parlamentaryzm, a gotyckie katedry pnące się ku niebu stały się dowodem na niezwykły kunszt inżynieryjny ówczesnej Europy.",
                 "img":[
-                    {"id": "BOLONIA", "src": "SredniowieczeImg/bolonia.jpg"},
-                    {"id": "DZUMA", "src": "SredniowieczeImg/dzuma.jpg"},
-                    {"id": "HUSARIA", "src": "SredniowieczeImg/husaria.jpg"},
-                    {"id": "KOSCIOL", "src": "SredniowieczeImg/kosciol.jpg"},
-                    {"id": "MIASTA", "src": "SredniowieczeImg/miasta.jpg"},
-                    {"id": "MIESZCZANIE", "src": "SredniowieczeImg/mieszczanie.jpg"},
-                    {"id": "OGRODZIENIEC", "src": "SredniowieczeImg/ogrodzieniec.jpg"},
-                    {"id": "WIES", "src": "SredniowieczeImg/wies.jpg"},
-                    {"id": "ZBROJARYCZERZA", "src": "SredniowieczeImg/zbroja_rycerza.jpg"}
+                    {"id": "BOLONIA", "src": "/EuropaData/SredniowieczeImg/bolonia.jpg"},
+                    {"id": "DZUMA", "src": "/EuropaData/SredniowieczeImg/dzuma.jpg"},
+                    {"id": "HUSARIA", "src": "/EuropaData/SredniowieczeImg/husaria.jpg"},
+                    {"id": "KOSCIOL", "src": "/EuropaData/SredniowieczeImg/kosciol.jpg"},
+                    {"id": "MIASTA", "src": "/EuropaData/SredniowieczeImg/miasta.jpg"},
+                    {"id": "MIESZCZANIE", "src": "/EuropaData/SredniowieczeImg/mieszczanie.jpg"},
+                    {"id": "OGRODZIENIEC", "src": "/EuropaData/SredniowieczeImg/ogrodzieniec.jpg"},
+                    {"id": "WIES", "src": "/EuropaData/SredniowieczeImg/wies.jpg"},
+                    {"id": "ZBROJARYCZERZA", "src": "/EuropaData/SredniowieczeImg/zbroja_rycerza.jpg"}
                 ]
 
             },
@@ -61,82 +61,82 @@
                 "text1": "Epoka współczesna to obecnie trwający okres historii, którego fundamentem były I i II wojna światowa. Konflikty te doprowadziły do upadku dawnych imperiów, ogromnych zniszczeń i śmierci milionów ludzi, a II wojna światowa dodatkowo ujawniła skalę zbrodni totalitarnych systemów. Po 1945 roku Europa została podzielona między dwa przeciwstawne bloki, z których wschodni opierał się na komunizmie i silnej kontroli państwa, a zachodni na demokracji i współpracy.",
                 "text2": "Doświadczenia wojen stały się impulsem do poszukiwania trwałego pokoju, czego efektem było powstanie Unii Europejskiej jako wspólnoty mającej zapobiegać kolejnym konfliktom. Współczesność pozostaje więc epoką napięć, pamięci o dramatycznych wydarzeniach XX wieku oraz ciągłego dążenia do stabilności i porozumienia między państwami.",
                 "img":[
-                    {"id": "CZOLGI", "src": "WspolczesnoscImg/czolgi.jpg"},
-                    {"id": "DRUGAWOJNA", "src": "WspolczesnoscImg/drugawojna.jpg"},
-                    {"id": "EURO", "src": "WspolczesnoscImg/euro.jpeg"},
-                    {"id": "FLAGA", "src": "WspolczesnoscImg/flaga.jpeg"},
-                    {"id": "KOMUNIZM", "src": "WspolczesnoscImg/komunizm.jpg"},
-                    {"id": "MURBERLINSKI", "src": "WspolczesnoscImg/murberlinski.jpg"},
-                    {"id": "PIERWSZAWOJNA", "src": "WspolczesnoscImg/pierwszawojna.jpg"},
-                    {"id": "ZOLNIERZE", "src": "WspolczesnoscImg/pierwszawojnazolnierze.jpg"},
-                    {"id": "UNIA", "src": "WspolczesnoscImg/unia.jpg"}
+                    {"id": "CZOLGI", "src": "/EuropaData/WspolczesnoscImg/czolgi.jpg"},
+                    {"id": "DRUGAWOJNA", "src": "/EuropaData/WspolczesnoscImg/drugawojna.jpg"},
+                    {"id": "EURO", "src": "/EuropaData/WspolczesnoscImg/euro.jpeg"},
+                    {"id": "FLAGA", "src": "/EuropaData/WspolczesnoscImg/flaga.jpeg"},
+                    {"id": "KOMUNIZM", "src": "/EuropaData/WspolczesnoscImg/komunizm.jpg"},
+                    {"id": "MURBERLINSKI", "src": "/EuropaData/WspolczesnoscImg/murberlinski.jpg"},
+                    {"id": "PIERWSZAWOJNA", "src": "/EuropaData/WspolczesnoscImg/pierwszawojna.jpg"},
+                    {"id": "ZOLNIERZE", "src": "/EuropaData/WspolczesnoscImg/pierwszawojnazolnierze.jpg"},
+                    {"id": "UNIA", "src": "/EuropaData/WspolczesnoscImg/unia.jpg"}
                 ]
             },
             "Wydarzenia": [
                 {
                     "title": "Narodziny Chrześcijaństwa",
                     "text": "Chrześcijaństwo narodziło się na terenie Imperium Rzymskiego jako religia prześladowana. Jego nauki opierały się na miłości bliźniego, równości ludzi wobec Boga i nadziei na życie wieczne. Chrześcijaństwo ukształtowało kulturę, moralność i system wartości Europy na kolejne stulecia.",
-                    "img": "WydarzeniaImg/chrzescijanstwo.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/chrzescijanstwo.jpg"
                 },
                 {
                     "title": "Wynalezienie pisma",
                     "text": "Wynalezienie pisma w Mezopotamii było jednym z najważniejszych momentów w dziejach ludzkości. Dzięki pismu ludzie mogli zapisywać prawa, umowy handlowe, wierzenia religijne oraz ważne wydarzenia. Pozwoliło to na sprawne zarządzanie państwem i przekazywanie wiedzy kolejnym pokoleniom. Od tego momentu możliwe stało się badanie historii na podstawie źródeł pisanych, a nie tylko domysłów archeologicznych.",
-                    "img": "WydarzeniaImg/pismo.png"
+                    "img": "/EuropaData/WydarzeniaImg/pismo.png"
                 },
                 {
                     "title": "Powstanie demokracji ateńskiej",
                     "text": "W Atenach wykształcił się system, w którym wolni obywatele mieli prawo brać udział w zgromadzeniach ludowych i podejmować decyzje dotyczące państwa. Choć demokracja ta nie obejmowała kobiet, niewolników i cudzoziemców, była przełomowa. Po raz pierwszy w historii władza nie należała wyłącznie do króla lub elity. Idee demokracji ateńskiej stały się fundamentem nowoczesnych systemów politycznych.",
-                    "img": "WydarzeniaImg/demokracja.png"
+                    "img": "/EuropaData/WydarzeniaImg/demokracja.png"
                 },
                 {
                     "title": "Upadek Cesarstwa Zachodniorzymskiego",
                     "text": "Upadek cesarstwa był wynikiem kryzysu gospodarczego, politycznego i najazdów ludów barbarzyńskich. Zanikła sprawna administracja, handel i bezpieczeństwo. Europa Zachodnia weszła w okres rozdrobnienia politycznego. Wydarzenie to symbolicznie kończy epokę starożytności i rozpoczyna średniowiecze.",
-                    "img": "WydarzeniaImg/upadek_cesarstwa.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/upadek_cesarstwa.jpg"
                 },
                 {
                     "title": "Wyprawy krzyżowe",
                     "text": "Krucjaty były serią wypraw zbrojnych organizowanych przez chrześcijan w celu odzyskania Jerozolimy z rąk muzułmanów. Motywowane były religijnie, ale także politycznie i ekonomicznie. Choć militarnie często kończyły się porażką, doprowadziły do rozwoju handlu, wymiany kulturowej oraz poznania nowych towarów i idei. Jednocześnie przyniosły ogromne cierpienie i zniszczenia.",
-                    "img": "WydarzeniaImg/wyprawy.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/wyprawy.jpg"
                 },
                 {
                     "title": "Powstanie uniwersytetów",
                     "text": "Pierwsze uniwersytety powstały jako centra nauki i dyskusji intelektualnej. Kształcono tam duchownych, prawników i lekarzy. Nauczanie opierało się na filozofii i logice, a wiedza była systematyzowana. Uniwersytety stały się fundamentem rozwoju nauki w Europie.",
-                    "img": "WydarzeniaImg/uniwersytet.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/uniwersytet.jpg"
                 },
                 {
                     "title": "Wielkie odkrycia geograficzne",
                     "text": "Europejczycy rozpoczęli dalekie wyprawy morskie w poszukiwaniu nowych dróg handlowych. Doprowadziło to do odkrycia Ameryki i opłynięcia Ziemi. Odkrycia te zmieniły gospodarkę świata, zapoczątkowały kolonializm i doprowadziły do podporządkowania oraz wyniszczenia wielu ludów tubylczych. Europa stała się centrum światowej polityki i handlu.",
-                    "img": "WydarzeniaImg/wielkie_odkrycia.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/wielkie_odkrycia.jpg"
                 },
                 {
                     "title": "Rewolucja francuska",
                     "text": "Rewolucja francuska była buntem społeczeństwa przeciwko nierównościom i władzy absolutnej króla. Zniesiono przywileje stanowe i ogłoszono prawa człowieka i obywatela. Choć rewolucja doprowadziła do chaosu i terroru, jej idee wpłynęły na rozwój demokracji i nowoczesnych państw na całym świecie.",
-                    "img": "WydarzeniaImg/rewolucja.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/rewolucja.jpg"
                 },
                 {
                     "title": "Rewolucja przemysłowa",
                     "text": "Wprowadzenie maszyn i fabryk radykalnie zmieniło produkcję i życie codzienne. Ludzie masowo przenosili się do miast, powstała klasa robotnicza. Warunki pracy były ciężkie, co prowadziło do protestów i narodzin ruchów robotniczych. Rewolucja przemysłowa przyspieszyła rozwój cywilizacji, ale pogłębiła nierówności społeczne.",
-                    "img": "WydarzeniaImg/rewolucja_przemyslowa.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/rewolucja_przemyslowa.jpg"
                 },
                 {
                     "title": "I wojna światowa",
                     "text": "Wojna objęła większość państw Europy i wykorzystała nowoczesną broń, co doprowadziło do ogromnych strat ludzkich. Załamał się dawny porządek polityczny, a wielkie imperia przestały istnieć. Konflikt pozostawił Europę zniszczoną i pełną napięć, które nie zostały rozwiązane.",
-                    "img": "WydarzeniaImg/pierwsza_wojna.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/pierwsza_wojna.jpg"
                 },
                 {
                     "title": "Wielki kryzys gospodarczy",
                     "text": "Krach giełdowy w USA spowodował globalny kryzys. Miliony ludzi straciły pracę, oszczędności i poczucie bezpieczeństwa. Państwa nie radziły sobie z problemami społecznymi, co sprzyjało wzrostowi poparcia dla radykalnych ideologii i dyktatur.",
-                    "img": "WydarzeniaImg/wielki_kryzys.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/wielki_kryzys.jpg"
                 },
                 {
                     "title": "II wojna światowa",
                     "text": "II wojna światowa objęła niemal cały świat i pochłonęła dziesiątki milionów ofiar. Naziści dokonali planowej zagłady Żydów i innych grup. Wojna zakończyła się klęską Niemiec i Japonii oraz całkowitą zmianą układu sił politycznych. Europa była zrujnowana, a świat podzielony na nowe strefy wpływów.",
-                    "img": "WydarzeniaImg/druga_wojna.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/druga_wojna.jpg"
                 },
                 {
                     "title": "Zimna wojna",
                     "text": "Upadek muru berlińskiego i rozpad ZSRR zakończyły epokę zimnej wojny. Kraje Europy Środkowo-Wschodniej odzyskały suwerenność i rozpoczęły proces przemian politycznych i gospodarczych. Świat wszedł w nowy etap globalnych powiązań.",
-                    "img": "WydarzeniaImg/zimna_wojna.jpg"
+                    "img": "/EuropaData/WydarzeniaImg/zimna_wojna.jpg"
                 }
             ]
             
