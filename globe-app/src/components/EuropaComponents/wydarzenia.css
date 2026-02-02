@@ -20,10 +20,10 @@
 
 .container-wydarzenia{
     display: grid;
-    padding-top: 150px;
+    padding-top: 50px;
     grid-template-columns: repeat(auto-fit, minmax(250px,0.30fr));  
     gap: 50px;
-    row-gap: 150px;
+    row-gap: 50px;
     /* transform: translateY(11%); */
     /* justify-content: center; */
 }
@@ -49,11 +49,9 @@
 
 @keyframes appear {
     from{
-        opacity: 0;
         scale: 0.5;
     }
     to{
-        opacity: 1;
         scale: 1;
     }
 }
@@ -83,7 +81,7 @@
 
 .back{
     /* background-color: #4a525a; */
-    background-color: #ffffff;
+    background-color: #d7cdcd;
     transform: rotateY(180deg);
     display: flex;
     justify-content: center;

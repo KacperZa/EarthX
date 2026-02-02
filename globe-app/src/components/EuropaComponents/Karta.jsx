@@ -10,7 +10,6 @@ const Karta = ({imgSrc, title, text}) => {
       <div className="back">
           <div className='tytul-wydarzenia'>{title}</div>
           <div className="tekst-wydarzenia">{text}</div>
-          <button className='przycisk-wydarzenia'>KLIKNIJ</button>
       </div>
     </div>
 </div>
