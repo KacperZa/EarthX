@@ -197,8 +197,8 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       { Tytul && (
         <motion.div
         key="europe-card"
-        initial = {{opacity: 0, scale: 0.8}}
-        animate= {{opacity:1, scale:1}}
+        initial = {{opacity: 0, y: -1000}}
+        animate= {{opacity:1, y: 0}}
         exit = {{opacity:0, y: -1000}}
         transition={{
           scale: { type: "spring", bounce: 0.4, duration: 0.5},
@@ -246,9 +246,9 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       { EuropeNews && (
         <motion.div
         key="content-card"
-        initial = {{opacity: 0, scale: 0.8}}
-        animate= {{opacity:1, scale:1}}
-        exit = {{opacity:0, y: -1000}}
+        initial = {{opacity: 0, y: 1000}}
+        animate= {{opacity:1, y: 0}}
+        exit = {{opacity:0, y: 1000}}
         transition={{
           scale: { type: "spring", bounce: 0.4, duration: 0.5},
           opacity: { duration: 0.4, ease: "easeInOut"},
@@ -274,31 +274,31 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
               threshold={0.1}
               rootMargin="-100px"
               textAlign="center"
-          />
+              />
         </div>
 
         {/* Panel z informacjami o europie */}
 
         {/* <motion.div className="panel2">
           <div className="naglowek-panel2">
-            1. Starożytność: Fundamenty Zachodu
+          1. Starożytność: Fundamenty Zachodu
           </div>
           <div className="container-panel2">
-            <div className="tekst-panel2">
-              
-              <div className="tekst1-panel2">
-                Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon.
-              </div>
-
-              <div className="tekst2-panel2">
-                Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.
-              </div>
-
-            </div>
-            <div className="zdjecia-panel2">
-            </div>
+          <div className="tekst-panel2">
+          
+          <div className="tekst1-panel2">
+          Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon.
           </div>
-        </motion.div> */}
+          
+          <div className="tekst2-panel2">
+          Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.
+          </div>
+          
+          </div>
+          <div className="zdjecia-panel2">
+          </div>
+          </div>
+          </motion.div> */}
 
         <div className="panel2" id='panel-timeline'>
           <div className="opakowanie-tresc">
@@ -319,6 +319,13 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
         </div>
       </motion.div>
+      {isCloseButtonVisible && (
+        <CloseButton
+        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
+        setEuropa={setEuropa} 
+        setEuropeNews={setEuropeNews} 
+        setCloseButtonVisible={setCloseButtonVisible}
+        />)}
         </motion.div>
           )}
 
@@ -326,8 +333,8 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       {obrazkiStarożytność
       .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
       .map(item => (
-         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
-
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+        
       ))}
 
       {/* Powiększanie obrazków na Średniowieczu */} 
@@ -378,13 +385,6 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
 
       <AnimatePresence>
-      {isCloseButtonVisible && (
-        <CloseButton
-        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
-        setEuropa={setEuropa} 
-        setEuropeNews={setEuropeNews} 
-        setCloseButtonVisible={setCloseButtonVisible}
-        />)}
       </AnimatePresence>
       </>
   )
