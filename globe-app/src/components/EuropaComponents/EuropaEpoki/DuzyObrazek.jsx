@@ -25,7 +25,7 @@ const DuzyObrazek = ({source, FunkcjaZamykania, opis}) => {
             <p className='opis'>{opis}</p>
           </div>
           <div className="obrazekBtn">
-            <button className="close" onClick={FunkcjaZamykania}>Zamknij</button>
+            <button className="close" id='bigPictureBtn' onClick={FunkcjaZamykania}>Zamknij</button>
           </div>
         </motion.div>
     </>
