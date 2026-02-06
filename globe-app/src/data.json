@@ -7,20 +7,69 @@
                 {"id": "hiszpania", "src": "/EuropaData/StartImg/hiszpania.png"},
                 {"id": "islandia", "src": "/EuropaData/StartImg/islandia.png"}
             ],
+            "startNames": [
+                {"id": "albania", "nazwa": "Albania"},
+                {"id": "andora", "nazwa": "Andora"},
+                {"id": "austria", "nazwa": "Austria"},
+                {"id": "belgia", "nazwa": "Belgia"},
+                {"id": "bialorus", "nazwa": "Białoruś"},
+                {"id": "bosnia-i-hercegowina", "nazwa": "Bośnia i Hercegowina"},
+                {"id": "bulgaria", "nazwa": "Bułgaria"},
+                {"id": "chorwacja", "nazwa": "Chorwacja"},
+                {"id": "cypr", "nazwa": "Cypr"},
+                {"id": "czarnogora", "nazwa": "Czarnogóra"},
+                {"id": "czechy", "nazwa": "Czechy"},
+                {"id": "dania", "nazwa": "Dania"},
+                {"id": "estonia", "nazwa": "Estonia"},
+                {"id": "finlandia", "nazwa": "Finlandia"},
+                {"id": "francja", "nazwa": "Francja"},
+                {"id": "grecja", "nazwa": "Grecja"},
+                {"id": "hiszpania", "nazwa": "Hiszpania"},
+                {"id": "holandia", "nazwa": "Holandia"},
+                {"id": "irlandia", "nazwa": "Irlandia"},
+                {"id": "islandia", "nazwa": "Islandia"},
+                {"id": "liechtenstein", "nazwa": "Liechtenstein"},
+                {"id": "litwa", "nazwa": "Litwa"},
+                {"id": "luksemburg", "nazwa": "Luksemburg"},
+                {"id": "lotwa", "nazwa": "Łotwa"},
+                {"id": "macedonia-polnocna", "nazwa": "Macedonia Północna"},
+                {"id": "malta", "nazwa": "Malta"},
+                {"id": "mołdawia", "nazwa": "Mołdawia"},
+                {"id": "monako", "nazwa": "Monako"},
+                {"id": "niemcy", "nazwa": "Niemcy"},
+                {"id": "norwegia", "nazwa": "Norwegia"},
+                {"id": "polska", "nazwa": "Polska"},
+                {"id": "portugalia", "nazwa": "Portugalia"},
+                {"id": "rosja", "nazwa": "Rosja"},
+                {"id": "rumunia", "nazwa": "Rumunia"},
+                {"id": "san-marino", "nazwa": "San Marino"},
+                {"id": "serbia", "nazwa": "Serbia"},
+                {"id": "slowacja", "nazwa": "Słowacja"},
+                {"id": "slowenia", "nazwa": "Słowenia"},
+                {"id": "szwajcaria", "nazwa": "Szwajcaria"},
+                {"id": "szwecja", "nazwa": "Szwecja"},
+                {"id": "turcja", "nazwa": "Turcja"},
+                {"id": "ukraina", "nazwa": "Ukraina"},
+                {"id": "wegry", "nazwa": "Węgry"},
+                {"id": "wielka-brytania", "nazwa": "Wielka Brytania"},
+                {"id": "wlochy", "nazwa": "Włochy"},
+                {"id": "watykan", "nazwa": "Watykan"},
+                {"id": "kosowo", "nazwa": "Kosowo"}
+            ],
             "Starożytność" : {
                 "title": "Starożytność",
                 "text1": "Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.",
                 "text2": "Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon",
                 "img": [
-                    {"id": "ATENY", "src": "/EuropaData/StarozytnoscImg/ateny.jpg"},
-                    {"id": "GRECJA1", "src": "/EuropaData/StarozytnoscImg/grecja1.jpg"},
-                    {"id": "GRECJA2", "src": "/EuropaData/StarozytnoscImg/grecja2.jpg"},
-                    {"id": "GRECJA3", "src": "/EuropaData/StarozytnoscImg/grecja4.jpeg"},
-                    {"id": "GRECJA4", "src": "/EuropaData/StarozytnoscImg/grecja5.jpg"},
-                    {"id": "GRECJA5", "src": "/EuropaData/StarozytnoscImg/grecja6.jpg"},
-                    {"id": "RZYM1", "src": "/EuropaData/StarozytnoscImg/rzym1.jpg"},
-                    {"id": "RZYM2", "src": "/EuropaData/StarozytnoscImg/rzym2.jpg"},
-                    {"id": "RZYM3", "src": "/EuropaData/StarozytnoscImg/rzym4.jpg"}
+                    {"id": "ATENY", "src": "/EuropaData/StarozytnoscImg/ateny.jpg", "opis": "Polityczna mapa regionu Morza Śródziemnego. "},
+                    {"id": "GRECJA1", "src": "/EuropaData/StarozytnoscImg/grecja1.jpg", "opis": "Akropol ateński, ufortyfikowane wzgórze dominujące nad Atenami. "},
+                    {"id": "PROMATHOS", "src": "/EuropaData/StarozytnoscImg/AtenaPromathos.jpg", "opis": "Atena Promachos"},
+                    {"id": "GRECJA3", "src": "/EuropaData/StarozytnoscImg/grecja4.jpeg", "opis": "Stanowisko archeologiczne w Delfach w Grecji, wpisane na Listę Światowego Dziedzictwa UNESCO. "},
+                    {"id": "GRECJA4", "src": "/EuropaData/StarozytnoscImg/grecja5.jpg", "opis": "Odeon Heroda Attyka, starożytny kamienny teatr położony na południowo-zachodnim zboczu Akropolu ateńskiego w Atenach"},
+                    {"id": "SOKRATES", "src": "/EuropaData/StarozytnoscImg/sokrates.jpg", "opis": "Posąg Sokratesa, wybitnego greckiego filozofa z V wieku p.n.e."},
+                    {"id": "RZYM1", "src": "/EuropaData/StarozytnoscImg/rzym1.jpg", "opis": "Diogenes wyrzucający miskę - moment z życia słynnego greckiego filozofa cynickiego Diogenesa z Synopy"},
+                    {"id": "RZYM2", "src": "/EuropaData/StarozytnoscImg/rzym2.jpg", "opis": "Forum Romanum, najstarszy plac miejski i główne centrum polityczne, religijne i towarzyskie starożytnego Rzymu."},
+                    {"id": "RZYM3", "src": "/EuropaData/StarozytnoscImg/rzym4.jpg", "opis": "Plac Świętego Piotra."}
                 ]
             },
             "Nowożytność": {
@@ -28,15 +77,15 @@
                 "text1": "Epoka ta przyniosła gwałtowne przebudzenie i zmianę perspektywy z teocentrycznej na antropocentryczną – człowiek stanął w centrum wszechświata.",
                 "text2": "Humanizm i powrót do wzorców antycznych zaowocowały eksplozją sztuki (Da Vinci, Michał Anioł) oraz przełomami naukowymi, takimi jak teoria heliocentryczna Kopernika, która zburzyła dotychczasowy obraz kosmosu. Równocześnie, dzięki odwadze żeglarzy takich jak Kolumb czy Magellan, Europa przełamała granice horyzontu, rozpoczynając erę Wielkich Odkryć Geograficznych.Druk również dzięki swojemu rozwojowi wspomógł szybsze przekazywanie informacji. Stary Kontynent stał się centrum globalnego handlu i hegemonem, budującym kolonialne imperia od obu Ameryk po Indie, co przyniosło Europie niewyobrażalne bogactwo, ale też zapoczątkowało krwawą rywalizację mocarstw i reformację religijną, która trwale podzieliła chrześcijaństwo.",
                 "img": [
-                    {"id": "CZLOWIEK", "src": "/EuropaData/NowozytnoscImg/czlowiek.jpg"},
-                    {"id": "KOPERNIK", "src": "/EuropaData/NowozytnoscImg/kopernik.jpg"},
-                    {"id": "LUTER", "src": "/EuropaData/NowozytnoscImg/luter.jpg"},
-                    {"id": "MAGELLAN", "src": "/EuropaData/NowozytnoscImg/magellan.jpg"},
-                    {"id": "MICHALANIOL", "src": "/EuropaData/NowozytnoscImg/michalaniol.jpeg"},
-                    {"id": "ODKRYCIEAMERYKI", "src": "/EuropaData/NowozytnoscImg/odkrycieameryki.jpg"},
-                    {"id": "ROZWOJDRUKU", "src": "/EuropaData/NowozytnoscImg/rozwojdruku.jpg"},
-                    {"id": "STARAMAPA", "src": "/EuropaData/NowozytnoscImg/staramapa.jpg"},
-                    {"id": "UPADEKRZYMU", "src": "/EuropaData/NowozytnoscImg/upadekrzymu.jpg"}
+                    {"id": "CZLOWIEK", "src": "/EuropaData/NowozytnoscImg/czlowiek.jpg", "opis": "Człowiek witruwiański - słynne dzieło Leonarda da Vinci."},
+                    {"id": "KOPERNIK", "src": "/EuropaData/NowozytnoscImg/kopernik.jpg", "opis": "Mikołaj Kopernik twórca teorii heliocentrycznej."},
+                    {"id": "LUTER", "src": "/EuropaData/NowozytnoscImg/luter.jpg", "opis": "Marcin Luter, niemiecki teolog, duchowny i inicjator reformacji."},
+                    {"id": "MAGELLAN", "src": "/EuropaData/NowozytnoscImg/magellan.jpg", "opis": "Odkrywca Portugalii, a później Hiszpanii, który odkrył Cieśninę Magellana, przewodząc pierwszej wyprawie, która z powodzeniem opłynęła kulę ziemską"},
+                    {"id": "MICHALANIOL", "src": "/EuropaData/NowozytnoscImg/michalaniol.jpeg", "opis": "Fresk Michała Anioła zatytułowany: Stworzenie Adama. Jedno z najbardziej rozpoznawalnych dzieł sztuki na świecie, znajdujące się na sklepieniu Kaplicy Sykstyńskiej w Watykanie. "},
+                    {"id": "ODKRYCIEAMERYKI", "src": "/EuropaData/NowozytnoscImg/odkrycieameryki.jpg", "opis": "Pierwsze chwile Krzysztofa Kolumba w ameryce."},
+                    {"id": "ROZWOJDRUKU", "src": "/EuropaData/NowozytnoscImg/rozwojdruku.jpg", "opis": "Pracownik obsługujący wczesną prasę drukarską, wynalezioną przez Jana Gutenberga. "},
+                    {"id": "STARAMAPA", "src": "/EuropaData/NowozytnoscImg/staramapa.jpg", "opis": "Mapa arabskiego kartografa al-Idrisiego z 1154, Tabula Idrisiana, była jedną z najdokładniejszych map świata sprzed epoki europejskich wypraw."},
+                    {"id": "UPADEKRZYMU", "src": "/EuropaData/NowozytnoscImg/upadek_rzymu.jpg", "opis": "Obraz nosi tytuł: Genzeryk zdobywa Rzym w 455 roku, , namalowany przez Karla Briułłowa. Przedstawia on splądrowanie Rzymu przez Wandalów pod wodzą Genzeryka. "}
                 ]
             },
             "Średniowiecze": {
@@ -44,15 +93,15 @@
                 "text1": "Ta trwająca tysiąc lat epoka, niesłusznie zwana „wiekami ciemnymi”, była czasem rodzenia się europejskich narodów i uniwersalnej kultury łacińskiej. Po upadku Rzymu i chaosie Wędrówek Ludów, Kościół Katolicki stał się jedyną instytucją spajającą rozbity kontynent, przechowując wiedzę w klasztornych skryptoriach i tworząc sieć pierwszych uniwersytetów (Bolonia, Paryż, Kraków).",
                 "text2": "Był to czas feudalizmu, gdzie społeczeństwo dzieliło się na tych, co się modlą, walczą i pracują, oraz czas narodzin etosu rycerskiego i wielkich królestw – Francji, Anglii, czy monarchii Karola Wielkiego. Mimo epidemii Czarnej Śmierci i wojen, to właśnie wtedy rozkwitły miasta, powstały systemy cechowe i parlamentaryzm, a gotyckie katedry pnące się ku niebu stały się dowodem na niezwykły kunszt inżynieryjny ówczesnej Europy.",
                 "img":[
-                    {"id": "BOLONIA", "src": "/EuropaData/SredniowieczeImg/bolonia.jpg"},
-                    {"id": "DZUMA", "src": "/EuropaData/SredniowieczeImg/dzuma.jpg"},
-                    {"id": "HUSARIA", "src": "/EuropaData/SredniowieczeImg/husaria.jpg"},
-                    {"id": "KOSCIOL", "src": "/EuropaData/SredniowieczeImg/kosciol.jpg"},
-                    {"id": "MIASTA", "src": "/EuropaData/SredniowieczeImg/miasta.jpg"},
-                    {"id": "MIESZCZANIE", "src": "/EuropaData/SredniowieczeImg/mieszczanie.jpg"},
-                    {"id": "OGRODZIENIEC", "src": "/EuropaData/SredniowieczeImg/ogrodzieniec.jpg"},
-                    {"id": "WIES", "src": "/EuropaData/SredniowieczeImg/wies.jpg"},
-                    {"id": "ZBROJARYCZERZA", "src": "/EuropaData/SredniowieczeImg/zbroja_rycerza.jpg"}
+                    {"id": "BOLONIA", "src": "/EuropaData/SredniowieczeImg/bolonia.jpg", "opis": "Archiginnasio to jeden z najważniejszych pałaców w Bolonii, niegdyś będący siedzibą starożytnego uniwersytetu."},
+                    {"id": "DZUMA", "src": "/EuropaData/SredniowieczeImg/dzuma.jpg", "opis": "Lekarze dżumy, którzy działali podczas epidemii dżumy, znanej jako Czarna Śmierć, w średniowiecznej Europie. "},
+                    {"id": "HUSARIA", "src": "/EuropaData/SredniowieczeImg/husaria.jpg", "opis": "Szarża polskiej ciężkozbrojnej jazdy - husarii, która była charakterystyczną formacją wojskową Rzeczypospolitej."},
+                    {"id": "KOSCIOL", "src": "/EuropaData/SredniowieczeImg/kosciol.jpg", "opis": "Bazylika archikatedralna Świętych Stanisława i Wacława na Wawelu w Krakowie."},
+                    {"id": "MIASTA", "src": "/EuropaData/SredniowieczeImg/miasta.jpg", "opis": "Panorama miasta z lotu ptaka w epoce przejściowej między średniowieczem a renesansem."},
+                    {"id": "MIESZCZANIE", "src": "/EuropaData/SredniowieczeImg/mieszczanie.jpg", "opis": "Krakowscy mieszczanie w charakterystycznych strojach."},
+                    {"id": "OGRODZIENIEC", "src": "/EuropaData/SredniowieczeImg/ogrodzieniec.jpg", "opis": "Rycina przedstawiająca Zamek Ogrodzieniec w Podzamczu na Jurze Krakowsko-Częstochowskiej."},
+                    {"id": "WIES", "src": "/EuropaData/SredniowieczeImg/wies.jpg", "opis": "Ożywiona scena chłopskiego wesela i uczty odbywającej się na świeżym powietrzu, przed wiejską chatą - realia średniowiecznych chłopów."},
+                    {"id": "ZBROJARYCZERZA", "src": "/EuropaData/SredniowieczeImg/zbroja_rycerza.jpg", "opis": "Pełna, płytowa zbroja, odpowiadająca stylistycznie późnemu średniowieczu."}
                 ]
 
             },
@@ -61,15 +110,15 @@
                 "text1": "Epoka współczesna to obecnie trwający okres historii, którego fundamentem były I i II wojna światowa. Konflikty te doprowadziły do upadku dawnych imperiów, ogromnych zniszczeń i śmierci milionów ludzi, a II wojna światowa dodatkowo ujawniła skalę zbrodni totalitarnych systemów. Po 1945 roku Europa została podzielona między dwa przeciwstawne bloki, z których wschodni opierał się na komunizmie i silnej kontroli państwa, a zachodni na demokracji i współpracy.",
                 "text2": "Doświadczenia wojen stały się impulsem do poszukiwania trwałego pokoju, czego efektem było powstanie Unii Europejskiej jako wspólnoty mającej zapobiegać kolejnym konfliktom. Współczesność pozostaje więc epoką napięć, pamięci o dramatycznych wydarzeniach XX wieku oraz ciągłego dążenia do stabilności i porozumienia między państwami.",
                 "img":[
-                    {"id": "CZOLGI", "src": "/EuropaData/WspolczesnoscImg/czolgi.jpg"},
-                    {"id": "DRUGAWOJNA", "src": "/EuropaData/WspolczesnoscImg/drugawojna.jpg"},
-                    {"id": "EURO", "src": "/EuropaData/WspolczesnoscImg/euro.jpeg"},
-                    {"id": "FLAGA", "src": "/EuropaData/WspolczesnoscImg/flaga.jpeg"},
-                    {"id": "KOMUNIZM", "src": "/EuropaData/WspolczesnoscImg/komunizm.jpg"},
-                    {"id": "MURBERLINSKI", "src": "/EuropaData/WspolczesnoscImg/murberlinski.jpg"},
-                    {"id": "PIERWSZAWOJNA", "src": "/EuropaData/WspolczesnoscImg/pierwszawojna.jpg"},
-                    {"id": "ZOLNIERZE", "src": "/EuropaData/WspolczesnoscImg/pierwszawojnazolnierze.jpg"},
-                    {"id": "UNIA", "src": "/EuropaData/WspolczesnoscImg/unia.jpg"}
+                    {"id": "CZOLGI", "src": "/EuropaData/WspolczesnoscImg/czolgi.jpg", "opis": "Niemieckie czołgi lekkie Panzer 38(t) podczas inwazji na Polskę we wrześniu 1939 roku."},
+                    {"id": "DRUGAWOJNA", "src": "/EuropaData/WspolczesnoscImg/drugawojna.jpg", "opis": "Kluczowe momenty i siły zaangażowane w pierwsze dni II wojny światowej."},
+                    {"id": "FLAGA", "src": "/EuropaData/WspolczesnoscImg/flaga.jpeg", "opis": "Podniesienie sztandaru nad Reichstagiem."},
+                    {"id": "KOMUNIZM", "src": "/EuropaData/WspolczesnoscImg/komunizm.jpg", "opis": "Charakterystyczną scena z okresu Polskiej Rzeczypospolitej Ludowej, ukazującą kolejkę ludzi oczekujących na zakup towarów deficytowych."},
+                    {"id": "MURBERLINSKI", "src": "/EuropaData/WspolczesnoscImg/murberlinski.jpg", "opis": "Grupa bawiących się dzieci na ulicy, tuż przy Murze Berlińskim, który oddziela je od Berlina Wschodniego."},
+                    {"id": "PIERWSZAWOJNA", "src": "/EuropaData/WspolczesnoscImg/pierwszawojna.jpg", "opis": "Polscy legionisci na pozycji strzeleckiej w okopie."},
+                    {"id": "ZOLNIERZE", "src": "/EuropaData/WspolczesnoscImg/pierwszawojnazolnierze.jpg", "opis": "Brytyjscy (lub alianccy) żołnierze obsługujący ciężki karabin maszynowy Vickers podczas I wojny światowej."},
+                    {"id": "EURO", "src": "/EuropaData/WspolczesnoscImg/euro.jpeg", "opis": "Asortyment banknotów i monet euro, oficjalnej waluty Unii Europejskiej."},
+                    {"id": "UNIA", "src": "/EuropaData/WspolczesnoscImg/unia.jpg", "opis": "Flaga Unii Europejskiej."}
                 ]
             },
             "Wydarzenia": [
@@ -147,9 +196,9 @@
             "name": "Azja",
             "startText": "Azja: tradycja i przemiany historii",
             "startImg": [
-                {"id": "chorwacja", "src": "/StartImg/chorwacja.jpg"},
-                {"id": "hiszpania", "src": "/StartImg/hiszpania.png"},
-                {"id": "islandia", "src": "/StartImg/islandia.png"}
+                {"id": "Wzgórze Adama", "src": "/AzjaData/StartImg/Adams-Peak.jpg"},
+                {"id": "Bagan", "src": "AzjaData/StartImg/Bagan.jpg"},
+                {"id": "Komodo", "src": "AzjaData/StartImg/Komodo.jpg"}
             ],
             "Starożytność" : {
                 "title": "Starożytność",

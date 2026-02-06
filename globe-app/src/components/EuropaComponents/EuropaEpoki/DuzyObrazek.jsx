@@ -2,7 +2,7 @@ import React from 'react'
 import './DuzyObrazek.css'
 import {motion, AnimatePresence, easeInOut} from 'framer-motion'
 
-const DuzyObrazek = ({source, FunkcjaZamykania}) => {
+const DuzyObrazek = ({source, FunkcjaZamykania, opis}) => {
   return (
     <>
         <motion.div 
@@ -18,8 +18,15 @@ const DuzyObrazek = ({source, FunkcjaZamykania}) => {
           }
         }}
         >
-            <img  id="obrazek" src={source} alt="" />
-            <button className="close" id="duzy-obrazek" onClick={FunkcjaZamykania}>Zamknij</button>
+          <div id='containerImg'>
+            <div id='obrazekImg'>
+              <img id="obrazek" src={source} alt="" />
+            </div>
+            <p className='opis'>{opis}</p>
+          </div>
+          <div className="obrazekBtn">
+            <button className="close" onClick={FunkcjaZamykania}>Zamknij</button>
+          </div>
         </motion.div>
     </>
   )

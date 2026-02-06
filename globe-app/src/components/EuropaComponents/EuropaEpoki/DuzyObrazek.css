@@ -14,6 +14,7 @@ html, body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     z-index: 10000;
 }
 #obrazek{
@@ -22,7 +23,28 @@ html, body{
     object-fit: contain;
     transform: scale(2.5);
 }
+#containerImg{
+    display: flex;
+    flex: 9;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: center;
+}
 
-#duzy-obrazek{
-    box-shadow: 0px 0px 6px #fff;
+#obrazekImg{
+    display: flex;
+    flex: 9
+}
+
+.opis{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    color: aliceblue;
+}
+
+#obrazekBtn{
+    display: flex;
+    flex: 1;
 }
