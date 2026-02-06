@@ -12,11 +12,15 @@ const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisi
     <>
     {isWydarzeniaVisible ? 
     <motion.div 
-    className="card-wydarzenia"
-    initial={{y: -1000, opacity: 0}}
-    animate= {{y: 0, opacity: 1}}
-    exit={{y: -1000, opacity: 0}}
-    transition={{duration: 1, ease: "easeInOut"}}
+      className="card-wydarzenia"
+        initial = {{opacity: 0, y: -1000}}
+        animate= {{opacity:1, y: 0}}
+        exit = {{opacity:0, y: -1000}}
+        transition={{
+          scale: { type: "spring", bounce: 0.4, duration: 0.5},
+          opacity: { duration: 0.4, ease: "easeInOut"},
+          y:{ duration: 0.5, ease: "easeInOut" }
+        }} 
     >
         <div className="panel2" id='panel-wydarzenia'>
           <div className="container-wydarzenia">
@@ -57,12 +61,27 @@ const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisi
             >⮂</motion.button>
             
           {isCloseButtonVisible && (
-        <CloseButton
-          setEuropa={setEuropa} 
-          Europa={Europa} 
-          setEuropeNews={setEuropeNews} 
-          setCloseButtonVisible={setCloseButtonVisible}
-        />)}       
+            <motion.button className="close-content"
+            whileHover={{
+                scale:0.9,
+                transition: {duration: 0.1}
+            }}
+            initial = {{opacity: 0, y:1000}}
+            animate= {{opacity:1, y:0}}
+            exit = {{opacity:0, y: 1000}}
+            transition={{
+                scale: { type: "spring", bounce: 0.4, duration: 0.5},
+                opacity: { duration: 0.4, ease: "easeInOut"},
+                y:{ duration: 0.5, ease: "easeInOut" }
+            }} 
+            onClick={()=> {setWydarzeniaVisible(false); setCloseButtonVisible(false); setWydarzeniaButtonVisible(false);
+                setTimeout(() => {
+                setEuropa(false)
+            }, 300);
+          }}
+            >✕
+            </motion.button>
+        )}       
     </>
   )
 }

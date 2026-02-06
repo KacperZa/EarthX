@@ -12,9 +12,9 @@ const CloseButton = ({setWydarzeniaButtonVisible,setEuropeNews, setEuropa, setCl
         scale:0.9,
         transition: {duration: 0.1}
     }}
-    initial = {{opacity: 0, scale: 0.8}}
-    animate= {{opacity:1, scale:1}}
-    exit = {{opacity:0, y: -1000}}
+    initial = {{opacity: 0, y:1000}}
+    animate= {{opacity:1, y:0}}
+    exit = {{opacity:0, y: 1000}}
     transition={{
         scale: { type: "spring", bounce: 0.4, duration: 0.5},
         opacity: { duration: 0.4, ease: "easeInOut"},
