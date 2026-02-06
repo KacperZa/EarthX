@@ -51,7 +51,9 @@ import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 // import islandia from './StartImg/islandia.png'
 
 import CloseButton from '../CloseButton'
+import FallingText from '../FallingText/FallingText'
 import SplitText from '../SplitText'
+import BlurText from '../BlurText/BlurText'
 
 // import Starozytnosc from './EuropaEpoki/EpokaComponent'
 // import Średniowiecze from './EuropaEpoki/Średniowiecze'
@@ -89,10 +91,10 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
     RZYM2: "rzym2",
     RZYM3: "rzym3",
     GRECJA1: "grecja1",
-    GRECJA2: "grecja2",
+    PROMATHOS: "promathos",
     GRECJA3: "grecja3",
     GRECJA4: "grecja4",
-    GRECJA5: "grecja5",
+    SOKRATES: "sokrates",
     ATENY: "ateny",
     BRAK: "brak"
   }
@@ -145,7 +147,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   const [WybraneZdjecieWspolczesnosc, setWybraneZdjecieWspolczesnosc] = useState(ZdjęciaWspolczesnosc.BRAK);
 
   const [isButtonImgVisible, setButtonImgVisible] = useState(false);
-  const [AktualnaEpoka, setAktualnaEpoka] = useState(null);
+  const [AktualnaEpoka, setAktualnaEpoka] = useState("Starożytność");
   const [AktualnyRok, setAktualnyRok] = useState("")
 
   let Data;
@@ -155,13 +157,13 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
     Data = Rok;
     
     if (Rok < 0){
-      Data = Math.abs(Rok) + " p.n.e";
+      Data = Math.abs(Rok) + " p.n.e.";
     }
     else{
-      Data = Rok + " n.e"
+      Data = Rok + " n.e."
     }
 
-      if (Rok >= -800 &&Rok < 476) {
+      if (Rok >= -800 && Rok < 476) {
         setWybranaEpoka(Epoka.STAROZYTNOSC)
         setAktualnaEpoka("Starożytność")
       }
@@ -262,7 +264,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
         {/* Panel powitalny(wstęp) */}
 
         <div className="panel1">
-          <SplitText
+          {/* <SplitText
               text= {content["startText"]}
               className='poczatek'
               delay={100}
@@ -274,31 +276,17 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
               threshold={0.1}
               rootMargin="-100px"
               textAlign="center"
-              />
+              /> */}
+              <BlurText
+                text={content["startText"]}
+                delay={200}
+                animateBy="words"
+                direction="top"
+                className="poczatek"
+            />
+
+              {/* <FallingText items={content["startNames"]}/> */}
         </div>
-
-        {/* Panel z informacjami o europie */}
-
-        {/* <motion.div className="panel2">
-          <div className="naglowek-panel2">
-          1. Starożytność: Fundamenty Zachodu
-          </div>
-          <div className="container-panel2">
-          <div className="tekst-panel2">
-          
-          <div className="tekst1-panel2">
-          Dziedzictwo Grecji: To starożytni Grecy dali Europie to, co najcenniejsze: demokrację, filozofię, teatr i kanony piękna w architekturze. Ateny stały się pierwszym laboratorium wolnej myśli, gdzie pytania o naturę świata i człowieka zadawali Sokrates czy Platon.
-          </div>
-          
-          <div className="tekst2-panel2">
-          Potęga Rzymu: Rzymianie przejęli grecką kulturę i połączyli ją z militarną potęgą oraz geniuszem inżynieryjnym. Stworzyli Imperium Rzymskie, które zjednoczyło większość kontynentu pod jednym prawem. Rzymskie drogi, akwedukty i – przede wszystkim – kodeksy prawne stały się szkieletem przyszłej Europy. U schyłku tej epoki kluczową rolę zaczęło odgrywać chrześcijaństwo, stając się spoiwem nowej rzeczywistości.
-          </div>
-          
-          </div>
-          <div className="zdjecia-panel2">
-          </div>
-          </div>
-          </motion.div> */}
 
         <div className="panel2" id='panel-timeline'>
           <div className="opakowanie-tresc">
@@ -314,18 +302,11 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
           </div>
           <div className="opakowanie-timeline">
             <label htmlFor="os-czasu"> Oś czasu, rok: {AktualnyRok} </label>
-              <input type="range" name="" id="os-czasu" min={-800} max={2025}  onChange={ValueChangeHandler}/>
+              <input type="range" name="" id="os-czasu" min={-800} max={2026}  onChange={ValueChangeHandler}/>
           </div>
 
         </div>
       </motion.div>
-      {isCloseButtonVisible && (
-        <CloseButton
-        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
-        setEuropa={setEuropa} 
-        setEuropeNews={setEuropeNews} 
-        setCloseButtonVisible={setCloseButtonVisible}
-        />)}
         </motion.div>
           )}
 
@@ -333,7 +314,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       {obrazkiStarożytność
       .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
       .map(item => (
-        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
         
       ))}
 
@@ -341,22 +322,22 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       {obrazkiŚredniowiecze
       .filter(item => ZdjęciaSredniowiecze[item.id] === WybraneZdjecieSredniowiecze)
       .map(item => (
-         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
-
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
+        
       ))}
 
       {/* Powiększanie obrazków na Nowożytności */} 
       {obrazkiNowożytność
       .filter(item => ZdjęciaNowozytnosc[item.id] === WybraneZdjecieNowozytnosc)
       .map(item => (
-         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
       ))}
 
       {/* Powiększanie obrazków na Współczesności */} 
       {obrazkiWspółczesność
       .filter(item => ZdjęciaWspolczesnosc[item.id] === WybraneZdjecieWspolczesnosc)
       .map(item => (
-         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
       ))}
 
       {/* Wydarzenia  */}
@@ -366,13 +347,13 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       <motion.button 
       className='close-content' 
       id='switch'
-        whileHover={{
-      scale:0.9,
-      transition: {duration: 0.1}
+      whileHover={{
+        scale:0.9,
+        transition: {duration: 0.1}
       }}
-      initial = {{opacity: 0, scale: 0.8}}
-      animate= {{opacity:1, scale:1}}
-      exit = {{opacity:0, y: -1000}}
+      initial = {{opacity: 0, y:1000}}
+      animate= {{opacity:1, y:0}}
+      exit = {{opacity:0, y: 1000}}
       transition={{
         scale: { type: "spring", bounce: 0.4, duration: 0.5},
         opacity: { duration: 0.4, ease: "easeInOut"},
@@ -385,6 +366,13 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
 
       <AnimatePresence>
+      {isCloseButtonVisible && (
+        <CloseButton
+        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
+        setEuropa={setEuropa} 
+        setEuropeNews={setEuropeNews} 
+        setCloseButtonVisible={setCloseButtonVisible}
+        />)}
       </AnimatePresence>
       </>
   )
