@@ -64,6 +64,8 @@ import DuzyObrazek from './EuropaEpoki/DuzyObrazek'
 import EpokaStartPage from './EuropaEpoki/EpokaStartPage'
 import Wydarzenia from './Wydarzenia'
 const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
+  
+  
 
   const [EuropeNews, setEuropeNews] = useState(false)
   const [Tytul, setTytul] = useState(true)

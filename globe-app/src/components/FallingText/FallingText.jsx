@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 gsap.registerPlugin(SplitText)
-import SplitType from 'split-type'
 
 import './FallingText.css'
 
