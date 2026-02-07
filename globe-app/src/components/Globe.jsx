@@ -184,6 +184,7 @@ function Globe() {
       }
     }
     
+    
     // Funkcja wywoływana gdy kursor znajdzie się nad elementem
     function onPointerMove(event) {
       const coords = new THREE.Vector2(
@@ -197,12 +198,44 @@ function Globe() {
       
       if (intersections.length > 0) {
         setIsHovered(true)
-        isHovered = true
-        controls.enabled = true
-      } else {
-        isHovered = false
+        isHovered = true;
+        controls.enabled = true;
+
+        const hit = intersections[0];
+        
+        if (!idImg.complete) {
+          console.warn("ID mapa jeszcze nie załadowana");
+          return;
+        }
+        
+        if (hit.uv) {
+          const u = hit.uv.x;
+          const v = 1 - hit.uv.y;
+          
+          const px = Math.floor(u * idImg.width)
+          const py = Math.floor(v * idImg.height)
+          
+          const pixel = idCtx.getImageData(px,py,1,1).data;
+          const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
+          // console.log("RGB ODCZYTANE:", rgb)
+          
+          const region =  ID_TO_REGION[rgb] || "Nieznany region";
+          
+          setBubble({
+            visible: true,
+            text: region,
+            x: event.clientX,
+            y: event.clientY,
+          })
+        
+        } else {
+        setIsHovered(false)
+
+          isHovered = false
+          setBubble({visible: false})
+        }
       }
-    }
+  }
 
     
     function animate() {
