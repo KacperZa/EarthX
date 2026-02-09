@@ -29,6 +29,23 @@ body{
     font-family: "Poppins", sans-serif;
 }
 
+.opakowanie-primary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    z-index: 100;
+}
+
 
 .card{
     position: absolute;
@@ -197,11 +214,9 @@ h1{
 .close-content {
     border-radius: 10px;
     border: none;
-    position: fixed;
-    top: 11vh;
-    right: 11vw;
-    z-index: 9999;
-    width: fit-content;
+    position: relative;
+    width: 4vw;
+    text-align: center;
     height: fit-content;
     padding: 10px 15px;
     font-weight: 800;
@@ -209,9 +224,7 @@ h1{
     font-size: 120%;
     background-color:black;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7), inset 0px 0px 5px #e1e1e1;
 }
 /* ---------------------------------- */
 .panel1, .panel2{
@@ -389,9 +402,6 @@ h1{
     flex: 1;
     justify-content: center;
     align-items: center;
-    /* align-items: stretch; */
-    /* padding: 0 4px; */
-    /* overflow: auto; */
 }
 
 .tresc-zdjecia img{

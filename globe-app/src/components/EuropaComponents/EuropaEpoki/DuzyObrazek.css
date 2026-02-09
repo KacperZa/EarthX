@@ -22,6 +22,8 @@ html, body{
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
+    /* min-height: 2vh;
+    min-width: auto; */
     /* width: fit-content; */
     transform: scale(2.5);
 }
@@ -36,9 +38,10 @@ html, body{
     display: flex;
     flex: 9;
     gap: 10px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10vh;
 }
 
 #obrazek{
@@ -49,8 +52,6 @@ html, body{
 
 .opis{
     display: flex;
-    flex: 1;
-    width: 5v;
     text-align:left;
     color: whitesmoke;
     padding: 1vw;

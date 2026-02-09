@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, AnimatePresence } from 'framer-motion'
 import { v4 as uuid4 } from 'uuid'
 
-import CloseButton from '../CloseButton'
+import CloseButton from '../FunctionalButton'
 import './wydarzenia.css'
 import Karta from './Karta'
 
-const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisible, setEuropeNews, setCloseButtonVisible, setWydarzeniaVisible, isCloseButtonVisible, setEuropa, Europa}) => {
+const Wydarzenia = ({wydarzeniaData, setWydarzeniaButtonVisible, isWydarzeniaVisible, setEuropeNews, setCloseButtonVisible, setWydarzeniaVisible, isCloseButtonVisible, setEuropa, isWydarzeniaButtonVisible}) => {
 
   return (
     <>
+    <AnimatePresence>
     {isWydarzeniaVisible ? 
     <motion.div 
       className="card-wydarzenia"
@@ -40,6 +41,7 @@ const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisi
 
       </motion.div>
     : null}
+          {/* {isWydarzeniaButtonVisible &&( */}
             <motion.button 
             className='close-content' 
             id='switch'
@@ -59,8 +61,10 @@ const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisi
               setCloseButtonVisible(true)
             }, 300); setWydarzeniaButtonVisible(true);}}
             >⮂</motion.button>
+            {/* )} */}
             
-          {isCloseButtonVisible && (
+            
+          {/* {isCloseButtonVisible && (
             <motion.button className="close-content"
             whileHover={{
                 scale:0.9,
@@ -81,7 +85,8 @@ const Wydarzenia = ({wydarzeniaData,setWydarzeniaButtonVisible, isWydarzeniaVisi
           }}
             >✕
             </motion.button>
-        )}       
+        )}        */}
+        </AnimatePresence>
     </>
   )
 }

@@ -50,9 +50,8 @@ import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 // import hiszpania from './StartImg/hiszpania.png'
 // import islandia from './StartImg/islandia.png'
 
-import CloseButton from '../CloseButton'
+import FunctionalButton from '../FunctionalButton'
 import FallingText from '../FallingText/FallingText'
-import SplitText from '../SplitText'
 import BlurText from '../BlurText/BlurText'
 
 // import Starozytnosc from './EuropaEpoki/EpokaComponent'
@@ -192,12 +191,40 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   const obrazkiNowożytność = content["Nowożytność"]["img"]; 
   const obrazkiWspółczesność = content["Współczesność"]["img"]; 
   
+  const FunkcjaZamykania = () =>{
+      setEuropeNews(false),
+      setCloseButtonVisible(false),
+      setWydarzeniaButtonVisible(false)
+      setTimeout(() => {
+        setEuropa(false)
+      }, 300);
+  }
+  const FunkcjaZmiany = () =>{
+    setWydarzeniaVisible(prev => !prev); 
+    setEuropeNews(prev => !prev); 
+  }
   
 
   return (
     <>
+      <div className="menu">
+        <AnimatePresence>
+        {isCloseButtonVisible && (
+          <FunctionalButton funkcja={FunkcjaZamykania}>X</FunctionalButton>
+          )}
+        {isWydarzeniaButtonVisible && (
+          <FunctionalButton funkcja={FunkcjaZmiany}>⮂</FunctionalButton>
+          )}
+        </AnimatePresence>
+        
+      </div>
     
     <AnimatePresence>
+
+
+      <div className="opakowanie-primary">
+
+      
       { Tytul && (
         <motion.div
         key="europe-card"
@@ -343,39 +370,10 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       ))}
 
       {/* Wydarzenia  */}
-      {isWydarzeniaVisible ? <Wydarzenia  wydarzeniaData={content["Wydarzenia"]}setWydarzeniaButtonVisible={setCloseButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} setEuropa={setEuropa} Europa={Europa} />: null}
+      {isWydarzeniaVisible ? <Wydarzenia  wydarzeniaData={content["Wydarzenia"]} setWydarzeniaButtonVisible={setWydarzeniaButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} isWydarzeniaButtonVisible={isWydarzeniaButtonVisible} setEuropa={setEuropa} />: null}
 
-      {isWydarzeniaButtonVisible ? 
-      <motion.button 
-      className='close-content' 
-      id='switch'
-      whileHover={{
-        scale:0.9,
-        transition: {duration: 0.1}
-      }}
-      initial = {{opacity: 0, y:1000}}
-      animate= {{opacity:1, y:0}}
-      exit = {{opacity:0, y: 1000}}
-      transition={{
-        scale: { type: "spring", bounce: 0.4, duration: 0.5},
-        opacity: { duration: 0.4, ease: "easeInOut"},
-        y:{ duration: 0.5, ease: "easeInOut" }
-      }}
-      onClick={() => { setWydarzeniaVisible(true); setEuropeNews(false); setCloseButtonVisible(true); setWydarzeniaButtonVisible(false);}}
-      >⮂</motion.button> : null}
-
-      </AnimatePresence>
-
-
-      <AnimatePresence>
-      {isCloseButtonVisible && (
-        <CloseButton
-        setWydarzeniaButtonVisible={setWydarzeniaButtonVisible}
-        setEuropa={setEuropa} 
-        setEuropeNews={setEuropeNews} 
-        setCloseButtonVisible={setCloseButtonVisible}
-        />)}
-      </AnimatePresence>
+      </div> 
+    </AnimatePresence>
       </>
   )
 }
