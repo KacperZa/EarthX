@@ -12,12 +12,17 @@ const CloseButton = ({funkcja, children}) => {
         scale:0.9,
         transition: {duration: 0.1}
     }}
+    whileTap={{
+      scale: 0.8,
+      transition: {duration: 0.1}
+    }}
+    
     initial = {{opacity: 0,}}
     animate= {{opacity:1}}
     exit = {{opacity:0}}
     transition={{
         scale: { type: "spring", bounce: 0.4, duration: 0.5},
-        opacity: { duration: 0.4, ease: "easeInOut"},
+        opacity: { duration: 0.5, ease: "easeInOut"},
     }} 
     onClick={()=> {funkcja()}}> {children}
     </motion.button>
