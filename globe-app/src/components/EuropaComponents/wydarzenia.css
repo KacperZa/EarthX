@@ -19,11 +19,12 @@
 }
 
 .container-wydarzenia{
+    padding: 50px;
     display: grid;
     padding-top: 50px;
     grid-template-columns: repeat(auto-fit, minmax(250px,0.30fr));  
     gap: 50px;
-    row-gap: 50px;
+    row-gap: 100px;
     /* transform: translateY(11%); */
     /* justify-content: center; */
 }
@@ -32,9 +33,9 @@
     height: 500px;
     width: 300px;
     perspective: 1000px;
-    animation: appear linear;
+    /* animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 40%; */
     /* box-shadow: 2 2 8px  rgba(50,50,50,0.2); */
     /* padding: 20px; */
     /* position: relative; */

@@ -8,11 +8,9 @@ import ID_MAP from '.././earthcolors.jpg';
 import Europe from "./EuropaComponents/Europe";
 
 import worldData from '../data.json'
-
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
-  const [isHovered, setIsHovered] = useState(false);
   const [Europa, setEuropa] = useState(false)
   const [Azja, setAzja] = useState(false)
   const [Afryka, setAfryka] = useState(false)
@@ -129,9 +127,9 @@ function Globe() {
     
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
-    
-    let isHovered = false
-    
+
+    let Hovered = false
+        
     // Funkcja wywoływana gdy sie kliknie na element
     function onMouseDown(event) {
       const coords = new THREE.Vector2(
@@ -177,9 +175,7 @@ function Globe() {
             text: region,
             x: event.clientX,
             y: event.clientY,
-          })
-          
-          
+          })          
         }
       }
     }
@@ -197,8 +193,6 @@ function Globe() {
       const intersections = raycaster.intersectObject(sphere);
       
       if (intersections.length > 0) {
-        setIsHovered(true)
-        isHovered = true;
         controls.enabled = true;
 
         const hit = intersections[0];
@@ -218,6 +212,7 @@ function Globe() {
           const pixel = idCtx.getImageData(px,py,1,1).data;
           const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
           // console.log("RGB ODCZYTANE:", rgb)
+          // console.log(intersections)
           
           const region =  ID_TO_REGION[rgb] || "Nieznany region";
           
@@ -227,23 +222,21 @@ function Globe() {
             x: event.clientX,
             y: event.clientY,
           })
-        
-        } else {
-        setIsHovered(false)
-
-          isHovered = false
-          setBubble({visible: false})
-        }
+          Hovered = true
+         }
+      }else {
+        Hovered = false
+        setBubble({visible: false})
       }
   }
 
     
     function animate() {
       requestAnimationFrame( animate );
-      if (!isHovered){
-        sphere.rotation.y += 0.001;
+
+         !Hovered && (sphere.rotation.y += 0.001);
         // sphere.rotation.z += 0.0005;
-      }
+      
       controls.update();
       renderer.render( scene, camera );
     }

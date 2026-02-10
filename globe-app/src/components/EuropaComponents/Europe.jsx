@@ -194,7 +194,8 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   const FunkcjaZamykania = () =>{
       setEuropeNews(false),
       setCloseButtonVisible(false),
-      setWydarzeniaButtonVisible(false)
+      setWydarzeniaButtonVisible(false),
+      setWydarzeniaVisible(false)
       setTimeout(() => {
         setEuropa(false)
       }, 300);
@@ -219,12 +220,12 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
         
       </div>
     
-    <AnimatePresence>
 
 
-      <div className="opakowanie-primary">
 
-      
+      <motion.div className="opakowanie-primary">
+
+    <AnimatePresence>      
       { Tytul && (
         <motion.div
         key="europe-card"
@@ -322,11 +323,13 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
             <div className="tresc">
               {/* Wyświetlanie Epok w zależności od wartości input range  */}
-              {AktualnaEpoka === null ? <EpokaStartPage/>: null}
-              {AktualnaEpoka === "Starożytność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
-              {AktualnaEpoka === "Średniowiecze" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieSredniowiecze} Zdjęcia={ZdjęciaSredniowiecze}/>: null}
-              {AktualnaEpoka === "Nowożytność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieNowozytnosc} Zdjęcia={ZdjęciaNowozytnosc}/>: null}
-              {AktualnaEpoka === "Współczesność" ? <EpokaComponent data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieWspolczesnosc} Zdjęcia={ZdjęciaWspolczesnosc}/>: null}
+              <AnimatePresence>
+              {AktualnaEpoka === null ? <EpokaStartPage key="start" />: null}
+              {AktualnaEpoka === "Starożytność" ? <EpokaComponent  key="Starożytność" data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieStarozytnosc} Zdjęcia={ZdjęciaStarozytnosc}/>: null}
+              {AktualnaEpoka === "Średniowiecze" ? <EpokaComponent key="Średniowiecze" data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieSredniowiecze} Zdjęcia={ZdjęciaSredniowiecze}/>: null}
+              {AktualnaEpoka === "Nowożytność" ? <EpokaComponent  key="Nowożytność" data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieNowozytnosc} Zdjęcia={ZdjęciaNowozytnosc}/>: null}
+              {AktualnaEpoka === "Współczesność" ? <EpokaComponent key="Współczesność" data={content[AktualnaEpoka]} WybieranieZdjecia={setWybraneZdjecieWspolczesnosc} Zdjęcia={ZdjęciaWspolczesnosc}/>: null}
+            </AnimatePresence>
             </div>
           </div>
           <div className="opakowanie-timeline">
@@ -370,10 +373,10 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       ))}
 
       {/* Wydarzenia  */}
-      {isWydarzeniaVisible ? <Wydarzenia  wydarzeniaData={content["Wydarzenia"]} setWydarzeniaButtonVisible={setWydarzeniaButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} isWydarzeniaButtonVisible={isWydarzeniaButtonVisible} setEuropa={setEuropa} />: null}
-
-      </div> 
+        {isWydarzeniaVisible ? <Wydarzenia key="wydarzenia" wydarzeniaData={content["Wydarzenia"]} setWydarzeniaButtonVisible={setWydarzeniaButtonVisible} setEuropeNews={setEuropeNews} setCloseButtonVisible={setCloseButtonVisible} isWydarzeniaVisible={isWydarzeniaVisible} setWydarzeniaVisible={setWydarzeniaVisible} isCloseButtonVisible={isCloseButtonVisible} isWydarzeniaButtonVisible={isWydarzeniaButtonVisible} setEuropa={setEuropa} />: null}
     </AnimatePresence>
+
+      </motion.div> 
       </>
   )
 }

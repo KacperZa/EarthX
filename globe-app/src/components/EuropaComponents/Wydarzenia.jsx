@@ -6,17 +6,16 @@ import CloseButton from '../FunctionalButton'
 import './wydarzenia.css'
 import Karta from './Karta'
 
-const Wydarzenia = ({wydarzeniaData, setWydarzeniaButtonVisible, isWydarzeniaVisible, setEuropeNews, setCloseButtonVisible, setWydarzeniaVisible, isCloseButtonVisible, setEuropa, isWydarzeniaButtonVisible}) => {
+const Wydarzenia = ({wydarzeniaData, setWydarzeniaButtonVisible, isWydarzeniaVisible, setEuropeNews, setCloseButtonVisible, setWydarzeniaVisible}) => {
 
   return (
     <>
-    <AnimatePresence>
     {isWydarzeniaVisible ? 
     <motion.div 
       className="card-wydarzenia"
         initial = {{opacity: 0, y: -1000}}
-        animate= {{opacity:1, y: 0}}
-        exit = {{opacity:0, y: -1000}}
+        animate= {{opacity: 1, y: 0}}
+        exit = {{opacity: 0, y: -1000}}
         transition={{
           scale: { type: "spring", bounce: 0.4, duration: 0.5},
           opacity: { duration: 0.4, ease: "easeInOut"},
@@ -86,7 +85,6 @@ const Wydarzenia = ({wydarzeniaData, setWydarzeniaButtonVisible, isWydarzeniaVis
             >✕
             </motion.button>
         )}        */}
-        </AnimatePresence>
     </>
   )
 }
