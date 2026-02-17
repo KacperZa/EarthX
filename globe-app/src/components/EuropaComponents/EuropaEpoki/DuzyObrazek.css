@@ -54,7 +54,7 @@ html, body{
     display: flex;
     text-align:left;
     color: whitesmoke;
-    padding: 1vw;
+    padding: 1.5rem;
     border-radius: 1vh;
     background-color: rgba(55, 55, 55, 0.8);
 }

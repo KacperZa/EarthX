@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { motion, useScroll, AnimatePresence } from 'framer-motion'
+import React, {  } from 'react'
+import { motion } from 'framer-motion'
 import { v4 as uuid4 } from 'uuid'
 
 import CloseButton from '../FunctionalButton'
@@ -23,6 +23,18 @@ const Wydarzenia = ({wydarzeniaData, setWydarzeniaButtonVisible, isWydarzeniaVis
         }} 
     >
         <div className="panel2" id='panel-wydarzenia'>
+          {/* <div className="filter-menu">
+            <select name="wybor-epoki" id="">
+              <option value="średniowiecze">Średniowiecze</option>
+              <option value="nowożytność">Nowożytność</option>
+              <option value="współczesność">Współczesność</option>
+              <option value="starożytność">Starożytność</option>
+            </select>
+            <select name="wybor-rok" id="">
+              <option value="najmlodszy">Od najmłodszego do najstarszego</option>
+              <option value="najstarszy">Od najstarszego do najmłodszego</option>
+            </select>
+          </div> */}
           <div className="container-wydarzenia">
             {wydarzeniaData
             .map((item) =>(

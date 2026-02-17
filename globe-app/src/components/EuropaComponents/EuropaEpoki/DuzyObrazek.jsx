@@ -1,6 +1,6 @@
 import React from 'react'
 import './DuzyObrazek.css'
-import {motion, AnimatePresence, easeInOut} from 'framer-motion'
+import { motion, AnimatePresence, easeInOut } from 'framer-motion'
 
 const DuzyObrazek = ({source, FunkcjaZamykania, opis}) => {
   return (
