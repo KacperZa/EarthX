@@ -205,15 +205,15 @@
                 "text1": "Starożytna Azja to czas narodzin pierwszych wielkich cywilizacji, w których rozwój rolnictwa, miasta-państwa i systemów administracyjnych stworzył fundamenty życia społecznego, politycznego i gospodarczego. W dolinach rzek Huang He i Jangcy w Chinach, Indusu w Indiach czy Tygrysu i Eufratu w Mezopotamii powstawały pierwsze osady, które dzięki dostępowi do wody mogły produkować nadwyżki żywności i rozwijać handel lokalny. Wynalezienie pisma klinowego w Mezopotamii i chińskiego pisma ideograficznego umożliwiło zapis prawa, handlu, historii i administracji, a spisane kodeksy prawne, jak słynny kodeks Hammurabiego, wprowadzały porządek i regulowały życie codzienne. ",
                 "text2": "W tym samym czasie powstawały fundamenty wielkich religii i filozofii – hinduizm i buddyzm w Indiach, konfucjanizm i taoizm w Chinach – które kształtowały etykę, życie rodzinne i relacje między władzą a społeczeństwem. Jednocześnie rozwijał się handel na długich dystansach, zwłaszcza wzdłuż Jedwabnego Szlaku, co pozwalało wymieniać towary, technologie i idee między Azją, Bliskim Wschodem i Europą, tworząc pierwsze globalne sieci wymiany. Starożytność w Azji była więc okresem dynamicznego rozwoju cywilizacyjnego, który położył podwaliny pod kulturę, religię i państwowość na wiele stuleci.",
                 "img": [
-                    {"id": "ATENY", "src": "/StarozytnoscImg/ateny.jpg"},
-                    {"id": "GRECJA1", "src": "/StarozytnoscImg/grecja1.jpg"},
-                    {"id": "GRECJA2", "src": "/StarozytnoscImg/grecja2.jpg"},
-                    {"id": "GRECJA3", "src": "/StarozytnoscImg/grecja4.jpeg"},
-                    {"id": "GRECJA4", "src": "/StarozytnoscImg/grecja5.jpg"},
-                    {"id": "GRECJA5", "src": "/StarozytnoscImg/grecja6.jpg"},
-                    {"id": "RZYM1", "src": "/StarozytnoscImg/rzym1.jpg"},
-                    {"id": "RZYM2", "src": "/StarozytnoscImg/rzym2.jpg"},
-                    {"id": "RZYM3", "src": "/StarozytnoscImg/rzym4.jpg"}
+                    {"id": "PISMOKLINOWE", "src": "/StarozytnoscImg/pismo_klinowe.jpg", "opis": "Tabliczka z pismem klinowym, jednym z najstarszych systemów pisma, używanym w starożytnej Mezopotamii."},
+                    {"id": "PISMOIDEOGRAFICZNE", "src": "/StarozytnoscImg/pismo_ideograficzne.jpg", "opis": "Pismo ideograficzne używane w Chinach, które opierało się na symbolach reprezentujących pojęcia."},
+                    {"id": "KALI", "src": "/StarozytnoscImg/kali.jpg", "opis": "Kali, bóstwo hinduskie, symbolizującego zniszczenie i odbudowę świata."},
+                    {"id": "HISTORIABUDDY", "src": "/StarozytnoscImg/zycie_buddy.jpeg", "opis": "Sceny z życia Buddy, założyciela buddyzmu."},
+                    {"id": "KOLODHARMY", "src": "/StarozytnoscImg/kolo_dharmy.png", "opis": "Najpopularniejszy symbol buddyjski"},
+                    {"id": "KONFUCJUSZ", "src": "/StarozytnoscImg/konfucjusz.jpg", "opis": "Konfucjusz, filozof chiński, założyciel konfucjanizmu."},
+                    {"id": "TAOIZM", "src": "/StarozytnoscImg/taoizm.jpg", "opis": "Symbol będący fundamentem taoizmu – chińskiego systemu filozoficznego i religijnego, który kładzie nacisk na życie w harmonii z naturalnym porządkiem wszechświata (Tao)."},
+                    {"id": "LISI", "src": "/StarozytnoscImg/LiSi.jpg", "opis": "Najsłynniejszy praktyk legizmu, kanclerz w państwie Qin."},
+                    {"id": "MOTIZM", "src": "/StarozytnoscImg/motizm.jpg", "opis": "Mo Di, chiński filozof, założyciel motyzmu, który głosił uniwersalną miłość i sprzeciwiał się wojnom."}
                 ]
             },
             "Nowożytność": {
@@ -221,15 +221,15 @@
                 "text1": "Epoka nowożytna w Azji to czas intensywnych kontaktów z Europą, rozwoju potężnych państw i jednoczesnej presji zewnętrznych mocarstw. Dynastie Ming i Qing w Chinach rozwijały administrację, gospodarkę i kulturę, budując monumentalne budowle, takie jak Zakazane Miasto, jednocześnie kontrolując handel i rozwijając rolnictwo. W Indiach Imperium Mogołów jednoczyło subkontynent, wznosząc wspaniałe zabytki architektury i wzmacniając system administracyjny. ",
                 "text2": "W tym samym czasie Portugalczycy, Holendrzy i Brytyjczycy pojawili się w Azji, zakładając faktorie handlowe i zwiększając znaczenie handlu kolonialnego – zwłaszcza przyprawami, jedwabiem i herbatą. Imperia osmańskie kontrolowały strategiczne szlaki między Azją a Europą, a lokalne władze musiały balansować między utrzymaniem niezależności a korzystaniem z kontaktów handlowych. To była epoka zarówno rozkwitu państw azjatyckich, jak i powolnej ingerencji europejskiej, która przyniosła nowe technologie, towary i konflikty polityczne, tworząc podstawy globalnej gospodarki.",
                 "img": [
-                    {"id": "CZLOWIEK", "src": "/NowozytnoscImg/czlowiek.jpg"},
-                    {"id": "KOPERNIK", "src": "/NowozytnoscImg/kopernik.jpg"},
-                    {"id": "LUTER", "src": "/NowozytnoscImg/luter.jpg"},
-                    {"id": "MAGELLAN", "src": "/NowozytnoscImg/magellan.jpg"},
-                    {"id": "MICHALANIOL", "src": "/NowozytnoscImg/michalaniol.jpeg"},
-                    {"id": "ODKRYCIEAMERYKI", "src": "/NowozytnoscImg/odkrycieameryki.jpg"},
-                    {"id": "ROZWOJDRUKU", "src": "/NowozytnoscImg/rozwojdruku.jpg"},
-                    {"id": "STARAMAPA", "src": "/NowozytnoscImg/staramapa.jpg"},
-                    {"id": "UPADEKRZYMU", "src": "/NowozytnoscImg/upadekrzymu.jpg"}
+                    {"id": "BABUR", "src": "SredniowieczeImg/babur.jpg", "opis": "Babur, założyciel Imperium Mogołów w Indiach."},
+                    {"id": "IMPERIUMMOGOLOW", "src": "/NowozytnoscImg/imperium_mogolow.jpg", "opis": "Zmiany terytorialne imperia mogołów w Indiach."},
+                    {"id": "HONGWU", "src": "/NowozytnoscImg/hongwu.jpg", "opis": "Huang Ti (Hóngwǔ), założyciel dynastii Ming."},
+                    {"id": "DYNASTIAMINGOW", "src": "/NowozytnoscImg/dynastia_mingow.png", "opis": "Mapa terytorium dynastii Ming w Chinach."},
+                    {"id": "MANDZUROWIE", "src": "/NowozytnoscImg/mandzurowie.jpg", "opis": "Naród twórca dynastii Qing."},
+                    {"id": "DYNASTIAQINGOW", "src": "/NowozytnoscImg/dynastia_qinow.jpg", "opis": "Obszar panowania dynastii Qing."},
+                    {"id": "ZAKAZANEMIASTO", "src": "/NowozytnoscImg/zakazane_miasto.jpg", "opis": "Zakazane Miasto, symbol władzy dynastii Ming."},
+                    {"id": "TAJMAHAL", "src": "/NowozytnoscImg/taj_mahal.jpg", "opis": "Taj Mahal - przykład architektury Mogołów, łączącej wpływy perskie, islamskie i indyjskie."},
+                    {"id": "KANGXI", "src": "/NowozytnoscImg/kangxi.jpg", "opis": "Kang Xi, jeden z najważniejszych cesarzy dynastii Qing."}
                 ]
             },
             "Średniowiecze": {
@@ -237,13 +237,13 @@
                 "text1": "Średniowieczna Azja to okres, w którym kontynent stał się areną powstawania wielkich imperiów, rozwoju religii i nauki oraz intensywnej wymiany handlowej i kulturowej. Po upadku starożytnych państw wiele regionów zyskało nowe formy organizacji – w Azji Zachodniej i Środkowej rozpowszechnił się islam, który nie tylko wpływał na duchowość, lecz także na prawo, handel i administrację państwową. W Chinach dynastie Tang i Song wprowadzały innowacje technologiczne, rozwijały literaturę, sztukę i filozofię, a dzięki Jedwabnemu Szlakowi wzrastała wymiana towarów, idei i wynalazków. ",
                 "text2": "W XIII w. Mongołowie pod wodzą Czyngis-chana stworzyli największe imperium lądowe w historii, łącząc ogromne terytoria Azji, co ułatwiło handel między Wschodem a Zachodem i przyczyniło się do rozprzestrzenienia technologii i kultury. W tym czasie miasta handlowe rozkwitały, a kontakty między cywilizacjami stawały się coraz intensywniejsze. Średniowiecze w Azji to epoka jednocześnie wojen i ekspansji, ale też wielkich odkryć intelektualnych i kulturalnych, które kształtowały rozwój nauki, architektury i sztuki w całym regionie.",
                 "img":[
-                    {"id": "BOLONIA", "src": "SredniowieczeImg/bolonia.jpg"},
-                    {"id": "DZUMA", "src": "SredniowieczeImg/dzuma.jpg"},
-                    {"id": "HUSARIA", "src": "SredniowieczeImg/husaria.jpg"},
-                    {"id": "KOSCIOL", "src": "SredniowieczeImg/kosciol.jpg"},
-                    {"id": "MIASTA", "src": "SredniowieczeImg/miasta.jpg"},
-                    {"id": "MIESZCZANIE", "src": "SredniowieczeImg/mieszczanie.jpg"},
-                    {"id": "OGRODZIENIEC", "src": "SredniowieczeImg/ogrodzieniec.jpg"},
+                    {"id": "CZYNGISCHAN", "src": "SredniowieczeImg/czyngischan.jpg", "opis": "Czyngis Chan, założyciel imperium mongolskiego."},
+                    {"id": "IMPERIUMMONGOLOW", "src": "SredniowieczeImg/imperium_mongolskie.jpg", "opis": "Zakres panowania imperium mongolskiego w szczytowym okresie jego rozwoju."},
+                    {"id": "MAHOMET", "src": "SredniowieczeImg/mahomet.jpg", "opis": "Mahomet, założyciel islamu."},
+                    {"id": "MEKKA", "src": "SredniowieczeImg/mekka.jpg", "opis": "Święty Meczet, święte miejsce dla wyznawców islamu."},
+                    {"id": "JEDWABNYSZLAK", "src": "SredniowieczeImg/jedwabny_szlak.jpg", "opis": "Jedwabny Szlak - ważna droga handlowa w Azji Środkowej."},
+                    {"id": "BAGDAD", "src": "SredniowieczeImg/bagdad.jpg", "opis": "W średniowieczu  z najważniejszych ośrodków nauki, handlu i kultury świata islamskiego, znanym jako „Miasto Pokoju” (Madinat as-Salam)."},
+                    {"id": "KONSTYNANTYNOPOL", "src": "SredniowieczeImg/konstynantopol.JPG", "opis": "Miasto posiadające kontrolę nad handlem między Azją a Europą."},
                     {"id": "WIES", "src": "SredniowieczeImg/wies.jpg"},
                     {"id": "ZBROJARYCZERZA", "src": "SredniowieczeImg/zbroja_rycerza.jpg"}
                 ]
