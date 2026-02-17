@@ -21,20 +21,20 @@ function Globe() {
   const [selectedContinent, setSelectedContinent] = useState(null)
   
   
-  const ID_TO_REGION = {
-    "254,0,0": "Europa",
-    "0,255,1": "Ameryka Południowa",
-    "254,0,234": "Ameryka Północna",
-    "0,67,0": "Australia",
-    "255,255,0": "Afryka",
-    "98,0,235": "Azja",
-  }
   
   
   
   
   useEffect(() =>{
     
+    const ID_TO_REGION = {
+      "254,0,0": "Europa",
+      "0,255,1": "Ameryka Południowa",
+      "254,0,234": "Ameryka Północna",
+      "0,67,0": "Australia",
+      "255,255,0": "Afryka",
+      "98,0,235": "Azja",
+    }
     
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
