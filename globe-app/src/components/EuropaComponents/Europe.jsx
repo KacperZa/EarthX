@@ -76,7 +76,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   const [open, setOpen] = useState(false)
 
   const content = worldData[selectedContinent]
-  
+
   const Epoka = {
     STAROZYTNOSC: "Starozytnosc",
     NOWOZYTNOSC: "Nowozytnosc",
@@ -86,82 +86,56 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   };
 
   const [WybranaEpoka, setWybranaEpoka] = useState(Epoka.BRAK)
+
   
-  const ZdjęciaStarozytnosc = {
-    RZYM1: "rzym1",
-    RZYM2: "rzym2",
-    RZYM3: "rzym3",
-    GRECJA1: "grecja1",
-    PROMATHOS: "promathos",
-    GRECJA3: "grecja3",
-    GRECJA4: "grecja4",
-    SOKRATES: "sokrates",
-    ATENY: "ateny",
-    BRAK: "brak"
-  }
+  const ZdjęciaStarozytnosc = content["Starożytność"]["imgEnum"]
+    .reduce((acc, item) => {
+      acc[item.id] = item.id;
+      return acc;
+    }, {});
   
   const [WybraneZdjecieStarozytnosc, setWybraneZdjecieStarozytnosc] = useState(ZdjęciaStarozytnosc.BRAK)
 
-  const ZdjęciaSredniowiecze = {
-    DZUMA: "dzuma",
-    HUSARIA: "husaria",
-    KOSCIOL: "kosciol",
-    MIASTA: "miasta",
-    MIESZCZANIE: "mieszczanie",
-    BOLONIA: "bolonia",
-    OGRODZIENIEC: "ogrodzieniec",
-    WIES: "wies",
-    RYCERZ: "rycerz",
-    BRAK: "brak"
-  }
+  const ZdjęciaSredniowiecze = content["Średniowiecze"]["imgEnum"]
+    .reduce((acc, item) => {
+      acc[item.id] = item.id;
+      return acc;
+    }, {});
 
   const [WybraneZdjecieSredniowiecze, setWybraneZdjecieSredniowiecze] = useState(ZdjęciaSredniowiecze.BRAK)
 
-  const ZdjęciaNowozytnosc = {
-    CZLOWIEK: "czlowiek",
-    ROZWOJDRUKU: "rozwojDruku",
-    KOPERNIK: "kopernik",
-    LUTER: "luter", 
-    MAGELLAN: "magellan",
-    MICHALANIOL: "michalAniol",
-    ODKRYCIEAMERYKI: "odkrycieAmeryki",
-    STARAMAPA: "staraMapa",
-    UPADEKRZYMU: "upadekRzymu",
-    BRAK: "brak"
-  }
+  const ZdjęciaNowozytnosc = content["Nowożytność"]["imgEnum"]
+    .reduce((acc, item) => {
+      acc[item.id] = item.id;
+      return acc;
+    }, {});
 
   const [WybraneZdjecieNowozytnosc, setWybraneZdjecieNowozytnosc] = useState(ZdjęciaNowozytnosc.BRAK)
 
-  const ZdjęciaWspolczesnosc = {
-    CZOLGI: "czolgi",
-    DRUGAWOJNA: "drugaWojna",
-    EURO: "euro",
-    FLAGA: "flaga",
-    KOMUNIZM: "komunizm",
-    MURBERLINSKI: "murBerlinski",
-    PIERWSZAWOJNA: "pierwszaWojna",
-    ZOLNIERZE: "zolnierze",
-    UNIA: "unia",
-    BRAK: "brak"
-  }
+  const ZdjęciaWspolczesnosc = content["Współczesność"]["imgEnum"]
+    .reduce((acc, item) => {
+      acc[item.id] = item.id;
+      return acc;
+    }, {});
 
   const [WybraneZdjecieWspolczesnosc, setWybraneZdjecieWspolczesnosc] = useState(ZdjęciaWspolczesnosc.BRAK);
 
   const [isButtonImgVisible, setButtonImgVisible] = useState(false);
   const [AktualnaEpoka, setAktualnaEpoka] = useState("Starożytność");
   const [AktualnyRok, setAktualnyRok] = useState("")
+  const [Data, setData] = useState("")
 
-  let Data;
+  // let Data;
 
   const ValueChangeHandler = (e) =>{
     const Rok = Number(e.target.value);
-    Data = Rok;
+    setData(Rok);
     
     if (Rok < 0){
-      Data = Math.abs(Rok) + " p.n.e.";
+      setData(Math.abs(Rok) + " p.n.e.");
     }
     else{
-      Data = Rok + " n.e."
+      setData(Rok + " n.e.");
     }
 
       if (Rok >= -800 && Rok < 476) {
@@ -221,7 +195,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       </div>
     
 
-
+    
 
       <motion.div className="opakowanie-primary">
 
@@ -347,14 +321,14 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       .filter(item => ZdjęciaStarozytnosc[item.id] === WybraneZdjecieStarozytnosc)
       .map(item => (
         <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieStarozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
-        
+      
       ))}
 
       {/* Powiększanie obrazków na Średniowieczu */} 
       {obrazkiŚredniowiecze
       .filter(item => ZdjęciaSredniowiecze[item.id] === WybraneZdjecieSredniowiecze)
       .map(item => (
-        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieSredniowiecze(ZdjęciaSredniowiecze.BRAK)}} source={item.src} opis={item.opis}/> 
         
       ))}
 
@@ -362,14 +336,14 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
       {obrazkiNowożytność
       .filter(item => ZdjęciaNowozytnosc[item.id] === WybraneZdjecieNowozytnosc)
       .map(item => (
-        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieNowozytnosc(ZdjęciaNowozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
       ))}
 
       {/* Powiększanie obrazków na Współczesności */} 
       {obrazkiWspółczesność
       .filter(item => ZdjęciaWspolczesnosc[item.id] === WybraneZdjecieWspolczesnosc)
       .map(item => (
-        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaStarozytnosc.BRAK)}} source={item.src} opis={item.opis}/> 
+        <DuzyObrazek key={item.id} FunkcjaZamykania ={() => {setWybraneZdjecieWspolczesnosc(ZdjęciaWspolczesnosc.BRAK)}} source={item.src} opis={item.opis}/> 
       ))}
 
       {/* Wydarzenia  */}
