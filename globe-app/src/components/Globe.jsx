@@ -86,6 +86,18 @@ function Globe() {
     // material.uniforms.uRadius = {value: 0.8}
     // material.uniforms.uTexture = {value: new THREE.TextureLoader().load(earthTextureImg)}
     const sphere = new THREE.Mesh(geometry, material)
+
+    sphere.material.onBeforeCompile = (shader) =>{
+      shader.fragmentShader = shader.fragmentShader.replace(
+        `#include <shadowmap_fragment>`,
+
+        `#include <shadowmap_fragment>
+        float shadowStrength = 0.4;
+        reflectedLight.directDiffuse *= mix(1.0, getShadowMask(), shadowStrength);
+        `
+
+      )
+    }
     sphere.position.set(0,0,0)
     sphere.receiveShadow = true;
     sphere.castShadow = true;
@@ -136,6 +148,8 @@ function Globe() {
 
     directionalLight.shadow.mapSize.width = 4096;
     directionalLight.shadow.mapSize.height = 4096;
+
+    directionalLight.shadow.intensity = 0.7;
     
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
     scene.add(directionalLight, ambientLight);
