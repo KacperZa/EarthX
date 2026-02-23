@@ -4,6 +4,8 @@ import { OrbitControls } from "three/examples/jsm/Addons.js";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { RenderPass } from "three/examples/jsm/Addons.js";
 import { EffectComposer } from "three/examples/jsm/Addons.js";
+import { UnrealBloomPass } from "three/examples/jsm/Addons.js";
+import { SMAAPass } from "three/examples/jsm/Addons.js";
 
 import earthTextureImg from '../earth.jpg';
 import moonTextureImg from '../moon.jpg'
@@ -31,7 +33,7 @@ function Globe() {
   
   const [selectedContinent, setSelectedContinent] = useState(null)
   
-  useEffect(() =>{
+  useEffect(() => {
     
     const ID_TO_REGION = {
       "254,0,0": "Europa",
@@ -53,7 +55,7 @@ function Globe() {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     // Atmosfera ziemi ------------------------------------------------------
-    const atmosphereGeometry = new THREE.SphereGeometry(50.25,64,64)
+    const atmosphereGeometry = new THREE.SphereGeometry(51,64,64)
     const atmosphereMaterial = new THREE.ShaderMaterial({
       
       transparent: true,
@@ -61,6 +63,8 @@ function Globe() {
       vertexShader: atmosphereVertexShader,
       fragmentShader: atmosphereFragmentShader
     })
+    // const lightDir = new THREE.Vector3();
+    // atmosphereMaterial.uniforms.uLightPosition = { value: lightDir }
     const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial)
     scene.add(atmosphere);
     
@@ -85,8 +89,7 @@ function Globe() {
     sphere.position.set(0,0,0)
     sphere.receiveShadow = true
     sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
-    scene.add(sphere);
-
+    
     // Księżyc ------------------------------------------------------
     const moonGeo = new THREE.SphereGeometry(13.5,64,64);
     const moonTexture = new THREE.TextureLoader().load(moonTextureImg);
@@ -97,26 +100,22 @@ function Globe() {
     moon.castShadow = true
 
     sphere.add(moon)
-    moon.position.z = 500
+    scene.add(sphere);
+
+    moon.position.z = 250
+
 
     // Słońce ------------------------------------------------------
     const sunGeo = new THREE.SphereGeometry(150,64,64);
     const sunTexture = new THREE.TextureLoader().load(sunTextureImg)
     const sunMaterial = new THREE.MeshBasicMaterial({
       depthWrite: false,
-      map: sunTexture
-      // color: 0xffffff,
-      // emissive: 0xffffff,
-      // emissiveIntensity: 2,
+      map: sunTexture,
     })
 
     const sun = new THREE.Mesh(sunGeo,sunMaterial);
     scene.add(sun);
     sun.position.set(1000,0,0);
-
-
-
-    
 
     // Oświetlenie ------------------------------------------------------
     const pointLight = new THREE.PointLight(0xffffff, 2);
@@ -151,7 +150,7 @@ function Globe() {
     const controls = new OrbitControls(camera, renderer.domElement);
 
 
-    // Właściwości sterowania 
+    // Właściwości sterowania  ------------------------------------------------------
     controls.enabled = true; 
     controls.target.set(0,0,0);
     controls.enablePan = false;
@@ -164,7 +163,31 @@ function Globe() {
     
     controls.dampingFactor = 0.05 // Waga obracania
     controls.enableDamping = true
+ 
+    // Post-processing ------------------------------------------------------
+    const renderScene = new RenderPass(scene, camera);
+    const composer = new EffectComposer(renderer);
+    composer.addPass(renderScene);
 
+
+    // Antialiasing
+    const smaaPass = new SMAAPass(
+      window.innerWidth * renderer.getPixelRatio(),
+      window.innerHeight * renderer.getPixelRatio()
+    );
+    composer.addPass(smaaPass);
+
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(window.innerWidth, window.innerHeight),
+      1.6,
+      0.1,
+      0.05,
+    );
+
+    composer.addPass(bloomPass);
+
+    renderer.toneMapping = THREE.CineonToneMapping;
+    renderer.toneMappingExposure = 1.5;
 
       // Tło gwiazd ------------------------------------------------------
       let distance
@@ -207,7 +230,6 @@ function Globe() {
     
     const raycaster = new THREE.Raycaster();
 
-    let Hovered = false
         
     // Funkcja wywoływana gdy sie kliknie na element ------------------------------------------------------
     function onMouseDown(event) {
@@ -310,41 +332,49 @@ function Globe() {
   }
 
   const clock = new THREE.Clock();
+  const angularSpeedSun = Math.PI * 2 / 1095;
   const angularSpeedEarth = Math.PI * 2 / 72;
   const angularSpeedMoon = Math.PI * 2 / 72 / 27.3;
 
     
   // Wywoływana animacja
     function animate() {
-      requestAnimationFrame( animate );
+      requestAnimationFrame(animate);
       const delta = clock.getDelta();
-      if (!Hovered) {
-        sphere.rotation.y += angularSpeedEarth * delta;
-      } 
+      sphere.rotation.y += angularSpeedEarth * delta;
       moon.rotation.y += angularSpeedMoon * delta;
+      sun.rotation.y += angularSpeedSun * delta
 
       controls.update();
-      renderer.render( scene, camera );
+      // renderer.render( scene, camera );
+      composer.render();
+    // directionalLight.getWorldDirection(lightDir);
+
     }
     
-    function onPointerUp() {
-      controls.enabled = false;
+    animate();
+
+
+    function resize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
     }
-    
     
     canvas.addEventListener('mousedown', onMouseDown);
-    canvas.addEventListener('pointermove', onPointerMove)
-    canvas.addEventListener('pointerdown', onPointerUp)
+    canvas.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('resize', resize);
+    
 
     // canvas.addEventListener('mouseenter', onMouseEnter)
     // canvas.addEventListener('mouseleave');
     
-    animate()
     
     return () => {
       canvas.removeEventListener('mousedown', onMouseDown);
       canvas.removeEventListener('pointermove', onPointerMove)
-      canvas.removeEventListener('pointerdown', onPointerUp)
+      window.removeEventListener('resize', resize);
+
       
       renderer.dispose();
     };
