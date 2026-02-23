@@ -87,7 +87,8 @@ function Globe() {
     // material.uniforms.uTexture = {value: new THREE.TextureLoader().load(earthTextureImg)}
     const sphere = new THREE.Mesh(geometry, material)
     sphere.position.set(0,0,0)
-    sphere.receiveShadow = true
+    sphere.receiveShadow = true;
+    sphere.castShadow = true;
     sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
     
     // Księżyc ------------------------------------------------------
@@ -97,7 +98,8 @@ function Globe() {
       map: moonTexture
     })
     const moon = new THREE.Mesh(moonGeo, moonMaterial)
-    moon.castShadow = true
+    moon.castShadow = true;
+    moon.receiveShadow = true
 
     sphere.add(moon)
     scene.add(sphere);
