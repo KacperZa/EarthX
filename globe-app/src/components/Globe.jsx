@@ -1,13 +1,24 @@
 import { use, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
-import earthTextureImg  from  '../earth.jpg';
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { RenderPass } from "three/examples/jsm/Addons.js";
+import { EffectComposer } from "three/examples/jsm/Addons.js";
+
+import earthTextureImg from '../earth.jpg';
+import moonTextureImg from '../moon.jpg'
+import sunTextureImg from '../sun.jpg'
+import stars from '../stars.jpg'
 import Text_Bubble from "./Text_Bubble";
 import './globe.css'
 import ID_MAP from '.././earthcolors.jpg';
 import Europe from "./EuropaComponents/Europe";
 
+import atmosphereFragmentShader from '../shaders/atmospherefragment.glsl?raw'
+import atmosphereVertexShader from '../shaders/atmospherevertex.glsl?raw'
+
 import worldData from '../data.json'
+
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
@@ -19,11 +30,6 @@ function Globe() {
   const [AmerykaPuł, setAmerykaPuł] = useState(false)
   
   const [selectedContinent, setSelectedContinent] = useState(null)
-  
-  
-  
-  
-  
   
   useEffect(() =>{
     
@@ -38,46 +44,119 @@ function Globe() {
     
     const canvas = canvasRef.current;
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000) 
-    const renderer = new THREE.WebGLRenderer({ canvas });
+    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10000) 
+    camera.position.setZ(125);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true});
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
-    camera.position.setZ(250);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    // Atmosfera ziemi ------------------------------------------------------
+    const atmosphereGeometry = new THREE.SphereGeometry(50.25,64,64)
+    const atmosphereMaterial = new THREE.ShaderMaterial({
+      
+      transparent: true,
+      blending: THREE.AdditiveBlending,      
+      vertexShader: atmosphereVertexShader,
+      fragmentShader: atmosphereFragmentShader
+    })
+    const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial)
+    scene.add(atmosphere);
     
-    const geometry = new THREE.SphereGeometry(100,64,64);
+    // Ziemia ------------------------------------------------------
+    const geometry = new THREE.SphereGeometry(50,64,64);
     const earthTexture = new THREE.TextureLoader().load(earthTextureImg)
     const material = new THREE.MeshPhysicalMaterial( { 
       map: earthTexture
     });
+
+      // Shadery dla ziemii
+    // const material = new THREE.ShaderMaterial({
+      
+    //   vertexShader: vertexShader,
+    //   fragmentShader: fragmentShader
+    // })
+    
+    // material.uniforms.uTime = {value: 0}
+    // material.uniforms.uRadius = {value: 0.8}
+    // material.uniforms.uTexture = {value: new THREE.TextureLoader().load(earthTextureImg)}
     const sphere = new THREE.Mesh(geometry, material)
+    sphere.position.set(0,0,0)
+    sphere.receiveShadow = true
     sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
-    
-    
     scene.add(sphere);
+
+    // Księżyc ------------------------------------------------------
+    const moonGeo = new THREE.SphereGeometry(13.5,64,64);
+    const moonTexture = new THREE.TextureLoader().load(moonTextureImg);
+    const moonMaterial = new THREE.MeshPhysicalMaterial({
+      map: moonTexture
+    })
+    const moon = new THREE.Mesh(moonGeo, moonMaterial)
+    moon.castShadow = true
+
+    sphere.add(moon)
+    moon.position.z = 500
+
+    // Słońce ------------------------------------------------------
+    const sunGeo = new THREE.SphereGeometry(150,64,64);
+    const sunTexture = new THREE.TextureLoader().load(sunTextureImg)
+    const sunMaterial = new THREE.MeshBasicMaterial({
+      depthWrite: false,
+      map: sunTexture
+      // color: 0xffffff,
+      // emissive: 0xffffff,
+      // emissiveIntensity: 2,
+    })
+
+    const sun = new THREE.Mesh(sunGeo,sunMaterial);
+    scene.add(sun);
+    sun.position.set(1000,0,0);
+
+
+
     
-    const starsGroup = new THREE.Group();
-    scene.add(starsGroup)
+
+    // Oświetlenie ------------------------------------------------------
+    const pointLight = new THREE.PointLight(0xffffff, 2);
+    pointLight.position.set(100,100,100);
     
-    const pointLight = new THREE.PointLight(0xffffff, 1);
-    pointLight.position.set(200,200,200);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1000,0,0);
+    directionalLight.castShadow = true;
+    directionalLight.shadow.camera.bottom = -500;
+    directionalLight.shadow.camera.top = 500;
+    directionalLight.shadow.camera.left = -500;
+    directionalLight.shadow.camera.right = 500;
+
+    directionalLight.shadow.camera.near = 0.5;
+    directionalLight.shadow.camera.far = 2000;
+
+    directionalLight.shadow.mapSize.width = 4096;
+    directionalLight.shadow.mapSize.height = 4096;
     
-    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add( pointLight, ambientLight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
+    scene.add(directionalLight, ambientLight);
     
-    const lightHelper = new THREE.PointLightHelper(pointLight);
-    const gridHelper = new THREE.GridHelper(200,50);
-    // scene.add(lightHelper, gridHelper);
+    
+      // Linie pomocnicze
+    // const dLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+    // scene.add(dLightShadowHelper);
+    // const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight);
+    // const lightHelper = new THREE.PointLightHelper(pointLight);
+    // const gridHelper = new THREE.GridHelper(200,50);
+    // scene.add(directionalLightHelper);
     
     const controls = new OrbitControls(camera, renderer.domElement);
-    
-    controls.enabled = false;
-    // console.log( container.clientWidth,container.clientHeight);
-    
+
+
+    // Właściwości sterowania 
+    controls.enabled = true; 
     controls.target.set(0,0,0);
     controls.enablePan = false;
-    controls.minDistance = 120;
-    controls.maxDistance = 400;
+    controls.minDistance = 60;
+    controls.maxDistance = 200;
     controls.maxPolarAngle = Math.PI;
     controls.minPolarAngle = 0;
     controls.rotateSpeed = 0.5
@@ -86,34 +165,35 @@ function Globe() {
     controls.dampingFactor = 0.05 // Waga obracania
     controls.enableDamping = true
 
-    const geometry2 = new THREE.SphereGeometry(0.25, 24, 24);
-    const material2 = new THREE.MeshStandardMaterial( {color: 0xffffff})
 
-    // function addStar(){
-    //   const star = new THREE.Mesh(geometry2, material2)
+      // Tło gwiazd ------------------------------------------------------
+      let distance
+      let stars = new Array(0);
+      for ( let i = 0; i < 10000; i ++ ) {
+        let x = THREE.MathUtils.randFloatSpread( 2000 );
+        let y = THREE.MathUtils.randFloatSpread( 2000 );
+        let z = THREE.MathUtils.randFloatSpread( 2000 );
 
-    //   const[x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ))
-    //   star.position.set(x,y,z)
-    //   starsGroup.add(star)
-    // }
+        distance = Math.sqrt(x*x + y*y + z*z);
 
-    // Array(200).fill().forEach(addStar)
+        if (distance > 400) {
+          stars.push(x, y, z);
+        }
 
+      }
+      let starsGeometry = new THREE.BufferGeometry();
+      starsGeometry.setAttribute(
+        "position", new THREE.Float32BufferAttribute(stars, 3)
+      );
+      let starsMaterial = new THREE.PointsMaterial( { color: 0x888888 } );
+      let starField = new THREE.Points( starsGeometry, starsMaterial );
+      scene.add( starField );
 
-    // const spaceTexture = new THREE.TextureLoader().load(spaceTextureImg)
-
-    // const spaceGeo = new THREE.SphereGeometry(500, 32,32)
-    // const spaceMat = new THREE.MeshBasicMaterial({
-    //   map: spaceTexture,
-    //   side: THREE.BackSide
-    // });
-
-    // const spaceMesh = new THREE.Mesh(spaceGeo,spaceMat)
-    // scene.add(spaceMesh)
+    // Przygotowanie do raycastera ------------------------------------------------------
      
     const idImg = new Image();
     idImg.crossOrigin = "anonymous";
-    idImg.src =ID_MAP;
+    idImg.src = ID_MAP;
     
     const idCanvas = document.createElement("canvas");
     const idCtx = idCanvas.getContext("2d");
@@ -126,11 +206,10 @@ function Globe() {
     
     
     const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2();
 
     let Hovered = false
         
-    // Funkcja wywoływana gdy sie kliknie na element
+    // Funkcja wywoływana gdy sie kliknie na element ------------------------------------------------------
     function onMouseDown(event) {
       const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
@@ -181,7 +260,7 @@ function Globe() {
     }
     
     
-    // Funkcja wywoływana gdy kursor znajdzie się nad elementem
+    // Funkcja wywoływana gdy kursor znajdzie się nad elementem ------------------------------------------------------
     function onPointerMove(event) {
       const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
@@ -222,21 +301,28 @@ function Globe() {
             x: event.clientX,
             y: event.clientY,
           })
-          Hovered = true
+          // Hovered = true
          }
       }else {
-        Hovered = false
+        // Hovered = false
         setBubble({visible: false})
       }
   }
 
+  const clock = new THREE.Clock();
+  const angularSpeedEarth = Math.PI * 2 / 72;
+  const angularSpeedMoon = Math.PI * 2 / 72 / 27.3;
+
     
+  // Wywoływana animacja
     function animate() {
       requestAnimationFrame( animate );
+      const delta = clock.getDelta();
+      if (!Hovered) {
+        sphere.rotation.y += angularSpeedEarth * delta;
+      } 
+      moon.rotation.y += angularSpeedMoon * delta;
 
-         !Hovered && (sphere.rotation.y += 0.001);
-        // sphere.rotation.z += 0.0005;
-      
       controls.update();
       renderer.render( scene, camera );
     }
@@ -249,6 +335,7 @@ function Globe() {
     canvas.addEventListener('mousedown', onMouseDown);
     canvas.addEventListener('pointermove', onPointerMove)
     canvas.addEventListener('pointerdown', onPointerUp)
+
     // canvas.addEventListener('mouseenter', onMouseEnter)
     // canvas.addEventListener('mouseleave');
     
