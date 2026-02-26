@@ -205,15 +205,15 @@
                 "text1": "Starożytna Azja to czas narodzin pierwszych wielkich cywilizacji, w których rozwój rolnictwa, miasta-państwa i systemów administracyjnych stworzył fundamenty życia społecznego, politycznego i gospodarczego. W dolinach rzek Huang He i Jangcy w Chinach, Indusu w Indiach czy Tygrysu i Eufratu w Mezopotamii powstawały pierwsze osady, które dzięki dostępowi do wody mogły produkować nadwyżki żywności i rozwijać handel lokalny. Wynalezienie pisma klinowego w Mezopotamii i chińskiego pisma ideograficznego umożliwiło zapis prawa, handlu, historii i administracji, a spisane kodeksy prawne, jak słynny kodeks Hammurabiego, wprowadzały porządek i regulowały życie codzienne. ",
                 "text2": "W tym samym czasie powstawały fundamenty wielkich religii i filozofii – hinduizm i buddyzm w Indiach, konfucjanizm i taoizm w Chinach – które kształtowały etykę, życie rodzinne i relacje między władzą a społeczeństwem. Jednocześnie rozwijał się handel na długich dystansach, zwłaszcza wzdłuż Jedwabnego Szlaku, co pozwalało wymieniać towary, technologie i idee między Azją, Bliskim Wschodem i Europą, tworząc pierwsze globalne sieci wymiany. Starożytność w Azji była więc okresem dynamicznego rozwoju cywilizacyjnego, który położył podwaliny pod kulturę, religię i państwowość na wiele stuleci.",
                 "img": [
-                    {"id": "PISMOKLINOWE", "src": "/StarozytnoscImg/pismo_klinowe.jpg", "opis": "Tabliczka z pismem klinowym, jednym z najstarszych systemów pisma, używanym w starożytnej Mezopotamii."},
-                    {"id": "PISMOIDEOGRAFICZNE", "src": "/StarozytnoscImg/pismo_ideograficzne.jpg", "opis": "Pismo ideograficzne używane w Chinach, które opierało się na symbolach reprezentujących pojęcia."},
-                    {"id": "KALI", "src": "/StarozytnoscImg/kali.jpg", "opis": "Kali, bóstwo hinduskie, symbolizującego zniszczenie i odbudowę świata."},
-                    {"id": "HISTORIABUDDY", "src": "/StarozytnoscImg/zycie_buddy.jpeg", "opis": "Sceny z życia Buddy, założyciela buddyzmu."},
-                    {"id": "KOLODHARMY", "src": "/StarozytnoscImg/kolo_dharmy.png", "opis": "Najpopularniejszy symbol buddyjski"},
-                    {"id": "KONFUCJUSZ", "src": "/StarozytnoscImg/konfucjusz.jpg", "opis": "Konfucjusz, filozof chiński, założyciel konfucjanizmu."},
-                    {"id": "TAOIZM", "src": "/StarozytnoscImg/taoizm.jpg", "opis": "Symbol będący fundamentem taoizmu – chińskiego systemu filozoficznego i religijnego, który kładzie nacisk na życie w harmonii z naturalnym porządkiem wszechświata (Tao)."},
-                    {"id": "LISI", "src": "/StarozytnoscImg/LiSi.jpg", "opis": "Najsłynniejszy praktyk legizmu, kanclerz w państwie Qin."},
-                    {"id": "MOTIZM", "src": "/StarozytnoscImg/motizm.jpg", "opis": "Mo Di, chiński filozof, założyciel motyzmu, który głosił uniwersalną miłość i sprzeciwiał się wojnom."}
+                    {"id": "PISMOKLINOWE", "src": "AzjaData/StarozytnoscImg/pismo_klinowe.jpg", "opis": "Tabliczka z pismem klinowym, jednym z najstarszych systemów pisma, używanym w starożytnej Mezopotamii."},
+                    {"id": "PISMOIDEOGRAFICZNE", "src": "AzjaData/StarozytnoscImg/pismo_ideograficzne.jpg", "opis": "Pismo ideograficzne używane w Chinach, które opierało się na symbolach reprezentujących pojęcia."},
+                    {"id": "KALI", "src": "AzjaData/StarozytnoscImg/kali.jpg", "opis": "Kali, bóstwo hinduskie, symbolizującego zniszczenie i odbudowę świata."},
+                    {"id": "HISTORIABUDDY", "src": "AzjaData/StarozytnoscImg/zycie_buddy.jpg", "opis": "Sceny z życia Buddy, założyciela buddyzmu."},
+                    {"id": "KOLODHARMY", "src": "AzjaData/StarozytnoscImg/kolo_dharmy.png", "opis": "Koło Dharmy, symbol buddyzmu, reprezentujące nauki Buddy i ścieżkę do oświecenia."},
+                    {"id": "KONFUCJUSZ", "src": "AzjaData/StarozytnoscImg/konfucjusz.jpg", "opis": "Konfucjusz, filozof chiński, założyciel konfucjanizmu."},
+                    {"id": "TAOIZM", "src": "AzjaData/StarozytnoscImg/taoizm.jpg", "opis": "Symbol będący fundamentem taoizmu – chińskiego systemu filozoficznego i religijnego, który kładzie nacisk na życie w harmonii z naturalnym porządkiem wszechświata (Tao)."},
+                    {"id": "LISI", "src": "AzjaData/StarozytnoscImg/LiSi.jpg", "opis": "Najsłynniejszy praktyk legizmu, kanclerz w państwie Qin."},
+                    {"id": "MOTIZM", "src": "AzjaData/StarozytnoscImg/motizm.jpg", "opis": "Mo Di, chiński filozof, założyciel motyzmu, który głosił uniwersalną miłość i sprzeciwiał się wojnom."}
                 ]
             },
             "Nowożytność": {
@@ -221,31 +221,31 @@
                 "text1": "Epoka nowożytna w Azji to czas intensywnych kontaktów z Europą, rozwoju potężnych państw i jednoczesnej presji zewnętrznych mocarstw. Dynastie Ming i Qing w Chinach rozwijały administrację, gospodarkę i kulturę, budując monumentalne budowle, takie jak Zakazane Miasto, jednocześnie kontrolując handel i rozwijając rolnictwo. W Indiach Imperium Mogołów jednoczyło subkontynent, wznosząc wspaniałe zabytki architektury i wzmacniając system administracyjny. ",
                 "text2": "W tym samym czasie Portugalczycy, Holendrzy i Brytyjczycy pojawili się w Azji, zakładając faktorie handlowe i zwiększając znaczenie handlu kolonialnego – zwłaszcza przyprawami, jedwabiem i herbatą. Imperia osmańskie kontrolowały strategiczne szlaki między Azją a Europą, a lokalne władze musiały balansować między utrzymaniem niezależności a korzystaniem z kontaktów handlowych. To była epoka zarówno rozkwitu państw azjatyckich, jak i powolnej ingerencji europejskiej, która przyniosła nowe technologie, towary i konflikty polityczne, tworząc podstawy globalnej gospodarki.",
                 "img": [
-                    {"id": "BABUR", "src": "SredniowieczeImg/babur.jpg", "opis": "Babur, założyciel Imperium Mogołów w Indiach."},
-                    {"id": "IMPERIUMMOGOLOW", "src": "/NowozytnoscImg/imperium_mogolow.jpg", "opis": "Zmiany terytorialne imperia mogołów w Indiach."},
-                    {"id": "HONGWU", "src": "/NowozytnoscImg/hongwu.jpg", "opis": "Huang Ti (Hóngwǔ), założyciel dynastii Ming."},
-                    {"id": "DYNASTIAMINGOW", "src": "/NowozytnoscImg/dynastia_mingow.png", "opis": "Mapa terytorium dynastii Ming w Chinach."},
-                    {"id": "MANDZUROWIE", "src": "/NowozytnoscImg/mandzurowie.jpg", "opis": "Naród twórca dynastii Qing."},
-                    {"id": "DYNASTIAQINGOW", "src": "/NowozytnoscImg/dynastia_qinow.jpg", "opis": "Obszar panowania dynastii Qing."},
-                    {"id": "ZAKAZANEMIASTO", "src": "/NowozytnoscImg/zakazane_miasto.jpg", "opis": "Zakazane Miasto, symbol władzy dynastii Ming."},
-                    {"id": "TAJMAHAL", "src": "/NowozytnoscImg/taj_mahal.jpg", "opis": "Taj Mahal - przykład architektury Mogołów, łączącej wpływy perskie, islamskie i indyjskie."},
-                    {"id": "KANGXI", "src": "/NowozytnoscImg/kangxi.jpg", "opis": "Kang Xi, jeden z najważniejszych cesarzy dynastii Qing."}
+                    {"id": "BABUR", "src": "AzjaData/SredniowieczeImg/babur.jpg", "opis": "Babur, założyciel Imperium Mogołów w Indiach."},
+                    {"id": "IMPERIUMMOGOLOW", "src": "AzjaData/NowozytnoscImg/imperium_mogolow.jpg", "opis": "Zmiany terytorialne imperia mogołów w Indiach."},
+                    {"id": "HONGWU", "src": "AzjaData/NowozytnoscImg/hongwu.jpg", "opis": "Huang Ti (Hóngwǔ), założyciel dynastii Ming."},
+                    {"id": "DYNASTIAMINGOW", "src": "AzjaData/NowozytnoscImg/dynastia_mingow.png", "opis": "Mapa terytorium dynastii Ming w Chinach."},
+                    {"id": "MANDZUROWIE", "src": "AzjaData/NowozytnoscImg/mandzurowie.jpg", "opis": "Naród twórca dynastii Qing."},
+                    {"id": "DYNASTIAQINGOW", "src": "AzjaData/NowozytnoscImg/dynastia_qinow.jpg", "opis": "Obszar panowania dynastii Qing."},
+                    {"id": "ZAKAZANEMIASTO", "src": "AzjaData/NowozytnoscImg/zakazane_miasto.jpg", "opis": "Zakazane Miasto, symbol władzy dynastii Ming."},
+                    {"id": "TAJMAHAL", "src": "AzjaData/NowozytnoscImg/taj_mahal.jpg", "opis": "Taj Mahal - przykład architektury Mogołów, łączącej wpływy perskie, islamskie i indyjskie."},
+                    {"id": "KANGXI", "src": "AzjaData/NowozytnoscImg/kangxi.jpg", "opis": "Kang Xi, jeden z najważniejszych cesarzy dynastii Qing."}
                 ]
             },
             "Średniowiecze": {
                 "title": "Średniowiecze",
-                "text1": "Średniowieczna Azja to okres, w którym kontynent stał się areną powstawania wielkich imperiów, rozwoju religii i nauki oraz intensywnej wymiany handlowej i kulturowej. Po upadku starożytnych państw wiele regionów zyskało nowe formy organizacji – w Azji Zachodniej i Środkowej rozpowszechnił się islam, który nie tylko wpływał na duchowość, lecz także na prawo, handel i administrację państwową. W Chinach dynastie Tang i Song wprowadzały innowacje technologiczne, rozwijały literaturę, sztukę i filozofię, a dzięki Jedwabnemu Szlakowi wzrastała wymiana towarów, idei i wynalazków. ",
-                "text2": "W XIII w. Mongołowie pod wodzą Czyngis-chana stworzyli największe imperium lądowe w historii, łącząc ogromne terytoria Azji, co ułatwiło handel między Wschodem a Zachodem i przyczyniło się do rozprzestrzenienia technologii i kultury. W tym czasie miasta handlowe rozkwitały, a kontakty między cywilizacjami stawały się coraz intensywniejsze. Średniowiecze w Azji to epoka jednocześnie wojen i ekspansji, ale też wielkich odkryć intelektualnych i kulturalnych, które kształtowały rozwój nauki, architektury i sztuki w całym regionie.",
+                "text1": "Średniowieczna Azja to czas powstawania potężnych państw, rozwoju religii i intensywnego handlu. Islam zapoczątkowany przez Mahomet zjednoczył wiele regionów Azji Zachodniej, a Mekka stała się najważniejszym miejscem kultu. Wielkim ośrodkiem nauki i kultury świata islamskiego był Bagdad. Handel rozwijał się dzięki Jedwabny Szlak, a strategiczne znaczenie miał także Konstantynopol, kontrolujący wymianę między Azją a Europą.",
+                "text2": "W XIII wieku Czyngis-chan stworzył ogromne Imperium mongolskie, które połączyło wschód i zachód kontynentu. W Azji Południowo-Wschodniej rozwijało się również Imperium Khmerów. Okres ten przyniósł nie tylko rozwój handlu i kultury, lecz także tragedie, jak początki epidemii dżumy, która rozprzestrzeniła się na inne kontynenty. Średniowiecze w Azji było więc czasem zarówno wielkich osiągnięć, jak i dramatycznych wydarzeń, które kształtowały losy kontynentu na wiele stuleci.",
                 "img":[
-                    {"id": "CZYNGISCHAN", "src": "SredniowieczeImg/czyngischan.jpg", "opis": "Czyngis Chan, założyciel imperium mongolskiego."},
-                    {"id": "IMPERIUMMONGOLOW", "src": "SredniowieczeImg/imperium_mongolskie.jpg", "opis": "Zakres panowania imperium mongolskiego w szczytowym okresie jego rozwoju."},
-                    {"id": "MAHOMET", "src": "SredniowieczeImg/mahomet.jpg", "opis": "Mahomet, założyciel islamu."},
-                    {"id": "MEKKA", "src": "SredniowieczeImg/mekka.jpg", "opis": "Święty Meczet, święte miejsce dla wyznawców islamu."},
-                    {"id": "JEDWABNYSZLAK", "src": "SredniowieczeImg/jedwabny_szlak.jpg", "opis": "Jedwabny Szlak - ważna droga handlowa w Azji Środkowej."},
-                    {"id": "BAGDAD", "src": "SredniowieczeImg/bagdad.jpg", "opis": "W średniowieczu  z najważniejszych ośrodków nauki, handlu i kultury świata islamskiego, znanym jako „Miasto Pokoju” (Madinat as-Salam)."},
-                    {"id": "KONSTYNANTYNOPOL", "src": "SredniowieczeImg/konstynantopol.JPG", "opis": "Miasto posiadające kontrolę nad handlem między Azją a Europą."},
-                    {"id": "WIES", "src": "SredniowieczeImg/wies.jpg"},
-                    {"id": "ZBROJARYCZERZA", "src": "SredniowieczeImg/zbroja_rycerza.jpg"}
+                    {"id": "CZYNGISCHAN", "src": "AzjaData/SredniowieczeImg/czyngischan.jpg", "opis": "Czyngis Chan, założyciel imperium mongolskiego."},
+                    {"id": "IMPERIUMMONGOLOW", "src": "AzjaData/SredniowieczeImg/imperium_mongolskie.jpg", "opis": "Zakres panowania imperium mongolskiego w szczytowym okresie jego rozwoju."},
+                    {"id": "MAHOMET", "src": "AzjaData/SredniowieczeImg/mahomet.jpg", "opis": "Mahomet, założyciel islamu."},
+                    {"id": "MEKKA", "src": "AzjaData/SredniowieczeImg/mekka.jpg", "opis": "Święty Meczet, święte miejsce dla wyznawców islamu."},
+                    {"id": "JEDWABNYSZLAK", "src": "AzjaData/SredniowieczeImg/jedwabny_szlak.jpg", "opis": "Jedwabny Szlak - ważna droga handlowa w Azji Środkowej."},
+                    {"id": "BAGDAD", "src": "AzjaData/SredniowieczeImg/bagdad.jpg", "opis": "W średniowieczu  z najważniejszych ośrodków nauki, handlu i kultury świata islamskiego, znanym jako „Miasto Pokoju” (Madinat as-Salam)."},
+                    {"id": "KONSTYNANTYNOPOL", "src": "AzjaData/SredniowieczeImg/konstynantopol.JPG", "opis": "Miasto posiadające kontrolę nad handlem między Azją a Europą."},
+                    {"id": "POCZATKIDZUMY", "src": "AzjaData/SredniowieczeImg/poczatki_dzumy.jpg", "opis": "Początki dzumy w Azji, zjawisko, które przyczyniło się do zdziesiątkowania ludności na świecie."},
+                    {"id": "IMPERIUMKHMEROW", "src": "AzjaData/SredniowieczeImg/imperium_khmerow.jpg", "opis": "Imperium Khmerów, jedno z największych państw w historii Azji południowej."}
                 ]
             },
             "XIX wiek": {
@@ -253,15 +253,15 @@
                 "text1": "W XIX w. Azja została zdominowana przez europejskie mocarstwa kolonialne, które zmieniały strukturę społeczną, polityczną i gospodarczą kontynentu. Brytyjczycy w Indiach wprowadzili administrację kolonialną i zmienili system gospodarczy, przekształcając rolnictwo i handel w służbie imperium. W Chinach wojny opiumowe wymusiły otwarcie portów dla handlu europejskiego, co osłabiło władzę cesarską i doprowadziło do licznych napięć społecznych. ",
                 "text2": "Japonia zakończyła okres izolacji politycznej upadkiem siogunatu i rozpoczęła reformy Meiji, modernizując armię, administrację i przemysł, aby stać się równorzędnym uczestnikiem w globalnej polityce. W tym okresie wzrosły napięcia między mocarstwami kolonialnymi a lokalnymi elitami, co często prowadziło do buntów i prób obrony suwerenności. Epoka kolonializmu ukształtowała wiele współczesnych problemów Azji, ale jednocześnie wymusiła modernizację i integrację z globalnym handlem.",
                 "img":[
-                    {"id": "CZOLGI", "src": "WspolczesnoscImg/czolgi.jpg"},
-                    {"id": "DRUGAWOJNA", "src": "WspolczesnoscImg/drugawojna.jpg"},
-                    {"id": "EURO", "src": "WspolczesnoscImg/euro.jpeg"},
-                    {"id": "FLAGA", "src": "WspolczesnoscImg/flaga.jpeg"},
-                    {"id": "KOMUNIZM", "src": "WspolczesnoscImg/komunizm.jpg"},
-                    {"id": "MURBERLINSKI", "src": "WspolczesnoscImg/murberlinski.jpg"},
-                    {"id": "PIERWSZAWOJNA", "src": "WspolczesnoscImg/pierwszawojna.jpg"},
-                    {"id": "ZOLNIERZE", "src": "WspolczesnoscImg/pierwszawojnazolnierze.jpg"},
-                    {"id": "UNIA", "src": "WspolczesnoscImg/unia.jpg"}
+                    {"id": "CIXI", "src": "AzjaData/XIXimg/cixi.jpg", "opis": "Symbol słabnącej władzy w Chinach w XIX w. - cesarzowa Cixi."},
+                    {"id": "QUEENVICTORIA", "src": "AzjaData/XIXimg/queen_victoria.jpg", "opis": "Królowa Wiktoria - symbol brytyjskiego panowania nad Indiami (od 1876 jako Cesarzowa Indii)"},
+                    {"id": "MEIJIEMPEROR", "src": "AzjaData/XIXimg/meiji_emperor.jpg", "opis": "Emperor Meiji, był cesarzem Japonii w latach 1867–1912. Jego panowanie zapoczątkowało epokę Meiji, okres głębokiej modernizacji i transformacji Japonii z państwa feudalnego w nowoczesne imperium przemysłowe i militarne."},
+                    {"id": "WOJNAOPIUMOWA", "src": "AzjaData/XIXimg/wojna_opiumowa.jpg", "opis": "Wojna opiumowa między Wielką Brytanią a Chinami, która doprowadziła do otwarcia chińskich portów dla handlu europejskiego."},
+                    {"id": "KOLONIALIZMAZJA", "src": "AzjaData/XIXimg/kolonializm_azja.jpg", "opis": "Mapa pokazująca podział Azji między europejskie mocarstwa kolonialne w XIX wieku."},
+                    {"id": "INDIEBRYTYJSKIE", "src": "AzjaData/XIXimg/flaga_indie_brytyjskie.jpg", "opis": "Mapa Indii Brytyjskich, które były jednym z najważniejszych elementów imperium kolonialnego Wielkiej Brytanii."},
+                    {"id": "POWSTANIESIPAJÓW", "src": "AzjaData/XIXimg/powstanie_sipajow.jpg", "opis": "Powstanie Sipajów w Chinach w 1857 roku, które było jednym z najważniejszych buntów przeciwko panowaniu cesarza."},
+                    {"id": "MATTHEWPERRY", "src": "AzjaData/XIXimg/matthew_perry.jpg", "opis": "Matthew Perry, amerykański admirał, który zmusił Japonię do otwarcia portów dla handlu europejskiego."},
+                    {"id": "REWOLUCJAFILIPIŃSKA", "src": "AzjaData/XIXimg/rewolucja_filipiny.jpg", "opis": "Rewolucja filipińska – konflikt toczony w latach 1896–1898 pomiędzy Katipunan – organizacją walczącą o niepodległość Filipin a hiszpańskimi władzami kolonialnymi."}
                 ]
             },
             "Współczesność": {
