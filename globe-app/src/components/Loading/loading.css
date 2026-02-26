@@ -1,0 +1,17 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    z-index: 100;
+    color: white;
+    font-size: 2rem;
+}
+.progress-bar{
+    width: 30%;
+    height: 2%;
+}
