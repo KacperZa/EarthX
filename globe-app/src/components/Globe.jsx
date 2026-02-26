@@ -7,9 +7,27 @@ import { EffectComposer } from "three/examples/jsm/Addons.js";
 import { UnrealBloomPass } from "three/examples/jsm/Addons.js";
 import { SMAAPass } from "three/examples/jsm/Addons.js";
 
+
+
 import earthTextureImg from '../earth.jpg';
-import moonTextureImg from '../moon.jpg'
-import sunTextureImg from '../sun.jpg'
+import moonTextureImg from '../moon.jpg';
+// Tekstura słońca pobrana z: https://commons.wikimedia.org/wiki/File:Solarsystemscope_texture_8k_sun.jpg
+import sunTextureImg from '../sun.jpg';
+// Tekstura Wenus pobrana z: https://www.solarsystemscope.com/textures/
+import wenusTextureImg from '../wenus.jpg';
+// Tekstura Merkury pobrana z: https://www.solarsystemscope.com/textures/
+import merkuryTextureImg from '../merkury.jpg';
+// Tekstura Marsa pobrana z: https://www.solarsystemscope.com/textures/
+import marsTextureImg from '../mars.jpg';
+// Tekstura Jowisza pobrana z: https://www.solarsystemscope.com/textures/
+import jowiszTextureImg from '../jowisz.jpg';
+// Tekstura Uranu pobrana z: https://www.solarsystemscope.com/textures/
+import uranTextureImg from '../uran.jpg';
+import neptunTextureImg from '../neptun.jpg'
+
+
+
+
 import stars from '../stars.jpg'
 import Text_Bubble from "./Text_Bubble";
 import './globe.css'
@@ -20,11 +38,16 @@ import atmosphereFragmentShader from '../shaders/atmospherefragment.glsl?raw'
 import atmosphereVertexShader from '../shaders/atmospherevertex.glsl?raw'
 
 import worldData from '../data.json'
+import Loading from "./Loading/Loading";
 
 function Globe() {
   const canvasRef = useRef(null);
   const [bubble, setBubble] = useState({ visible: false, text: "", x:0, y:0});
   const [Europa, setEuropa] = useState(false)
+
+  const [loadingStatus, setLoadingStatus] = useState(false)
+  const [progress, setProgress] = useState('')
+
   const [Azja, setAzja] = useState(false)
   const [Afryka, setAfryka] = useState(false)
   const [Australia, setAustralia] = useState(false)
@@ -54,6 +77,28 @@ function Globe() {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+    // const loadingManager = new THREE.LoadingManager();
+
+    // loadingManager.onStart = function(url, item, total){
+    //   setLoadingStatus(true)
+    //   console.log("Started loading")
+    // }
+
+    // loadingManager.onProgress = function(url, loaded, total){
+    //   setProgress(loaded / total * 100)
+    //   console.log(`Loading: ${url}`)
+    // }
+
+    // loadingManager.onLoad = function(){
+    //   setLoadingStatus(false) 
+    //   console.log("Finished loading")
+
+    // }
+
+    // const textureLoader = new THREE.TextureLoader(loadingManager);
+    // textureLoader.load('https://threejs.org/examples/textures/brick_diffuse.jpg');
+    // const gltfLoader = new GLTFLoader(loadingManager);
+
     // Atmosfera ziemi ------------------------------------------------------
     const atmosphereGeometry = new THREE.SphereGeometry(51,64,64)
     const atmosphereMaterial = new THREE.ShaderMaterial({
@@ -66,7 +111,7 @@ function Globe() {
     // const lightDir = new THREE.Vector3();
     // atmosphereMaterial.uniforms.uLightPosition = { value: lightDir }
     const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial)
-    scene.add(atmosphere);
+
     
     // Ziemia ------------------------------------------------------
     const geometry = new THREE.SphereGeometry(50,64,64);
@@ -74,8 +119,8 @@ function Globe() {
     const material = new THREE.MeshPhysicalMaterial( { 
       map: earthTexture
     });
-
-      // Shadery dla ziemii
+    
+    // Shadery dla ziemii
     // const material = new THREE.ShaderMaterial({
       
     //   vertexShader: vertexShader,
@@ -86,22 +131,28 @@ function Globe() {
     // material.uniforms.uRadius = {value: 0.8}
     // material.uniforms.uTexture = {value: new THREE.TextureLoader().load(earthTextureImg)}
     const sphere = new THREE.Mesh(geometry, material)
-
+    
     sphere.material.onBeforeCompile = (shader) =>{
       shader.fragmentShader = shader.fragmentShader.replace(
         `#include <shadowmap_fragment>`,
-
+        
         `#include <shadowmap_fragment>
         float shadowStrength = 0.4;
         reflectedLight.directDiffuse *= mix(1.0, getShadowMask(), shadowStrength);
         `
-
+        
       )
     }
     sphere.position.set(0,0,0)
     sphere.receiveShadow = true;
     sphere.castShadow = true;
     sphere.rotation.z = THREE.MathUtils.degToRad(23.5); // nachylenie osi
+    
+    // Łączenie Ziemii i jej atmosfery w jedno 
+    const earthGroup = new THREE.Group();
+    earthGroup.add(sphere);
+    earthGroup.add(atmosphere);
+    scene.add(earthGroup);
     
     // Księżyc ------------------------------------------------------
     const moonGeo = new THREE.SphereGeometry(13.5,64,64);
@@ -112,13 +163,51 @@ function Globe() {
     const moon = new THREE.Mesh(moonGeo, moonMaterial)
     moon.castShadow = true;
     moon.receiveShadow = true
-
-    sphere.add(moon)
-    scene.add(sphere);
-
     moon.position.z = 250
+    
+    const moonObj = new THREE.Object3D();
+    moonObj.add(moon);
+    scene.add(moonObj)
+    
+    // const AU = 20;
+
+    // function createPlanete(radius, textureImg, distance){
+    //   const geo = new THREE.SphereGeometry(radius,64,64);
+    //   const texture = new THREE.TextureLoader().load(textureImg);
+    //   const material = new THREE.MeshPhysicalMaterial({
+    //     map: texture
+    //   });
+      
+    //   const mesh = new THREE.Mesh(geo, material);
+      
+    //   mesh.position.z = distance * AU;
+
+    //   scene.add(mesh);
+    //   return {mesh} // DODAĆ MESH PO OGARNIECIU TEGO NA DOLE
 
 
+    //   // TODO Dodać przy ogarnięciu krążenia wokół słońca
+    //   // const obj = new THREE.Object3D();
+    //   // obj.add(mesh);
+    //   // scene.add(obj);
+    // }
+
+    // const wenus = createPlanete(0.95, wenusTextureImg, 0.72);
+    // const merkury = createPlanete(0.38, merkuryTextureImg, 0.39);
+    // const mars = createPlanete(0.53, marsTextureImg, 1.52);
+    // const jowisz = createPlanete(11, jowiszTextureImg, 5.20);
+    // const uran = createPlanete(4, uranTextureImg, 19.2);
+    // const neptun = createPlanete(3.86, neptunTextureImg, 30.05)
+
+
+
+
+
+    
+    // sphere.add(moon)
+    
+    
+    
     // Słońce ------------------------------------------------------
     const sunGeo = new THREE.SphereGeometry(150,64,64);
     const sunTexture = new THREE.TextureLoader().load(sunTextureImg)
@@ -153,6 +242,10 @@ function Globe() {
     
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
     scene.add(directionalLight, ambientLight);
+
+
+    const cursorLight = new THREE.PointLight(0xfff,1, 200);
+    scene.add(cursorLight);
     
     
       // Linie pomocnicze
@@ -168,7 +261,7 @@ function Globe() {
 
     // Właściwości sterowania  ------------------------------------------------------
     controls.enabled = true; 
-    controls.target.set(0,0,0);
+    controls.target.set(1,0,0);
     controls.enablePan = false;
     controls.minDistance = 60;
     controls.maxDistance = 200;
@@ -245,55 +338,60 @@ function Globe() {
     
     
     const raycaster = new THREE.Raycaster();
-
-        
+    
+    
     // Funkcja wywoływana gdy sie kliknie na element ------------------------------------------------------
     function onMouseDown(event) {
       const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
         -(event.clientY / renderer.domElement.clientHeight) * 2 + 1,
       );
+
+      moon.raycast = () => {};
       
       
       raycaster.setFromCamera(coords, camera);
-      
-      const intersections = raycaster.intersectObjects(scene.children, true);
+
+      const intersections = raycaster
+      .intersectObjects([sphere, moon])
+      // .filter(hit => hit.object.name !== "moon");
       
       if (intersections.length > 0) {
         
         const hit = intersections[0];
+
         
-        if (!idImg.complete) {
-          console.warn("ID mapa jeszcze nie załadowana");
-          return;
-        }
-        
-        if (hit.uv) {
-          const u = hit.uv.x;
-          const v = 1 - hit.uv.y;
-          
-          const px = Math.floor(u * idImg.width)
-          const py = Math.floor(v * idImg.height)
-          
-          const pixel = idCtx.getImageData(px,py,1,1).data;
-          const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
-          console.log("RGB ODCZYTANE:", rgb)
-          
-          const region =  ID_TO_REGION[rgb] || "Nieznany region";
-          
-          setSelectedContinent(region)
-          
-          if( region != "Nieznany region"){
-            setEuropa(true)
+          if (!idImg.complete) {
+            console.warn("ID mapa jeszcze nie załadowana");
+            return;
           }
           
-          setBubble({
-            visible: true,
-            text: region,
-            x: event.clientX,
-            y: event.clientY,
-          })          
-        }
+          if (hit.uv) {
+            const u = hit.uv.x;
+            const v = 1 - hit.uv.y;
+            
+            const px = Math.floor(u * idImg.width)
+            const py = Math.floor(v * idImg.height)
+            
+            const pixel = idCtx.getImageData(px,py,1,1).data;
+            const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
+            console.log("RGB ODCZYTANE:", rgb)
+            
+            const region =  ID_TO_REGION[rgb] || "Nieznany region";
+            
+            setSelectedContinent(region)
+            
+            if( region != "Nieznany region"){
+              setEuropa(true)
+            }
+            
+            setBubble({
+              visible: true,
+              text: region,
+              x: event.clientX,
+              y: event.clientY,
+            })          
+          }
       }
     }
     
@@ -307,48 +405,54 @@ function Globe() {
       
       raycaster.setFromCamera(coords, camera);
       
-      const intersections = raycaster.intersectObject(sphere);
+      const intersections = raycaster
+      .intersectObjects([sphere, moon]);
       
       if (intersections.length > 0) {
         controls.enabled = true;
-
+        
         const hit = intersections[0];
+        cursorLight.position.copy(hit.point);
+
+
         
-        if (!idImg.complete) {
-          console.warn("ID mapa jeszcze nie załadowana");
-          return;
-        }
-        
-        if (hit.uv) {
-          const u = hit.uv.x;
-          const v = 1 - hit.uv.y;
+          if (!idImg.complete) {
+            console.warn("ID mapa jeszcze nie załadowana");
+            return;
+          }
           
-          const px = Math.floor(u * idImg.width)
-          const py = Math.floor(v * idImg.height)
-          
-          const pixel = idCtx.getImageData(px,py,1,1).data;
-          const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
-          // console.log("RGB ODCZYTANE:", rgb)
-          // console.log(intersections)
-          
-          const region =  ID_TO_REGION[rgb] || "Nieznany region";
-          
-          setBubble({
-            visible: true,
-            text: region,
-            x: event.clientX,
-            y: event.clientY,
-          })
-          // Hovered = true
-         }
-      }else {
-        // Hovered = false
+          if (hit.uv) {
+            const u = hit.uv.x;
+            const v = 1 - hit.uv.y;
+            
+            const px = Math.floor(u * idImg.width)
+            const py = Math.floor(v * idImg.height)
+            
+            const pixel = idCtx.getImageData(px,py,1,1).data;
+            const rgb = `${pixel[0]},${pixel[1]},${pixel[2]}`;
+            // console.log("RGB ODCZYTANE:", rgb)
+            // console.log(intersections)
+            
+            const region =  ID_TO_REGION[rgb] || "Nieznany region";
+            
+            setBubble({
+              visible: true,
+              text: region,
+              x: event.clientX,
+              y: event.clientY,
+            })
+            // Hovered = true
+          }
+        }else {
+          // Hovered = false
         setBubble({visible: false})
-      }
+        }
+
+
   }
 
   const clock = new THREE.Clock();
-  const angularSpeedSun = Math.PI * 2 / 1095;
+  const angularSpeedEarthSun = Math.PI * 2 / 1095;
   const angularSpeedEarth = Math.PI * 2 / 72;
   const angularSpeedMoon = Math.PI * 2 / 72 / 27.3;
 
@@ -356,10 +460,12 @@ function Globe() {
   // Wywoływana animacja
     function animate() {
       requestAnimationFrame(animate);
+
       const delta = clock.getDelta();
-      sphere.rotation.y += angularSpeedEarth * delta;
-      moon.rotation.y += angularSpeedMoon * delta;
-      sun.rotation.y += angularSpeedSun * delta
+      earthGroup.rotation.y += angularSpeedEarth * delta;
+      moon.rotation.y += angularSpeedMoon * delta;  
+      moonObj.rotation.y += angularSpeedEarth * delta;  
+      sun.rotation.y += angularSpeedEarthSun * delta
 
       controls.update();
       // renderer.render( scene, camera );
@@ -396,11 +502,13 @@ function Globe() {
     };
   }, [])
   return<> 
+  {loadingStatus ? <Loading itemsLoaded={progress}/> : null}
+
   {bubble.visible && (  <div className="test"style={{ position: "absolute", top: bubble.y + "px", left: bubble.x + "px", zIndex: 10}}>
   {bubble.text}
 </div>)}
     <div className="container">
-    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} selectedContinent={selectedContinent} worldData={worldData} setEuropa={setEuropa} Europa={Europa}> HALO TO EUROPA</Europe>)}
+    {Europa && (<Europe style={{ position:"absolute", width: "80vw", height: "80vh", zIndex:20}} selectedContinent={selectedContinent} worldData={worldData} setEuropa={setEuropa} Europa={Europa}></Europe>)}
     </div>
   <canvas id="bg" ref={canvasRef} style={{ display: "block", width: "100vw", height: "100vh", zIndex:1 }}  />
     {/* {bubble.visible && (<Text_Bubble text={bubble.text} style={{ left:bubble.x + "px", top:bubble.y + "px", position:"absolute", pointerEvents: "none"}}/>)} */}
