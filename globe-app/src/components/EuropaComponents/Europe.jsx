@@ -2,62 +2,12 @@ import React, { useState } from 'react'
 import './continent2.css'
 import { motion, AnimatePresence, delay, transform } from 'framer-motion'
 
-//  Zdjęcia do starożytności 
-// import grecja1 from './img/grecja1.jpg'
-// import grecja2 from './img/grecja2.jpg'
-// import grecja3 from './img/grecja4.jpeg'
-// import grecja4 from './img/grecja5.jpg'
-// import grecja5 from './img/grecja6.jpg'
-// import rzym1 from './img/rzym1.jpg'
-// import rzym2 from './img/rzym2.jpg'
-// import rzym3 from './img/rzym4.jpg'
-// import ateny from './img/ateny.jpg'
 
-// Zdjęcia do średniowiecza
-// import dzuma from "./SredniowieczeImg/dzuma.jpg"
-// import husaria from "./SredniowieczeImg/husaria.jpg"
-// import kosciol from "./SredniowieczeImg/kosciol.jpg"
-// import miasta from "./SredniowieczeImg/miasta.jpg"
-// import mieszczanie from "./SredniowieczeImg/mieszczanie.jpg"
-// import bolonia from "./SredniowieczeImg/bolonia.jpg"
-// import ogrodzieniec from "./SredniowieczeImg/ogrodzieniec.jpg"
-// import wies from "./SredniowieczeImg/wies.jpg"
-// import rycerz from "./SredniowieczeImg/zbroja_rycerza.jpg"
-
-// Zdjęcia do Nowożytności 
-// import czlowiek from './NowozytnoscImg/czlowiek.jpg'
-// import rozwojDruku from './NowozytnoscImg/rozwojdruku.jpg'
-// import kopernik from './NowozytnoscImg/kopernik.jpg'
-// import luter from './NowozytnoscImg/luter.jpg'
-// import magellan from './NowozytnoscImg/magellan.jpg'
-// import michalAniol from './NowozytnoscImg/michalaniol.jpeg'
-// import odkrycieAmeryki from './NowozytnoscImg/odkrycie_ameryki.jpg'
-// import staraMapa from './NowozytnoscImg/stara_mapa.jpg'
-// import upadekRzymu from "./NowozytnoscImg/upadek_rzymu.jpg"
-
-// Zdjęcia do Współczesności
-// import czolgi from './WspolczesnoscImg/czolgi.jpg'
-// import drugaWojna from './WspolczesnoscImg/drugawojna.jpg'
-// import euro from './WspolczesnoscImg/euro.jpeg'
-// import flaga from './WspolczesnoscImg/flaga.jpeg'
-// import komunizm from './WspolczesnoscImg/komunizm.jpg'
-// import murBerlinski from './WspolczesnoscImg/murberlinski.jpg'
-// import pierwszaWojna from './WspolczesnoscImg/pierwszawojna.jpg'
-// import zolnierze from './WspolczesnoscImg/pierwszawojnazolnierze.jpg'
-// import unia from './WspolczesnoscImg/unia.jpg'
-
-// import chorwacja from './StartImg/chorwacja.jpg'
-// import hiszpania from './StartImg/hiszpania.png'
-// import islandia from './StartImg/islandia.png'
 
 import FunctionalButton from '../FunctionalButton'
 import FallingText from '../FallingText/FallingText'
 import BlurText from '../BlurText/BlurText'
 
-// import Starozytnosc from './EuropaEpoki/EpokaComponent'
-// import Średniowiecze from './EuropaEpoki/Średniowiecze'
-// import Nowożytność from './EuropaEpoki/Nowożytność'
-// import Współczesność from './EuropaEpoki/Współczesność'
 import EpokaComponent from './EuropaEpoki/EpokaComponent'
 import DuzyObrazek from './EuropaEpoki/DuzyObrazek'
 import EpokaStartPage from './EuropaEpoki/EpokaStartPage'
@@ -88,7 +38,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   const [WybranaEpoka, setWybranaEpoka] = useState(Epoka.BRAK)
 
   
-  const ZdjęciaStarozytnosc = content["Starożytność"]["imgEnum"]
+  const ZdjęciaStarozytnosc = content["Starożytność"]["img"]
     .reduce((acc, item) => {
       acc[item.id] = item.id;
       return acc;
@@ -96,7 +46,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
   
   const [WybraneZdjecieStarozytnosc, setWybraneZdjecieStarozytnosc] = useState(ZdjęciaStarozytnosc.BRAK)
 
-  const ZdjęciaSredniowiecze = content["Średniowiecze"]["imgEnum"]
+  const ZdjęciaSredniowiecze = content["Średniowiecze"]["img"]
     .reduce((acc, item) => {
       acc[item.id] = item.id;
       return acc;
@@ -104,7 +54,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
   const [WybraneZdjecieSredniowiecze, setWybraneZdjecieSredniowiecze] = useState(ZdjęciaSredniowiecze.BRAK)
 
-  const ZdjęciaNowozytnosc = content["Nowożytność"]["imgEnum"]
+  const ZdjęciaNowozytnosc = content["Nowożytność"]["img"]
     .reduce((acc, item) => {
       acc[item.id] = item.id;
       return acc;
@@ -112,7 +62,7 @@ const Europe = ({selectedContinent, worldData, style, setEuropa, Europa}) => {
 
   const [WybraneZdjecieNowozytnosc, setWybraneZdjecieNowozytnosc] = useState(ZdjęciaNowozytnosc.BRAK)
 
-  const ZdjęciaWspolczesnosc = content["Współczesność"]["imgEnum"]
+  const ZdjęciaWspolczesnosc = content["Współczesność"]["img"]
     .reduce((acc, item) => {
       acc[item.id] = item.id;
       return acc;

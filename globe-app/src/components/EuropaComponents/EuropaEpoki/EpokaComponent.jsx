@@ -24,9 +24,9 @@
             <motion.div 
             // key={"starozytnosc"}
             className="tresc-tekst"
-            initial = {{ opacity: 0, x: -400}}
-            animate = {{opacity: 1, x:0}}
-            exit = {{ opacity: 0, x:40}}
+            // initial = {{ opacity: 0, x: -400}}
+            // animate = {{opacity: 1, x:0}}
+            // exit = {{ opacity: 0, x:400}}
             transition={{
               x: {duration: .8},
               opacity: {duration: .8}
