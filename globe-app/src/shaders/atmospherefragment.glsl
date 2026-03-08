@@ -21,7 +21,7 @@ void main() {
     vec3 viewDirection = normalize(cameraPosition - vPosition);
 
     // float effectMask = step(0.001, light);
-    float fresnel1 = pow(1.0 - dot(viewDirection, normalDir),3.0);
+    float fresnel1 = pow(1.0 - dot(viewDirection, normalDir),4.0);
     // fresnel1 *= effectMask;
 	gl_FragColor = vec4(0.13, 0.31 * fresnel1, 0.73 , fresnel1);
     // float fresnel2 = pow( dot(viewDirection, normalDir),0.5);

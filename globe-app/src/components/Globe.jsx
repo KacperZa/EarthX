@@ -284,7 +284,7 @@ function Globe() {
       window.innerWidth * renderer.getPixelRatio(),
       window.innerHeight * renderer.getPixelRatio()
     );
-    composer.addPass(smaaPass);
+    // composer.addPass(smaaPass);
 
     const bloomPass = new UnrealBloomPass(
       new THREE.Vector2(window.innerWidth, window.innerHeight),
@@ -293,7 +293,7 @@ function Globe() {
       0.05,
     );
 
-    composer.addPass(bloomPass);
+    // composer.addPass(bloomPass);
 
     renderer.toneMapping = THREE.CineonToneMapping;
     renderer.toneMappingExposure = 1.5;
